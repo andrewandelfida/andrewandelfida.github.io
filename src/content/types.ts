@@ -59,9 +59,3 @@ export interface ScheduleEntry {
   venueKey: string;
   noteKey: string;
 }
-
-/** One "good to know" card. */
-export interface InfoCard {
-  titleKey: string;
-  bodyKey: string;
-}

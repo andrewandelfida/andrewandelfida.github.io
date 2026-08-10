@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-08-10T11:13:22Z",
+  "generatedAt": "2026-08-10T11:36:56Z",
   "title": "Design System: Андрій та Ельфіда — Wedding Invitation",
   "extensions": {
     "colorMeta": {
@@ -214,21 +214,6 @@
           "oklch(95.0% 0.031 109.1)"
         ]
       },
-      "card-border": {
-        "role": "neutral",
-        "displayName": "Card Rule",
-        "canonical": "oklch(88.9% 0.029 107.0)",
-        "tonalRamp": [
-          "oklch(15.0% 0.029 107.0)",
-          "oklch(26.4% 0.029 107.0)",
-          "oklch(37.9% 0.029 107.0)",
-          "oklch(49.3% 0.029 107.0)",
-          "oklch(60.7% 0.029 107.0)",
-          "oklch(72.1% 0.029 107.0)",
-          "oklch(83.6% 0.029 107.0)",
-          "oklch(95.0% 0.029 107.0)"
-        ]
-      },
       "slot-fill": {
         "role": "tertiary",
         "displayName": "Slot Fill",
@@ -287,6 +272,21 @@
           "oklch(72.1% 0.028 113.6)",
           "oklch(83.6% 0.028 113.6)",
           "oklch(95.0% 0.028 113.6)"
+        ]
+      },
+      "map-grid": {
+        "role": "tertiary",
+        "displayName": "Map Grid",
+        "canonical": "oklch(89.8% 0.030 113.3)",
+        "tonalRamp": [
+          "oklch(15.0% 0.030 113.3)",
+          "oklch(26.4% 0.030 113.3)",
+          "oklch(37.9% 0.030 113.3)",
+          "oklch(49.3% 0.030 113.3)",
+          "oklch(60.7% 0.030 113.3)",
+          "oklch(72.1% 0.030 113.3)",
+          "oklch(83.6% 0.030 113.3)",
+          "oklch(95.0% 0.030 113.3)"
         ]
       },
       "selection-text": {
@@ -387,14 +387,6 @@
       "css": ".ds-langbar { display: flex; justify-content: center; padding: 12px; background: rgba(247, 243, 233, 0.86); backdrop-filter: blur(8px); border-bottom: 1px solid var(--c-header-border, #e4dfcf); } .ds-langgroup { display: flex; align-items: center; gap: 2px; padding: 3px; background: var(--c-cream, #f7f3e9); border: 1px solid var(--c-switch-border, #cfd0b6); border-radius: 999px; } .ds-langdiv { width: 1px; height: 14px; background: var(--c-switch-divider, #d7d8c1); } .ds-lang { border: 0; background: transparent; font-family: var(--f-sans, Montserrat, system-ui, sans-serif); font-size: 11px; font-weight: 400; letter-spacing: 0.18em; padding: 7px 14px; border-radius: 999px; color: var(--c-olive-mid, #636a4a); cursor: pointer; transition: color 0.25s ease; } .ds-lang[aria-pressed=\"true\"] { color: var(--c-olive-deep, #4e5539); font-weight: 600; } .ds-lang:hover { color: var(--c-olive-deep, #4e5539); } .ds-lang:focus-visible { outline: 2px solid var(--c-olive-deep, #4e5539); outline-offset: 2px; }"
     },
     {
-      "name": "Coordinates Card",
-      "kind": "card",
-      "refersTo": "coords-card",
-      "description": "Raw coordinates as selectable monospace text. One tap selects the whole pair, for guests who prefer their own navigation app.",
-      "html": "<div class=\"ds-coords\"><div class=\"ds-coords-label\">Координати</div><div class=\"ds-coords-value\">48.0850197, 26.0520467</div></div>",
-      "css": ".ds-coords { padding: 14px 16px; background: var(--c-cream, #f7f3e9); border: 1px solid var(--c-card-border, #dcdcc6); border-radius: 6px; } .ds-coords-label { font-family: var(--f-sans, Montserrat, system-ui, sans-serif); font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--c-olive-mid, #636a4a); } .ds-coords-value { margin-top: 5px; font-family: var(--f-mono, ui-monospace, SFMono-Regular, Menlo, monospace); font-size: 15px; color: var(--c-olive-deep, #4e5539); user-select: all; -webkit-user-select: all; }"
-    },
-    {
       "name": "Section Rule",
       "kind": "custom",
       "refersTo": null,
@@ -433,14 +425,6 @@
       "description": "The floral watermark behind the whole invitation. The ink is composited onto the cream in the asset itself, and the layer is masked to an ellipse so it has no visible edge.",
       "html": "<div class=\"ds-backdrop-demo\"><div class=\"ds-backdrop\"></div><p class=\"ds-backdrop-text\">Ne-am rugat, iar Dumnezeu ne-a încrucișat drumurile.</p></div>",
       "css": ".ds-backdrop-demo { position: relative; min-height: 220px; display: flex; align-items: center; justify-content: center; background: var(--c-cream, #f7f3e9); overflow: hidden; } .ds-backdrop { position: absolute; inset: 0; background-image: url('/backdrop.avif'); background-repeat: no-repeat; background-position: center; background-size: 124% 93%; -webkit-mask-image: radial-gradient(ellipse closest-side at center, #000 55%, transparent 100%); mask-image: radial-gradient(ellipse closest-side at center, #000 55%, transparent 100%); -webkit-mask-size: 124% 93%; mask-size: 124% 93%; -webkit-mask-position: center; mask-position: center; -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat; } .ds-backdrop-text { position: relative; max-width: 26ch; text-align: center; font-family: var(--f-sans, Montserrat, system-ui, sans-serif); font-weight: 300; font-size: 16px; line-height: 1.9; color: var(--c-olive-body, #5f6450); }"
-    },
-    {
-      "name": "Info Card",
-      "kind": "card",
-      "refersTo": null,
-      "description": "A practical note. No border, no background, no radius — structure comes from the diamond and the vertical rhythm alone.",
-      "html": "<div class=\"ds-info\"><span class=\"ds-info-diamond\"></span><h3 class=\"ds-info-title\">Як дістатися</h3><p class=\"ds-info-body\">Церква розташована в центрі села, поруч із головною дорогою.</p></div>",
-      "css": ".ds-info { flex: 1 1 240px; max-width: 280px; text-align: center; } .ds-info-diamond { display: inline-block; width: 8px; height: 8px; background: var(--c-terracotta, #c07c5a); transform: rotate(45deg); } .ds-info-title { margin: 16px 0 0; font-family: var(--f-sans, Montserrat, system-ui, sans-serif); font-weight: 600; font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--c-olive-deep, #4e5539); } .ds-info-body { margin: 12px 0 0; font-family: var(--f-sans, Montserrat, system-ui, sans-serif); font-size: 14px; font-weight: 300; line-height: 1.8; color: var(--c-olive-body, #5f6450); text-wrap: pretty; }"
     }
   ],
   "narrative": {

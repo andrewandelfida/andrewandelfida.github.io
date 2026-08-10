@@ -8,7 +8,7 @@
    No component hardcodes any of it.
    ========================================================================== */
 
-import type { InfoCard, ScheduleEntry, WeddingImage } from './types';
+import type { ScheduleEntry, WeddingImage } from './types';
 
 /** Canonical site URL. This exact string is encoded in the printed QR code. */
 export const SITE_URL = 'https://andrewandelfida.github.io/';
@@ -48,11 +48,6 @@ export const SCHEDULE: ScheduleEntry[] = [
   { time: '13:00', titleKey: 'sch2_title', venueKey: 'sch2_venue', noteKey: 'sch2_note' },
 ];
 
-export const INFO_CARDS: InfoCard[] = [
-  { titleKey: 'info_dress_t', bodyKey: 'info_dress_b' },
-  { titleKey: 'info_park_t', bodyKey: 'info_park_b' },
-  { titleKey: 'info_stay_t', bodyKey: 'info_stay_b' },
-];
 
 /* -----------------------------------------------------------------------------
    PHOTOS

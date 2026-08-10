@@ -76,8 +76,8 @@ git add -A && git commit -m "Update wording" && git push
 
 ### Change dates, the venue, coordinates or links
 
-**[`src/content/wedding.ts`](src/content/wedding.ts)** — coordinates, map links, the schedule, the
-"good to know" cards, and which photos appear. Nothing is hardcoded in the page itself.
+**[`src/content/wedding.ts`](src/content/wedding.ts)** — coordinates, map links, the schedule and
+which photos appear. Nothing is hardcoded in the page itself.
 
 ### Swap the photographs
 
@@ -297,7 +297,7 @@ Google Chrome already installed on the machine.
 | Lighthouse mobile — Accessibility | **100** |
 | Lighthouse mobile — Best Practices | **100** |
 | Lighthouse mobile — SEO | **100** |
-| WCAG AA contrast pairs | **47 / 47** |
+| WCAG AA contrast pairs | **43 / 43** |
 | End-to-end checks | **46 / 46** |
 | Font/glyph checks | **70 / 70** |
 

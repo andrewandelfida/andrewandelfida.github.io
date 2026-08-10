@@ -17,7 +17,6 @@ without knowing how any of it works.
 - [Changing the wording](#changing-the-wording)
 - [Changing dates, times and the venue](#changing-dates-times-and-the-venue)
 - [Changing the schedule](#changing-the-schedule)
-- [Changing the "good to know" cards](#changing-the-good-to-know-cards)
 - [Changing colours, fonts and spacing](#changing-colours-fonts-and-spacing)
 - [Checking your work before publishing](#checking-your-work-before-publishing)
 - [Publishing](#publishing)
@@ -356,23 +355,6 @@ export const SCHEDULE: ScheduleEntry[] = [
 
 ---
 
-## Changing the "good to know" cards
-
-Same pattern — the three cards (dress code, parking, accommodation) are listed in `wedding.ts`:
-
-```ts
-export const INFO_CARDS: InfoCard[] = [
-  { titleKey: 'info_dress_t', bodyKey: 'info_dress_b' },
-  { titleKey: 'info_park_t',  bodyKey: 'info_park_b' },
-  { titleKey: 'info_stay_t',  bodyKey: 'info_stay_b' },
-];
-```
-
-Add or remove entries here, and add or remove the matching text in `strings.ts`. The cards re-flow
-to fill the row.
-
----
-
 ## Changing colours, fonts and spacing
 
 Every colour, text size and spacing value on the site is defined in one file:
@@ -423,7 +405,7 @@ That runs three sets of checks:
 
 | Command | What it checks |
 |---|---|
-| `npm run check:contrast` | All 47 text/background pairs meet WCAG AA |
+| `npm run check:contrast` | All 43 text/background pairs meet WCAG AA |
 | `npm run test:e2e` | 46 checks: language switching, the map, the page working without JavaScript, keyboard access, no console errors |
 | `npm run check:glyphs` | The fonts contain every character your text uses |
 
@@ -620,7 +602,6 @@ The last three need `npm run serve` running in another terminal, and Google Chro
 | Dates and times (machine-readable) | `src/content/wedding.ts` |
 | Dates as guests read them | `src/content/strings.ts` |
 | The schedule entries | `src/content/wedding.ts` + `strings.ts` |
-| The "good to know" cards | `src/content/wedding.ts` + `strings.ts` |
 | The floral background drawing | `assets-src/backdrop.svg`, then `npm run backdrop` |
 | Colours, text sizes, spacing | `src/styles/tokens.css` |
 | The layout of a section | `src/styles/sections.css` |

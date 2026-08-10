@@ -107,18 +107,6 @@ const uk = {
   map_loading: 'Завантаження мапи…', // [new]
   map_error: 'Мапу не вдалося завантажити. Скористайтеся кнопками для прокладання маршруту.', // [new]
 
-  /* ---- practical info ------------------------------------------------ */
-  info_head: 'Корисна інформація', // [design]
-  info_dress_t: 'Дрес-код', // [design]
-  info_dress_b:
-    'Святковий стиль у природних, приглушених тонах. Оливкові, кремові та землисті відтінки будуть дуже доречні.', // [design]
-  info_park_t: 'Паркування', // [design]
-  info_park_b:
-    'Безкоштовне паркування біля церкви. Радимо приїхати за 20 хвилин до початку.', // [design]
-  info_stay_t: 'Проживання', // [design]
-  info_stay_b:
-    'Кілька варіантів ночівлі є в Чернівцях. Напишіть нам — і ми поділимося порадами.', // [design]
-
   /* ---- footer -------------------------------------------------------- */
   footer_names: 'Андрій та Ельфіда', // [design]
   footer_date: '3 жовтня 2026 · Станівці', // [design]
@@ -189,17 +177,6 @@ const ro: Strings = {
   map_loading: 'Se încarcă harta…', // [new]
   map_error: 'Harta nu a putut fi încărcată. Folosiți butoanele pentru indicații rutiere.', // [new]
 
-  info_head: 'Informații utile', // [design]
-  info_dress_t: 'Ținuta', // [design]
-  info_dress_b:
-    'Ținută festivă în tonuri naturale, discrete. Nuanțele de oliv, crem și pământ se potrivesc de minune.', // [design]
-  info_park_t: 'Parcare', // [design]
-  info_park_b:
-    'Parcare gratuită lângă biserică. Vă recomandăm să ajungeți cu 20 de minute mai devreme.', // [design]
-  info_stay_t: 'Cazare', // [design]
-  info_stay_b:
-    'Există câteva opțiuni de cazare în Cernăuți. Scrieți-ne și vă vom împărtăși recomandări.', // [design]
-
   footer_names: 'Andrei și Elfida', // [design]
   footer_date: '3 octombrie 2026 · Stănești', // [design]
   footer_verse: 'Mai bine doi decât unul', // [design]
@@ -259,16 +236,6 @@ const en: Strings = {
   map_show: 'Show map', // [new]
   map_loading: 'Loading map…', // [new]
   map_error: 'The map could not be loaded. Use the directions buttons on this page.', // [new]
-
-  info_head: 'Good to know', // [design]
-  info_dress_t: 'Dress code', // [design]
-  info_dress_b:
-    'Formal attire in natural, muted tones. Olive, cream and earthy shades will feel right at home.', // [design]
-  info_park_t: 'Parking', // [design]
-  info_park_b: 'Free parking beside the church. We suggest arriving about 20 minutes early.', // [design]
-  info_stay_t: 'Accommodation', // [design]
-  info_stay_b:
-    'There are a few places to stay in nearby Chernivtsi. Write to us and we will gladly share suggestions.', // [design]
 
   footer_names: 'Andrew & Elfida', // [design]
   footer_date: '3 October 2026 · Stănești', // [design]

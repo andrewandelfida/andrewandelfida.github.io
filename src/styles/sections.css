@@ -1,5 +1,5 @@
 /* =============================================================================
-   SECTIONS — the nine blocks of the invitation, in page order.
+   SECTIONS — the blocks of the invitation, in page order.
    Every value comes from tokens.css. No raw hex, no raw type sizes.
    ========================================================================== */
 
@@ -652,55 +652,7 @@
 }
 
 /* =============================================================================
-   7 · PRACTICAL INFO
-   ========================================================================== */
-.info__header {
-  text-align: center;
-  margin-bottom: clamp(40px, 6vw, 58px);
-}
-
-.info__cards {
-  max-width: var(--w-info);
-  margin-inline: auto;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: clamp(28px, 4vw, 44px);
-  list-style: none;
-  padding: 0;
-}
-
-.info__card {
-  flex: 1 1 240px;
-  max-width: 280px;
-  text-align: center;
-}
-
-.info__card .diamond {
-  width: 8px;
-  height: 8px;
-}
-
-.info__title {
-  margin: var(--s-5) 0 0;
-  font-weight: 600;
-  font-size: 13px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--c-heading);
-}
-
-.info__body {
-  margin: var(--s-4) 0 0;
-  font-size: 14px;
-  font-weight: 300;
-  line-height: 1.8;
-  color: var(--c-text);
-  text-wrap: pretty;
-}
-
-/* =============================================================================
-   8 · FOOTER
+   7 · FOOTER
    ========================================================================== */
 .footer {
   padding: var(--pad-footer-y) var(--pad-section-x);

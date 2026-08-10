@@ -6,7 +6,6 @@ import { Story } from './components/Story';
 import { Gallery } from './components/Gallery';
 import { Schedule } from './components/Schedule';
 import { Location } from './components/Location';
-import { Info } from './components/Info';
 import { Footer } from './components/Footer';
 
 /**
@@ -42,7 +41,6 @@ export default function App() {
         <Gallery />
         <Schedule />
         <Location />
-        <Info />
       </main>
 
       <Footer />

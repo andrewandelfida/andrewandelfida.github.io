@@ -16,11 +16,11 @@ colors:
   header-border: "#e4dfcf"
   switch-border: "#cfd0b6"
   switch-divider: "#d7d8c1"
-  card-border: "#dcdcc6"
   slot-fill: "#e7e9d7"
   slot-border: "#cdd2b3"
   slot-label: "#666a54"
   slot-hatch: "#dfe2cd"
+  map-grid: "#dde0ca"
   selection-text: "#2a2e1f"
 typography:
   display:
@@ -111,11 +111,6 @@ components:
     textColor: "{colors.olive-ink}"
     rounded: "{rounded.pill}"
     padding: "7px 14px"
-  coords-card:
-    backgroundColor: "{colors.cream}"
-    textColor: "{colors.olive-ink}"
-    rounded: "{rounded.card}"
-    padding: "14px 16px"
   verse-band:
     backgroundColor: "{colors.verse-band}"
     textColor: "{colors.cream}"
@@ -206,8 +201,8 @@ is never pure white and never pure grey.
 - **Clay Wash** (`#f1e4da`): The tinted ground under the gallery and location sections — the
   terracotta at its faintest, used to separate zones without a border.
 - **Hairline** (`#d3d4bb`), **Header Rule** (`#e4dfcf`), **Switch Rule** (`#cfd0b6`),
-  **Switch Divider** (`#d7d8c1`), **Card Rule** (`#dcdcc6`): the graded family of 1px
-  divider tones. Each is tuned to the surface it sits on; none is ever used as a fill.
+  **Switch Divider** (`#d7d8c1`): the graded family of 1px divider tones. Each is tuned to
+  the surface it sits on; none is ever used as a fill.
 
 ### Tertiary
 
@@ -215,6 +210,8 @@ is never pure white and never pure grey.
   **Slot Hatch** (`#dfe2cd`): the placeholder vocabulary shown where a photograph will go.
   A pale olive field, a 1px rule, a 135° hatch at 11–12px pitch, and a mono caption. Its
   purpose is to look *unfinished*, never *broken*.
+- **Map Grid** (`#dde0ca`): the grid-paper rules inside the map frame — the resting state
+  shown while the map loads, and what remains if the tiles never arrive.
 - **Selection Ink** (`#2a2e1f`): text inside a selection highlight, which is painted in
   terracotta. A near-black olive rather than pure black, so highlighting a phrase does not
   introduce a colour the palette does not contain.
@@ -294,7 +291,7 @@ same component renders in all three languages.
 
 Everything is centred. A single column runs the length of the document, and each section
 sets its own maximum width from a small set of measures: 520px for the schedule timeline,
-620px for prose and section headers, 920px for the info cards, 1000px for the location,
+620px for prose and section headers, 1000px for the location,
 1040px for the gallery, 760px for the verse. Sections are separated by vertical padding of
 `clamp(72px, 12vw, 130px)` and inset horizontally by `clamp(22px, 6vw, 60px)`; the verse
 band takes more air still at `clamp(80px, 14vw, 150px)`.
@@ -367,8 +364,8 @@ than any component radius, so a focused pill stays a pill.
 Borders are always `1px`. There is no 2px border anywhere; the timeline node's `1.5px` ring is
 the sole deviation, and exists because an 11px circle needs it to read.
 
-Ornament is a single shape used at four sizes: a square rotated 45°, at 5px in the hero date
-row, 6px in the standard rule, 8px on info cards and 9px in the footer. Paired with a
+Ornament is a single shape used at three sizes: a square rotated 45°, at 5px in the hero date
+row, 6px in the standard rule and 9px in the footer. Paired with a
 hairline on each side it becomes the section rule — a 60px line, a diamond, a 60px line.
 
 ### Named Rules
@@ -406,15 +403,6 @@ pill-bordered group of three text pills separated by 1px 14px-tall dividers.
 - **Inactive:** Olive Third Impression, weight 400.
 - **Active:** Olive Ink, weight 600, `aria-pressed="true"`.
 - **Type:** 11px, 0.18em tracking, 7px/14px padding.
-
-### Cards and Containers
-
-- **Coordinates card:** Cream Stock on the clay wash, 1px Card Rule border, `6px` radius,
-  `14px 16px` padding. A 10px tracked-capital label above a 15px monospace value set to
-  `user-select: all`, so one tap selects the whole pair.
-- **Info cards:** no border, no background, no radius — a diamond, a tracked-capital title
-  and a 14px/1.8 body, flexing at `1 1 240px` with a `280px` cap. Structure comes from
-  rhythm, not from a box.
 
 ### Photo Slots
 

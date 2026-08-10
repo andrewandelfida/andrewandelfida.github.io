@@ -51,8 +51,6 @@ const CHECKS = [
   ['Schedule time (Playfair 28-40px)', T.oliveDeep, T.cream, 'large'],
   ['Schedule entry title', T.oliveMid, T.cream, 'normal'],
   ['Schedule note', T.oliveBody, T.cream, 'normal'],
-  ['Info card heading', T.oliveDeep, T.cream, 'normal'],
-  ['Info card body', T.oliveBody, T.cream, 'normal'],
   ['Footer script tagline (18-24px)', T.terracottaText, T.cream, 'normal'],
   ['Footer date line', T.oliveMid, T.cream, 'normal'],
   ['Lang switcher label', T.oliveDeep, T.cream, 'normal'],

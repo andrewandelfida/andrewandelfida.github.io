@@ -37,7 +37,6 @@
   --c-header-border: #e4dfcf; /* sticky header bottom border */
   --c-switch-border: #cfd0b6; /* language pill group border */
   --c-switch-divider: #d7d8c1;
-  --c-card-border: #dcdcc6; /* coordinates card */
 
   /* ---------------------------------------------------------------------
      COLOUR — terracotta (the second accent, signature of this variant)
@@ -156,7 +155,6 @@
   --w-prose: 620px; /* section headers + story */
   --w-narrow: 520px; /* schedule timeline */
   --w-gallery: 1040px;
-  --w-info: 920px;
 
   /* ---------------------------------------------------------------------
      RADIUS / SHADOW / MOTIFS
