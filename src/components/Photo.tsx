@@ -63,8 +63,23 @@ export function Photo({ image, className = '', sizes, placeholderLabel, fixedRat
   }
 
   // --- Real photo. ---------------------------------------------------------
-  const srcSet = (ext: string) =>
-    entry.widths.map((w) => `/images/${image.src}-${w}.${ext} ${w}w`).join(', ');
+  /*
+   * Percent-encode the path.
+   *
+   * `srcset` splits candidates on commas and separates the URL from its width
+   * descriptor on whitespace. A photo straight off a phone is often called
+   * something like "photo_2026-07-16 (2).jpg", and that single space
+   * invalidates EVERY candidate in the list — silently. The browser then falls
+   * back to the plain `src`, so the guest downloads a full-size JPEG instead of
+   * a small AVIF, and nothing anywhere reports a problem.
+   *
+   * encodeURI leaves parentheses alone (harmless in a URL); commas have to go
+   * separately because they are the candidate separator.
+   */
+  const url = (w: number, ext: string) =>
+    encodeURI(`/images/${image.src}-${w}.${ext}`).replace(/,/g, '%2C');
+
+  const srcSet = (ext: string) => entry.widths.map((w) => `${url(w, ext)} ${w}w`).join(', ');
 
   // Largest generated width is the <img> fallback for very old browsers.
   const largest = entry.widths[entry.widths.length - 1] ?? entry.width;
@@ -83,7 +98,7 @@ export function Photo({ image, className = '', sizes, placeholderLabel, fixedRat
         <source type="image/webp" srcSet={srcSet('webp')} sizes={sizes} />
         <img
           className="photo__img"
-          src={`/images/${image.src}-${largest}.jpg`}
+          src={url(largest, 'jpg')}
           srcSet={srcSet('jpg')}
           sizes={sizes}
           alt={pick(image.alt)}

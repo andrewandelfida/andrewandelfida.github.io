@@ -97,10 +97,24 @@ async function inlineStylesheet(template) {
 async function buildHeroPreload() {
   try {
     const manifest = JSON.parse(await readFile(MANIFEST, 'utf8'));
-    const hero = manifest['hero/couple'];
+
+    /*
+     * Find the hero by its folder, not by a fixed filename.
+     *
+     * This used to look for the literal key "hero/couple". The couple are told
+     * — correctly — that they may keep their own filenames, so the first time
+     * they dropped in "photo_2026-08-07_21-56-19.jpg" this quietly returned
+     * null and the largest image on the page stopped being preloaded. Nothing
+     * failed; the site just got slower.
+     */
+    const key = Object.keys(manifest).find((k) => k.startsWith('hero/'));
+    const hero = key ? manifest[key] : null;
     if (!hero?.widths?.length) return null;
 
-    const srcset = hero.widths.map((w) => `/images/hero/couple-${w}.avif ${w}w`).join(', ');
+    // Percent-encode: a space or comma in the filename would invalidate every
+    // candidate in the srcset. See the same note in src/components/Photo.tsx.
+    const url = (w) => encodeURI(`/images/${key}-${w}.avif`).replace(/,/g, '%2C');
+    const srcset = hero.widths.map((w) => `${url(w)} ${w}w`).join(', ');
     const sizes = '(max-width: 500px) 220px, (max-width: 818px) 44vw, 360px';
     return (
       `<link rel="preload" as="image" type="image/avif" ` +
