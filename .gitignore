@@ -1,0 +1,17 @@
+node_modules/
+dist/
+.DS_Store
+*.log
+npm-debug.log*
+.vscode/
+.idea/
+
+# Original full-resolution photographs. These are the couple's source files:
+# drop them here, run `npm run images`, and commit the generated derivatives
+# in public/images/ instead. Originals stay out of the repo to keep the clone
+# small and the Pages deploy fast.
+photos-src/
+
+# Editor / OS noise
+.idea/
+tsconfig.tsbuildinfo

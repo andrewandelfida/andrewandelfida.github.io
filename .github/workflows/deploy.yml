@@ -1,0 +1,83 @@
+name: Deploy to GitHub Pages
+
+# Every push to main rebuilds and republishes the site. That is the whole
+# release process — there is no gh-pages branch to hand-maintain and no
+# manual step that can be forgotten.
+on:
+  push:
+    branches: [main]
+  # Lets you redeploy from the Actions tab without pushing anything.
+  workflow_dispatch:
+
+# Standard Pages deployment permissions: read the repo, mint an OIDC token,
+# write the Pages artifact. Nothing wider than that.
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Never let two deploys race. In-progress runs are allowed to finish so a
+# half-published site can't be left behind.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      # `npm ci` installs exactly what package-lock.json pins, so a deploy in
+      # 2027 builds the same bytes as one today.
+      - name: Install dependencies
+        run: npm ci
+
+      # Guards that must hold for every deploy. Contrast is checked here
+      # because the palette is light and a well-meaning tweak could quietly
+      # drop text below WCAG AA.
+      - name: Check colour contrast
+        run: npm run check:contrast
+
+      - name: Type-check, build and prerender
+        run: npm run build
+
+      # Fails loudly rather than publishing an empty shell if the prerender
+      # step ever silently produces nothing.
+      - name: Verify the built page contains real content
+        run: |
+          set -euo pipefail
+          test -f dist/index.html
+          for needle in "48.0850197, 26.0520467" "Biserica" "Станівці" "АНДРІЙ"; do
+            if ! grep -qF "$needle" dist/index.html; then
+              echo "::error::Built index.html is missing expected content: $needle"
+              exit 1
+            fi
+          done
+          echo "dist/index.html looks right ($(wc -c < dist/index.html) bytes)"
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload the site
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

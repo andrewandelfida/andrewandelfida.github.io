@@ -1,0 +1,172 @@
+/* =============================================================================
+   BASE — reset, document defaults, accessibility primitives.
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  /* The language switcher is sticky; without this, jumping to an anchor would
+     hide the target underneath it. */
+  scroll-padding-top: var(--header-h);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--c-bg);
+  color: var(--c-text);
+  font-family: var(--f-sans);
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  /* Long Ukrainian and Romanian words in narrow columns must never push the
+     page sideways on a 360px phone. */
+  overflow-x: hidden;
+  overflow-wrap: break-word;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: var(--c-link);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--c-link-hover);
+}
+
+input,
+select,
+textarea,
+button {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+}
+
+blockquote,
+figure,
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+::selection {
+  background: var(--c-terracotta);
+  color: #2a2e1f;
+}
+
+/* -----------------------------------------------------------------------------
+   FOCUS
+   Visible on every interactive element, never removed. Inverted on the
+   terracotta band so it stays visible there too.
+-------------------------------------------------------------------------------- */
+:focus-visible {
+  outline: 2px solid var(--c-focus);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* On the terracotta verse band the deep-olive ring would disappear — invert. */
+.section--verse :focus-visible {
+  outline-color: var(--c-cream);
+}
+
+/* Mouse users don't get a ring, keyboard users always do. */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* -----------------------------------------------------------------------------
+   UTILITIES
+-------------------------------------------------------------------------------- */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Keyboard-only shortcut past the language switcher, straight into the page. */
+.skip-link {
+  position: absolute;
+  top: var(--s-3);
+  left: 50%;
+  transform: translate(-50%, -200%);
+  z-index: calc(var(--z-header) + 1);
+  padding: var(--s-4) var(--s-6);
+  background: var(--c-olive-deep);
+  color: var(--c-cream);
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  border-radius: var(--r-pill);
+  transition: transform var(--dur-ui) ease;
+}
+
+.skip-link:focus {
+  transform: translate(-50%, 0);
+  color: var(--c-cream);
+}
+
+/* -----------------------------------------------------------------------------
+   REVEAL-ON-SCROLL
+
+   Content is visible by default. The `.reveal` class is only added by JS once
+   it has confirmed it can also remove it — so a guest with JavaScript blocked,
+   or on a browser where the script fails, still sees the whole page.
+-------------------------------------------------------------------------------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity var(--dur-reveal) var(--ease-reveal),
+    transform var(--dur-reveal) var(--ease-reveal);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* -----------------------------------------------------------------------------
+   REDUCED MOTION
+   Honour the OS setting: no reveal animation, no smooth scrolling, no
+   transitions anywhere. Nothing is hidden — it is simply already in place.
+-------------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}

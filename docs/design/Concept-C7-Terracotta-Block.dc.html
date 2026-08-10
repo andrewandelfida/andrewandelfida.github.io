@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Marck+Script&amp;family=Montserrat:wght@300;400;500;600&amp;family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&amp;display=swap" rel="stylesheet">
+<script src="./site.js"></script>
+<style>
+  html,body{margin:0;padding:0;}
+  *{box-sizing:border-box;}
+  body{background:#F7F3E9;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
+  a{color:#4E5539;text-decoration:none;}
+  a:hover{color:#8A9367;}
+  input,select,textarea,button{font-family:inherit;}
+  input:focus,select:focus,textarea:focus{outline:2px solid #8A9367;outline-offset:1px;}
+  ::selection{background:#C07C5A;color:#3a3f2a;}
+</style>
+</helmet>
+
+<div style="background:#F7F3E9;color:#5c6049;font-family:'Montserrat',sans-serif;overflow-x:hidden;">
+
+  <!-- ===== LANGUAGE SWITCHER ===== -->
+  <div style="position:sticky;top:0;z-index:40;display:flex;justify-content:center;padding:12px;background:rgba(247,243,233,.86);backdrop-filter:blur(8px);border-bottom:1px solid #e4dfcf;">
+    <div style="display:flex;align-items:center;gap:2px;border:1px solid #cfd0b6;border-radius:999px;padding:3px;background:#F7F3E9;">
+      <button data-lang="uk" aria-pressed="true" style="border:0;background:transparent;color:#4E5539;font-size:11px;letter-spacing:.18em;padding:7px 14px;border-radius:999px;cursor:pointer;">УКР</button>
+      <span style="width:1px;height:14px;background:#d7d8c1;"></span>
+      <button data-lang="ro" aria-pressed="false" style="border:0;background:transparent;color:#4E5539;font-size:11px;letter-spacing:.18em;padding:7px 14px;border-radius:999px;cursor:pointer;opacity:.5;">ROM</button>
+      <span style="width:1px;height:14px;background:#d7d8c1;"></span>
+      <button data-lang="en" aria-pressed="false" style="border:0;background:transparent;color:#4E5539;font-size:11px;letter-spacing:.18em;padding:7px 14px;border-radius:999px;cursor:pointer;opacity:.5;">ENG</button>
+    </div>
+  </div>
+
+  <!-- ===== 1 · HERO ===== -->
+  <header style="min-height:calc(100svh - 49px);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:clamp(40px,8vw,80px) clamp(22px,6vw,60px) clamp(48px,7vw,72px);">
+    <img src="doves-olive.png" alt="Doves and heart" data-reveal style="width:clamp(96px,15vw,150px);height:auto;">
+    <div data-i18n="eyebrow_families" style="font-weight:500;font-size:clamp(10px,1.4vw,12px);letter-spacing:.34em;text-transform:uppercase;color:#8A9367;margin-top:clamp(20px,4vw,34px);">Разом зі своїми родинами</div>
+
+    <h1 style="margin:clamp(16px,3vw,26px) 0 0;font-family:'Playfair Display',serif;font-weight:500;color:#4E5539;line-height:.98;letter-spacing:.05em;font-size:clamp(46px,10vw,104px);">
+      <span data-i18n="name_groom" style="display:block;">АНДРІЙ</span>
+      <span data-i18n="connector" style="display:block;font-family:'Marck Script',cursive;font-weight:400;letter-spacing:0;color:#8A9367;font-size:.5em;line-height:.6;margin:.05em 0;">та</span>
+      <span data-i18n="name_bride" style="display:block;">ЕЛЬФІДА</span>
+    </h1>
+
+    <p data-i18n="hero_invite" style="margin:clamp(20px,3.5vw,30px) auto 0;max-width:34ch;font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(15px,2.1vw,20px);color:#8A9367;line-height:1.55;text-wrap:pretty;">запрошують вас розділити радість свого весілля</p>
+
+    <!-- arched couple photo placeholder -->
+    <div data-reveal style="margin-top:clamp(34px,6vw,58px);width:clamp(220px,44vw,360px);aspect-ratio:4/5;border:1px solid #C07C5A;border-radius:999px 999px 14px 14px;background:#E7E9D7;background-image:repeating-linear-gradient(135deg,#dfe2cd 0,#dfe2cd 1px,transparent 1px,transparent 12px);display:flex;align-items:flex-end;justify-content:center;padding-bottom:22px;">
+      <span style="font-family:ui-monospace,monospace;font-size:11px;letter-spacing:.12em;color:#8A9367;">couple portrait · 4:5</span>
+    </div>
+
+    <div data-reveal style="display:flex;align-items:center;justify-content:center;gap:14px;margin-top:clamp(34px,5vw,52px);">
+      <span style="width:clamp(36px,9vw,80px);height:1px;background:#C07C5A;"></span>
+      <span style="width:6px;height:6px;background:#C07C5A;transform:rotate(45deg);"></span>
+      <span style="width:clamp(36px,9vw,80px);height:1px;background:#C07C5A;"></span>
+    </div>
+    <div style="margin-top:clamp(18px,3vw,24px);display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:10px 16px;">
+      <span data-i18n="date_full" style="font-weight:500;font-size:clamp(12px,1.7vw,15px);letter-spacing:.24em;text-transform:uppercase;color:#4E5539;">СУБОТА · 3 ЖОВТНЯ 2026</span>
+      <span style="width:5px;height:5px;background:#C07C5A;transform:rotate(45deg);"></span>
+      <span data-i18n="time_lead" style="font-weight:500;font-size:clamp(12px,1.7vw,15px);letter-spacing:.24em;text-transform:uppercase;color:#8A9367;">О 11:00</span>
+    </div>
+
+    <div style="margin-top:clamp(30px,6vw,54px);display:flex;flex-direction:column;align-items:center;gap:8px;color:#8A9367;">
+      <span data-i18n="scroll_hint" style="font-size:10px;letter-spacing:.28em;text-transform:uppercase;">Гортайте вниз</span>
+      <span style="width:1px;height:34px;background:linear-gradient(#C07C5A,transparent);"></span>
+    </div>
+  </header>
+
+  <!-- ===== 2 · VERSE ===== -->
+  <section style="background:#B5643F;color:#FBEFE7;padding:clamp(80px,14vw,150px) clamp(22px,6vw,60px);text-align:center;">
+    <div data-reveal style="max-width:760px;margin:0 auto;">
+      <div style="display:flex;align-items:center;justify-content:center;gap:14px;">
+        <span style="width:44px;height:1px;background:#E9C4B0;"></span>
+        <span data-i18n="verse_ref" style="font-weight:500;font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:#FBEADF;">ЕКЛЕЗІЯСТ 4:9</span>
+        <span style="width:44px;height:1px;background:#E9C4B0;"></span>
+      </div>
+      <blockquote data-i18n="verse_text" style="margin:clamp(28px,5vw,46px) 0 0;font-family:'Playfair Display',serif;font-style:italic;font-weight:400;font-size:clamp(22px,3.6vw,40px);line-height:1.45;color:#F7F3E9;text-wrap:pretty;">Двом краще, ніж одному, бо мають хорошу нагороду за свою працю. Бо коли впадуть, то один підійме свого товариша.</blockquote>
+    </div>
+  </section>
+
+  <!-- ===== 3 · STORY ===== -->
+  <section style="padding:clamp(72px,12vw,130px) clamp(22px,6vw,60px);text-align:center;">
+    <div data-reveal style="max-width:620px;margin:0 auto;">
+      <div data-i18n="story_kicker" style="font-weight:500;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:#8A9367;">Наша історія</div>
+      <h2 data-i18n="story_head" style="margin:16px 0 0;font-family:'Playfair Display',serif;font-weight:500;font-size:clamp(26px,4.4vw,44px);letter-spacing:.02em;color:#4E5539;line-height:1.12;text-wrap:balance;">Дорога, що привела нас сюди</h2>
+      <div style="display:flex;align-items:center;justify-content:center;gap:12px;margin:26px 0;">
+        <span style="width:60px;height:1px;background:#C07C5A;"></span>
+        <span style="width:5px;height:5px;background:#C07C5A;transform:rotate(45deg);"></span>
+        <span style="width:60px;height:1px;background:#C07C5A;"></span>
+      </div>
+      <p data-i18n="story_body" style="margin:0;font-size:clamp(15px,1.9vw,18px);line-height:1.9;color:#6c7059;font-weight:300;text-wrap:pretty;">Ми зустрілися, молилися і зрозуміли, що Бог веде нас разом. Третього жовтня ми починаємо спільне життя перед Богом і людьми, яких любимо — і для нас буде честю, якщо ви будете поруч.</p>
+    </div>
+  </section>
+
+  <!-- ===== 4 · GALLERY ===== -->
+  <section style="background:#F1E4DA;padding:clamp(72px,12vw,130px) clamp(22px,6vw,60px);">
+    <div style="text-align:center;max-width:620px;margin:0 auto clamp(36px,6vw,56px);">
+      <h2 data-i18n="gallery_head" style="margin:0;font-family:'Playfair Display',serif;font-weight:500;font-size:clamp(24px,4vw,40px);letter-spacing:.04em;text-transform:uppercase;color:#4E5539;">Миті разом</h2>
+      <p data-i18n="gallery_sub" style="margin:14px 0 0;font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(14px,1.9vw,17px);color:#8A9367;">Світлини з’являться після нашої фотосесії</p>
+    </div>
+    <div data-reveal style="max-width:1040px;margin:0 auto;columns:clamp(150px,23vw,230px);column-gap:clamp(10px,1.4vw,16px);">
+      <div style="break-inside:avoid;margin-bottom:clamp(10px,1.4vw,16px);aspect-ratio:3/4;border:1px solid #cdd2b3;background:#E7E9D7;background-image:repeating-linear-gradient(135deg,#dee1cb 0,#dee1cb 1px,transparent 1px,transparent 11px);display:flex;align-items:center;justify-content:center;"><span style="font-family:ui-monospace,monospace;font-size:10px;letter-spacing:.1em;color:#9aa07f;">3:4</span></div>
+      <div style="break-inside:avoid;margin-bottom:clamp(10px,1.4vw,16px);aspect-ratio:4/3;border:1px solid #cdd2b3;background:#E7E9D7;background-image:repeating-linear-gradient(135deg,#dee1cb 0,#dee1cb 1px,transparent 1px,transparent 11px);display:flex;align-items:center;justify-content:center;"><span style="font-family:ui-monospace,monospace;font-size:10px;letter-spacing:.1em;color:#9aa07f;">4:3</span></div>
+      <div style="break-inside:avoid;margin-bottom:clamp(10px,1.4vw,16px);aspect-ratio:1/1;border:1px solid #cdd2b3;background:#E7E9D7;background-image:repeating-linear-gradient(135deg,#dee1cb 0,#dee1cb 1px,transparent 1px,transparent 11px);display:flex;align-items:center;justify-content:center;"><span style="font-family:ui-monospace,monospace;font-size:10px;letter-spacing:.1em;color:#9aa07f;">1:1</span></div>
+      <div style="break-inside:avoid;margin-bottom:clamp(10px,1.4vw,16px);aspect-ratio:3/4;border:1px solid #cdd2b3;background:#E7E9D7;background-image:repeating-linear-gradient(135deg,#dee1cb 0,#dee1cb 1px,transparent 1px,transparent 11px);display:flex;align-items:center;justify-content:center;"><span style="font-family:ui-monospace,monospace;font-size:10px;letter-spacing:.1em;color:#9aa07f;">3:4</span></div>
+      <div style="break-inside:avoid;margin-bottom:clamp(10px,1.4vw,16px);aspect-ratio:4/5;border:1px solid #cdd2b3;background:#E7E9D7;background-image:repeating-linear-gradient(135deg,#dee1cb 0,#dee1cb 1px,transparent 1px,transparent 11px);display:flex;align-items:center;justify-content:center;"><span style="font-family:ui-monospace,monospace;font-size:10px;letter-spacing:.1em;color:#9aa07f;">4:5</span></div>
+      <div style="break-inside:avoid;margin-bottom:clamp(10px,1.4vw,16px);aspect-ratio:4/3;border:1px solid #cdd2b3;background:#E7E9D7;background-image:repeating-linear-gradient(135deg,#dee1cb 0,#dee1cb 1px,transparent 1px,transparent 11px);display:flex;align-items:center;justify-content:center;"><span style="font-family:ui-monospace,monospace;font-size:10px;letter-spacing:.1em;color:#9aa07f;">4:3</span></div>
+      <div style="break-inside:avoid;margin-bottom:clamp(10px,1.4vw,16px);aspect-ratio:1/1;border:1px solid #cdd2b3;background:#E7E9D7;background-image:repeating-linear-gradient(135deg,#dee1cb 0,#dee1cb 1px,transparent 1px,transparent 11px);display:flex;align-items:center;justify-content:center;"><span style="font-family:ui-monospace,monospace;font-size:10px;letter-spacing:.1em;color:#9aa07f;">1:1</span></div>
+      <div style="break-inside:avoid;margin-bottom:clamp(10px,1.4vw,16px);aspect-ratio:3/4;border:1px solid #cdd2b3;background:#E7E9D7;background-image:repeating-linear-gradient(135deg,#dee1cb 0,#dee1cb 1px,transparent 1px,transparent 11px);display:flex;align-items:center;justify-content:center;"><span style="font-family:ui-monospace,monospace;font-size:10px;letter-spacing:.1em;color:#9aa07f;">3:4</span></div>
+    </div>
+  </section>
+
+  <!-- ===== 5 · SCHEDULE ===== -->
+  <section style="padding:clamp(72px,12vw,130px) clamp(22px,6vw,60px);">
+    <div style="text-align:center;max-width:620px;margin:0 auto clamp(44px,7vw,64px);">
+      <h2 data-i18n="schedule_head" style="margin:0;font-family:'Playfair Display',serif;font-weight:500;font-size:clamp(26px,4.4vw,44px);letter-spacing:.03em;color:#4E5539;">Розклад дня</h2>
+      <p data-i18n="schedule_sub" style="margin:14px 0 0;font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(14px,1.9vw,17px);color:#8A9367;">Обидві частини — у Biserica „Harul”</p>
+    </div>
+    <div data-reveal style="max-width:520px;margin:0 auto;position:relative;padding-left:clamp(30px,7vw,56px);">
+      <span style="position:absolute;left:clamp(6px,2vw,14px);top:8px;bottom:8px;width:1px;background:linear-gradient(#C07C5A,#C07C5A);"></span>
+      <div style="position:relative;margin-bottom:clamp(38px,6vw,54px);">
+        <span style="position:absolute;left:calc(-1 * clamp(30px,7vw,56px) + clamp(6px,2vw,14px) - 5px);top:6px;width:11px;height:11px;border-radius:50%;background:#F7F3E9;border:1.5px solid #4E5539;"></span>
+        <div style="font-family:'Playfair Display',serif;font-weight:600;font-size:clamp(28px,5vw,40px);color:#4E5539;line-height:1;">11:00</div>
+        <div data-i18n="sch1_title" style="margin-top:10px;font-weight:600;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:#8A9367;">Вінчання</div>
+        <div data-i18n="sch1_venue" style="margin-top:6px;font-family:'Playfair Display',serif;font-weight:600;font-size:clamp(15px,2vw,18px);color:#4E5539;">Biserica „Harul”</div>
+        <div data-i18n="sch1_note" style="margin-top:4px;font-size:13px;font-weight:300;color:#6c7059;line-height:1.6;">Урочиста церемонія в церкві</div>
+      </div>
+      <div style="position:relative;">
+        <span style="position:absolute;left:calc(-1 * clamp(30px,7vw,56px) + clamp(6px,2vw,14px) - 5px);top:6px;width:11px;height:11px;border-radius:50%;background:#F7F3E9;border:1.5px solid #4E5539;"></span>
+        <div style="font-family:'Playfair Display',serif;font-weight:600;font-size:clamp(28px,5vw,40px);color:#4E5539;line-height:1;">13:00</div>
+        <div data-i18n="sch2_title" style="margin-top:10px;font-weight:600;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:#8A9367;">Святковий обід</div>
+        <div data-i18n="sch2_venue" style="margin-top:6px;font-family:'Playfair Display',serif;font-weight:600;font-size:clamp(15px,2vw,18px);color:#4E5539;">у залі церкви</div>
+        <div data-i18n="sch2_note" style="margin-top:4px;font-size:13px;font-weight:300;color:#6c7059;line-height:1.6;">Спільна трапеза та спілкування</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 6 · LOCATION ===== -->
+  <section style="background:#F1E4DA;padding:clamp(72px,12vw,130px) clamp(22px,6vw,60px);">
+    <div style="max-width:1000px;margin:0 auto;">
+      <div style="text-align:center;margin-bottom:clamp(36px,6vw,52px);">
+        <h2 data-i18n="loc_head" style="margin:0;font-family:'Playfair Display',serif;font-weight:500;font-size:clamp(26px,4.4vw,44px);letter-spacing:.03em;color:#4E5539;">Як дістатися</h2>
+      </div>
+      <div data-reveal style="display:flex;flex-wrap:wrap;gap:clamp(24px,4vw,44px);align-items:stretch;">
+        <!-- map placeholder -->
+        <div style="flex:1 1 300px;min-height:260px;position:relative;border:1px solid #C07C5A;border-radius:6px;overflow:hidden;background:#E7E9D7;background-image:linear-gradient(#dde0ca 1px,transparent 1px),linear-gradient(90deg,#dde0ca 1px,transparent 1px);background-size:26px 26px;">
+          <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;">
+            <span style="width:16px;height:16px;background:#4E5539;transform:rotate(45deg);border-radius:3px 3px 3px 0;box-shadow:0 4px 10px -4px #4E553988;"></span>
+            <span style="font-family:ui-monospace,monospace;font-size:10px;letter-spacing:.1em;color:#8A9367;">map · Biserica „Harul”</span>
+          </div>
+        </div>
+        <!-- details -->
+        <div style="flex:1 1 280px;display:flex;flex-direction:column;justify-content:center;">
+          <div data-i18n="loc_venue" style="font-family:'Playfair Display',serif;font-weight:600;font-size:clamp(20px,2.8vw,26px);letter-spacing:.04em;color:#4E5539;">Biserica „Harul”</div>
+          <div style="margin-top:6px;font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(15px,2vw,18px);color:#8A9367;line-height:1.5;">
+            <span data-i18n="loc_addr1">с. Станівці (Stănești)</span><br>
+            <span data-i18n="loc_addr2">Чернівецька обл., 60432, Україна</span>
+          </div>
+          <div style="margin-top:20px;padding:14px 16px;background:#F7F3E9;border:1px solid #dcdcc6;border-radius:6px;">
+            <div data-i18n="loc_coords_label" style="font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:#8A9367;">Координати</div>
+            <div style="margin-top:5px;font-family:ui-monospace,monospace;font-size:15px;color:#4E5539;user-select:all;">48.0850197, 26.0520467</div>
+          </div>
+          <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:18px;">
+            <a href="https://www.google.com/maps/dir/?api=1&amp;destination=48.0850197,26.0520467" target="_blank" rel="noopener" data-i18n="loc_dir_btn" style="display:inline-flex;align-items:center;padding:12px 22px;background:#4E5539;color:#F7F3E9;font-size:12px;letter-spacing:.14em;text-transform:uppercase;border-radius:999px;">Прокласти маршрут</a>
+            <button data-copy type="button" style="display:inline-flex;align-items:center;padding:12px 22px;background:transparent;color:#4E5539;font-size:12px;letter-spacing:.14em;text-transform:uppercase;border:1px solid #4E5539;border-radius:999px;cursor:pointer;"><span data-i18n="loc_copy_btn">Копіювати координати</span></button>
+          </div>
+          <a href="https://maps.google.com/?cid=10979324914211926916" target="_blank" rel="noopener" data-i18n="loc_maps_btn" style="margin-top:14px;font-size:12px;letter-spacing:.06em;color:#8A9367;text-decoration:underline;text-underline-offset:3px;">Відкрити в Google Maps</a>
+          <p data-i18n="loc_signal_note" style="margin:18px 0 0;font-size:12px;font-weight:300;line-height:1.7;color:#8a8f74;text-wrap:pretty;">Станівці — село; на місці зв’язок може бути слабким. Збережіть адресу й координати заздалегідь.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 7 · PRACTICAL INFO ===== -->
+  <section style="padding:clamp(72px,12vw,130px) clamp(22px,6vw,60px);">
+    <div style="text-align:center;margin-bottom:clamp(40px,6vw,58px);">
+      <h2 data-i18n="info_head" style="margin:0;font-family:'Playfair Display',serif;font-weight:500;font-size:clamp(26px,4.4vw,44px);letter-spacing:.03em;color:#4E5539;">Корисна інформація</h2>
+    </div>
+    <div data-reveal style="max-width:920px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:center;gap:clamp(28px,4vw,44px);">
+      <div style="flex:1 1 240px;max-width:280px;text-align:center;">
+        <span style="display:inline-block;width:8px;height:8px;background:#C07C5A;transform:rotate(45deg);"></span>
+        <h3 data-i18n="info_dress_t" style="margin:16px 0 0;font-weight:600;font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#4E5539;">Дрес-код</h3>
+        <p data-i18n="info_dress_b" style="margin:12px 0 0;font-size:14px;font-weight:300;line-height:1.8;color:#6c7059;text-wrap:pretty;">Святковий стиль у природних, приглушених тонах. Оливкові, кремові та землисті відтінки будуть дуже доречні.</p>
+      </div>
+      <div style="flex:1 1 240px;max-width:280px;text-align:center;">
+        <span style="display:inline-block;width:8px;height:8px;background:#C07C5A;transform:rotate(45deg);"></span>
+        <h3 data-i18n="info_park_t" style="margin:16px 0 0;font-weight:600;font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#4E5539;">Паркування</h3>
+        <p data-i18n="info_park_b" style="margin:12px 0 0;font-size:14px;font-weight:300;line-height:1.8;color:#6c7059;text-wrap:pretty;">Безкоштовне паркування біля церкви. Радимо приїхати за 20 хвилин до початку.</p>
+      </div>
+      <div style="flex:1 1 240px;max-width:280px;text-align:center;">
+        <span style="display:inline-block;width:8px;height:8px;background:#C07C5A;transform:rotate(45deg);"></span>
+        <h3 data-i18n="info_stay_t" style="margin:16px 0 0;font-weight:600;font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#4E5539;">Проживання</h3>
+        <p data-i18n="info_stay_b" style="margin:12px 0 0;font-size:14px;font-weight:300;line-height:1.8;color:#6c7059;text-wrap:pretty;">Кілька варіантів ночівлі є в Чернівцях. Напишіть нам — і ми поділимося порадами.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 8 · RSVP ===== -->
+  <section style="background:#4E5539;color:#F7F3E9;padding:clamp(72px,12vw,130px) clamp(22px,6vw,60px);">
+    <div data-reveal style="max-width:520px;margin:0 auto;text-align:center;">
+      <img src="doves-sage.png" alt="" style="width:84px;height:auto;opacity:.9;">
+      <h2 data-i18n="rsvp_head" style="margin:18px 0 0;font-family:'Playfair Display',serif;font-weight:500;font-size:clamp(28px,4.6vw,44px);letter-spacing:.04em;">Підтвердіть участь</h2>
+      <p style="margin:12px 0 0;font-size:13px;letter-spacing:.08em;color:#C07C5A;"><span data-i18n="rsvp_sub">Будь ласка, дайте відповідь</span> · <span data-i18n="rsvp_deadline">до 19 вересня 2026</span></p>
+
+      <form data-rsvp style="margin-top:clamp(30px,5vw,44px);text-align:left;">
+        <div data-rsvp-fields style="display:flex;flex-direction:column;gap:20px;transition:opacity .4s;">
+          <label style="display:block;">
+            <span data-i18n="rsvp_name" style="display:block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#C07C5A;margin-bottom:8px;">Ваше ім’я</span>
+            <input type="text" data-i18n-ph="rsvp_name_ph" placeholder="Ім’я та прізвище" style="width:100%;padding:13px 15px;background:#5a5f47;border:1px solid #6f7458;border-radius:6px;color:#F7F3E9;font-size:15px;">
+          </label>
+          <div>
+            <span data-i18n="rsvp_attend_q" style="display:block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#C07C5A;margin-bottom:8px;">Чи будете ви з нами?</span>
+            <div data-attend-group style="display:flex;gap:10px;">
+              <input type="hidden" name="attend" value="">
+              <button type="button" data-attend="yes" style="flex:1;padding:13px;background:transparent;color:#F7F3E9;border:1px solid #C07C5A;border-radius:6px;font-size:13px;letter-spacing:.08em;cursor:pointer;"><span data-i18n="rsvp_yes">Так, буду</span></button>
+              <button type="button" data-attend="no" style="flex:1;padding:13px;background:transparent;color:#F7F3E9;border:1px solid #C07C5A;border-radius:6px;font-size:13px;letter-spacing:.08em;cursor:pointer;"><span data-i18n="rsvp_no">На жаль, ні</span></button>
+            </div>
+          </div>
+          <label style="display:block;">
+            <span data-i18n="rsvp_guests" style="display:block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#C07C5A;margin-bottom:8px;">Кількість гостей</span>
+            <input type="number" min="0" max="12" value="1" style="width:100%;padding:13px 15px;background:#5a5f47;border:1px solid #6f7458;border-radius:6px;color:#F7F3E9;font-size:15px;">
+          </label>
+          <label style="display:block;">
+            <span data-i18n="rsvp_diet" style="display:block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#C07C5A;margin-bottom:8px;">Побажання щодо харчування</span>
+            <textarea rows="3" data-i18n-ph="rsvp_diet_ph" placeholder="Алергії, вегетаріанство тощо" style="width:100%;padding:13px 15px;background:#5a5f47;border:1px solid #6f7458;border-radius:6px;color:#F7F3E9;font-size:15px;resize:vertical;"></textarea>
+          </label>
+          <button type="submit" data-i18n="rsvp_send" style="margin-top:6px;padding:15px;background:#F7F3E9;color:#4E5539;border:0;border-radius:999px;font-size:12px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;cursor:pointer;">Надіслати відповідь</button>
+        </div>
+        <div data-rsvp-thanks style="display:none;margin-top:20px;padding:18px;text-align:center;font-family:'Playfair Display',serif;font-style:italic;font-size:18px;color:#F7F3E9;border:1px solid #6f7458;border-radius:6px;">Дякуємо!</div>
+      </form>
+    </div>
+  </section>
+
+  <!-- ===== 9 · FOOTER ===== -->
+  <footer style="padding:clamp(56px,9vw,90px) clamp(22px,6vw,60px);text-align:center;">
+    <span style="display:inline-block;width:9px;height:9px;background:#C07C5A;transform:rotate(45deg);"></span>
+    <div data-i18n="footer_names" style="margin-top:22px;font-family:'Playfair Display',serif;font-weight:500;font-size:clamp(24px,4vw,36px);letter-spacing:.05em;text-transform:uppercase;color:#4E5539;">Андрій та Ельфіда</div>
+    <div data-i18n="footer_date" style="margin-top:12px;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:#8A9367;">3 жовтня 2026 · Станівці</div>
+    <div data-i18n="footer_verse" style="margin-top:18px;font-family:'Marck Script',cursive;font-size:clamp(18px,2.6vw,24px);color:#C07C5A;">Двом краще, ніж одному</div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  componentDidMount(){ this.boot(0); }
+  boot(tries){
+    if(window.WEDDING && window.WEDDING.init){
+      if(!this._wired){ this._wired = true; window.WEDDING.init(document); }
+      return;
+    }
+    if(tries < 80) setTimeout(() => this.boot(tries + 1), 80);
+  }
+}
+</script>
+</body>
+</html>

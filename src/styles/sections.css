@@ -1,0 +1,824 @@
+/* =============================================================================
+   SECTIONS — the nine blocks of the invitation, in page order.
+   Every value comes from tokens.css. No raw hex, no raw type sizes.
+   ========================================================================== */
+
+/* -----------------------------------------------------------------------------
+   Shared section scaffolding
+-------------------------------------------------------------------------------- */
+.section {
+  padding: var(--pad-section-y) var(--pad-section-x);
+}
+
+.section--wash {
+  background: var(--c-wash);
+}
+
+.section__header {
+  text-align: center;
+  max-width: var(--w-prose);
+  margin-inline: auto;
+}
+
+.h2 {
+  font-family: var(--f-display);
+  font-weight: 500;
+  font-size: var(--t-h2);
+  letter-spacing: 0.03em;
+  color: var(--c-heading);
+  line-height: var(--lh-heading);
+  text-wrap: balance;
+}
+
+.kicker {
+  font-weight: 500;
+  font-size: 11px;
+  letter-spacing: var(--ls-ref);
+  text-transform: uppercase;
+  color: var(--c-muted);
+}
+
+.subtitle {
+  margin-top: var(--s-4);
+  font-family: var(--f-display);
+  font-style: italic;
+  font-size: var(--t-subtitle);
+  color: var(--c-muted);
+  text-wrap: pretty;
+}
+
+.body-copy {
+  font-size: var(--t-body);
+  line-height: var(--lh-body);
+  color: var(--c-text);
+  font-weight: 300;
+  text-wrap: pretty;
+}
+
+/* Decorative motifs -------------------------------------------------------- */
+.diamond {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background: var(--c-terracotta);
+  transform: rotate(45deg);
+  flex: none;
+}
+
+.rule {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s-4);
+}
+
+.rule__line {
+  width: 60px;
+  height: 1px;
+  background: var(--c-terracotta);
+}
+
+.rule--hero {
+  gap: 14px;
+}
+
+.rule--hero .rule__line {
+  width: clamp(36px, 9vw, 80px);
+}
+
+/* Pills / buttons ---------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  /* 44px min target: one-handed use on a phone is a stated requirement. */
+  min-height: 44px;
+  padding: var(--s-4) 22px;
+  font-size: 12px;
+  letter-spacing: var(--ls-btn);
+  text-transform: uppercase;
+  border-radius: var(--r-pill);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background var(--dur-ui) ease, color var(--dur-ui) ease;
+}
+
+.btn--solid {
+  background: var(--c-olive-deep);
+  color: var(--c-cream);
+}
+
+.btn--solid:hover {
+  background: var(--c-olive-mid);
+  color: var(--c-cream);
+}
+
+.btn--outline {
+  background: transparent;
+  color: var(--c-olive-deep);
+  border-color: var(--c-olive-deep);
+}
+
+.btn--outline:hover {
+  background: var(--c-olive-deep);
+  color: var(--c-cream);
+}
+
+/* =============================================================================
+   0 · LANGUAGE SWITCHER (sticky header)
+   ========================================================================== */
+.langbar {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-header);
+  display: flex;
+  justify-content: center;
+  padding: var(--s-4);
+  background: rgba(247, 243, 233, 0.86);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--c-header-border);
+}
+
+/* Older browsers with no backdrop-filter get a solid bar rather than
+   unreadable text sliding underneath. */
+@supports not ((backdrop-filter: blur(8px)) or (-webkit-backdrop-filter: blur(8px))) {
+  .langbar {
+    background: var(--c-cream);
+  }
+}
+
+.langbar__group {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  border: 1px solid var(--c-switch-border);
+  border-radius: var(--r-pill);
+  padding: 3px;
+  background: var(--c-cream);
+}
+
+.langbar__divider {
+  width: 1px;
+  height: 14px;
+  background: var(--c-switch-divider);
+  flex: none;
+}
+
+/* The design dims the inactive languages with opacity:.5. That composites
+   #4E5539 over cream down to #A3A491 — 2.28:1, which fails AA badly for the
+   label of an interactive control. These are the only way to change language,
+   so they have to stay legible. The same "quiet vs. current" hierarchy is
+   expressed with colour and weight instead, both above 4.5:1. */
+.langbar__btn {
+  border: 0;
+  background: transparent;
+  color: var(--c-olive-mid); /* 5.13:1 */
+  font-size: 11px;
+  letter-spacing: var(--ls-switch);
+  padding: 7px 14px;
+  border-radius: var(--r-pill);
+  cursor: pointer;
+  font-weight: 400;
+  transition: color var(--dur-ui) ease;
+}
+
+.langbar__btn[aria-pressed='true'] {
+  color: var(--c-olive-deep); /* 7.07:1 */
+  font-weight: 600;
+}
+
+.langbar__btn:hover {
+  color: var(--c-olive-deep);
+}
+
+/* =============================================================================
+   1 · HERO
+   ========================================================================== */
+.hero {
+  /* svh = the SMALL viewport height: the height when the mobile browser's
+     address bar is EXPANDED. Using svh (not vh, not dvh) guarantees the hero
+     never gets taller than the visible area, so the date and scroll hint are
+     never hidden behind browser chrome — and it does not resize as the bar
+     collapses, which dvh would, causing the whole page to jump mid-scroll. */
+  min-height: calc(100svh - var(--header-h));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: clamp(40px, 8vw, 80px) var(--pad-section-x) clamp(48px, 7vw, 72px);
+}
+
+/* Browsers without svh support (pre-2022) fall back to vh. */
+@supports not (height: 100svh) {
+  .hero {
+    min-height: calc(100vh - var(--header-h));
+  }
+}
+
+/* The hero is a centred column flex container, which sizes its children to
+   max-content rather than to the available width. Without this, a long line
+   like "СУБОТА · 3 ЖОВТНЯ 2026 ◆ О 11:00" grows past the viewport and
+   flex-wrap never gets the chance to wrap it. */
+.hero > * {
+  max-width: 100%;
+}
+
+.hero__doves {
+  width: clamp(96px, 15vw, 150px);
+  height: auto;
+}
+
+.hero__eyebrow {
+  font-weight: 500;
+  font-size: var(--t-eyebrow);
+  letter-spacing: var(--ls-eyebrow);
+  text-transform: uppercase;
+  color: var(--c-muted);
+  margin-top: clamp(20px, 4vw, 34px);
+}
+
+.hero__names {
+  margin: clamp(16px, 3vw, 26px) 0 0;
+  font-family: var(--f-display);
+  font-weight: 500;
+  color: var(--c-heading);
+  line-height: var(--lh-names);
+  letter-spacing: var(--ls-names);
+  font-size: var(--t-names);
+}
+
+.hero__name {
+  display: block;
+}
+
+.hero__connector {
+  display: block;
+  font-family: var(--f-script);
+  font-weight: 400;
+  letter-spacing: 0;
+  color: var(--c-muted);
+  font-size: 0.5em;
+  line-height: 0.6;
+  margin: 0.05em 0;
+}
+
+.hero__invite {
+  margin: clamp(20px, 3.5vw, 30px) auto 0;
+  max-width: 34ch;
+  font-family: var(--f-display);
+  font-style: italic;
+  font-size: var(--t-lead);
+  color: var(--c-muted);
+  line-height: 1.55;
+  text-wrap: pretty;
+}
+
+.hero__portrait {
+  margin-top: clamp(34px, 6vw, 58px);
+  width: clamp(220px, 44vw, 360px);
+}
+
+.hero__rule {
+  margin-top: clamp(34px, 5vw, 52px);
+}
+
+.hero__date {
+  margin-top: clamp(18px, 3vw, 24px);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px var(--s-5);
+}
+
+.hero__date-text,
+.hero__date-time {
+  font-weight: 500;
+  font-size: var(--t-date);
+  letter-spacing: var(--ls-meta);
+  text-transform: uppercase;
+  color: var(--c-heading);
+}
+
+.hero__date-time {
+  color: var(--c-muted);
+}
+
+.hero__date .diamond {
+  width: 5px;
+  height: 5px;
+}
+
+.hero__scroll {
+  margin-top: clamp(30px, 6vw, 54px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--s-3);
+  color: var(--c-muted);
+}
+
+.hero__scroll-label {
+  font-size: 10px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+
+.hero__scroll-line {
+  width: 1px;
+  height: 34px;
+  background: linear-gradient(var(--c-terracotta), transparent);
+}
+
+/* =============================================================================
+   2 · VERSE — solid terracotta band
+   ========================================================================== */
+.section--verse {
+  background: var(--c-verse-band);
+  color: var(--c-cream);
+  padding: var(--pad-verse-y) var(--pad-section-x);
+  text-align: center;
+}
+
+.verse__inner {
+  max-width: var(--w-verse);
+  margin-inline: auto;
+}
+
+.verse__ref-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+}
+
+.verse__ref-line {
+  width: 44px;
+  height: 1px;
+  background: var(--c-verse-rule);
+  flex: none;
+}
+
+.verse__ref {
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: var(--ls-ref);
+  text-transform: uppercase;
+  color: var(--c-verse-ref);
+}
+
+.verse__quote {
+  margin: clamp(28px, 5vw, 46px) 0 0;
+  font-family: var(--f-display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: var(--t-verse);
+  line-height: var(--lh-verse);
+  color: var(--c-verse-quote);
+  text-wrap: pretty;
+}
+
+/* =============================================================================
+   3 · STORY
+   ========================================================================== */
+.story {
+  text-align: center;
+  max-width: var(--w-prose);
+  margin-inline: auto;
+}
+
+.story__head {
+  margin-top: var(--s-5);
+  letter-spacing: 0.02em;
+}
+
+.story__rule {
+  margin: 26px 0;
+}
+
+/* =============================================================================
+   4 · GALLERY — CSS multi-column masonry
+   ========================================================================== */
+.gallery__head {
+  font-size: var(--t-h2-caps);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.gallery__grid {
+  max-width: var(--w-gallery);
+  margin: clamp(36px, 6vw, 56px) auto 0;
+  columns: clamp(150px, 23vw, 230px);
+  column-gap: clamp(10px, 1.4vw, 16px);
+}
+
+.gallery__item {
+  break-inside: avoid;
+  margin-bottom: clamp(10px, 1.4vw, 16px);
+}
+
+/* =============================================================================
+   5 · SCHEDULE — vertical timeline
+   ========================================================================== */
+.schedule__header {
+  margin-bottom: clamp(44px, 7vw, 64px);
+}
+
+.schedule__list {
+  max-width: var(--w-narrow);
+  margin-inline: auto;
+  position: relative;
+  padding-left: clamp(30px, 7vw, 56px);
+  list-style: none;
+}
+
+.schedule__line {
+  position: absolute;
+  left: clamp(6px, 2vw, 14px);
+  top: var(--s-3);
+  bottom: var(--s-3);
+  width: 1px;
+  background: var(--c-terracotta);
+}
+
+.schedule__item {
+  position: relative;
+}
+
+.schedule__item + .schedule__item {
+  margin-top: clamp(38px, 6vw, 54px);
+}
+
+.schedule__node {
+  position: absolute;
+  left: calc(-1 * clamp(30px, 7vw, 56px) + clamp(6px, 2vw, 14px) - 5px);
+  top: var(--s-2);
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--c-cream);
+  border: 1.5px solid var(--c-olive-deep);
+}
+
+.schedule__time {
+  font-family: var(--f-display);
+  font-weight: 600;
+  font-size: var(--t-time);
+  color: var(--c-heading);
+  line-height: 1;
+}
+
+.schedule__title {
+  margin-top: 10px;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--c-muted);
+}
+
+.schedule__venue {
+  margin-top: var(--s-2);
+  font-family: var(--f-display);
+  font-weight: 600;
+  font-size: var(--t-venue-sm);
+  color: var(--c-heading);
+}
+
+.schedule__note {
+  margin-top: var(--s-1);
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--c-text);
+  line-height: 1.6;
+}
+
+/* =============================================================================
+   6 · LOCATION
+   ========================================================================== */
+.location__inner {
+  max-width: var(--w-location);
+  margin-inline: auto;
+}
+
+.location__header {
+  text-align: center;
+  margin-bottom: clamp(36px, 6vw, 52px);
+}
+
+.location__cols {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(24px, 4vw, 44px);
+  align-items: stretch;
+}
+
+.location__details {
+  flex: 1 1 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.location__venue {
+  font-family: var(--f-display);
+  font-weight: 600;
+  font-size: var(--t-venue);
+  letter-spacing: 0.04em;
+  color: var(--c-heading);
+}
+
+.location__address {
+  margin-top: var(--s-2);
+  font-family: var(--f-display);
+  font-style: italic;
+  font-size: var(--t-venue-sm);
+  color: var(--c-muted);
+  line-height: 1.5;
+  font-stretch: normal;
+}
+
+.coords {
+  margin-top: var(--s-6);
+  padding: 14px var(--s-5);
+  background: var(--c-cream);
+  border: 1px solid var(--c-card-border);
+  border-radius: var(--r-card);
+}
+
+.coords__label {
+  font-size: 10px;
+  letter-spacing: var(--ls-meta);
+  text-transform: uppercase;
+  color: var(--c-muted);
+}
+
+.coords__value {
+  margin-top: 5px;
+  font-family: var(--f-mono);
+  font-size: 15px;
+  color: var(--c-heading);
+  /* One tap selects the whole coordinate pair — for guests who would rather
+     paste it into their own navigation app than use our buttons. */
+  user-select: all;
+  -webkit-user-select: all;
+}
+
+.location__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.location__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-4) var(--s-6);
+  margin-top: 14px;
+}
+
+.location__link {
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  color: var(--c-text);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  /* Comfortable tap target without disturbing the inline flow. */
+  padding: var(--s-2) 0;
+}
+
+.location__note {
+  margin-top: 18px;
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 1.7;
+  color: var(--c-muted);
+  text-wrap: pretty;
+}
+
+/* Map ---------------------------------------------------------------------- */
+.map {
+  flex: 1 1 300px;
+  min-height: 260px;
+  position: relative;
+  border: 1px solid var(--c-terracotta);
+  border-radius: var(--r-card);
+  overflow: hidden;
+  background: var(--c-slot-fill);
+  /* The design's grid-paper pattern. It shows while Leaflet loads and stays
+     as the resting state if the map never loads at all. */
+  background-image: linear-gradient(#dde0ca 1px, transparent 1px),
+    linear-gradient(90deg, #dde0ca 1px, transparent 1px);
+  background-size: 26px 26px;
+}
+
+.map__placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: var(--s-6);
+  text-align: center;
+}
+
+.map__pin {
+  width: 16px;
+  height: 16px;
+  background: var(--c-olive-deep);
+  transform: rotate(45deg);
+  border-radius: 3px 3px 3px 0;
+  box-shadow: var(--shadow-pin);
+}
+
+.map__caption {
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: var(--c-muted);
+}
+
+.map__canvas {
+  position: absolute;
+  inset: 0;
+}
+
+/* The marker is a plain styled div — no image request, and it matches the
+   olive diamond pin the design specifies. */
+.map__marker {
+  width: 16px;
+  height: 16px;
+  background: var(--c-olive-deep);
+  transform: rotate(45deg);
+  border-radius: 3px 3px 3px 0;
+  box-shadow: var(--shadow-pin);
+}
+
+/* Tone Leaflet's chrome down to the palette. */
+.map .leaflet-container {
+  background: var(--c-slot-fill);
+  font-family: var(--f-sans);
+}
+
+.map .leaflet-control-attribution {
+  background: rgba(247, 243, 233, 0.88);
+  color: var(--c-text);
+  font-size: 10px;
+}
+
+.map .leaflet-control-attribution a {
+  color: var(--c-olive-deep);
+}
+
+.map .leaflet-control-zoom a {
+  color: var(--c-olive-deep);
+  background: var(--c-cream);
+  border-color: var(--c-hairline);
+}
+
+/* =============================================================================
+   7 · PRACTICAL INFO
+   ========================================================================== */
+.info__header {
+  text-align: center;
+  margin-bottom: clamp(40px, 6vw, 58px);
+}
+
+.info__cards {
+  max-width: var(--w-info);
+  margin-inline: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: clamp(28px, 4vw, 44px);
+  list-style: none;
+  padding: 0;
+}
+
+.info__card {
+  flex: 1 1 240px;
+  max-width: 280px;
+  text-align: center;
+}
+
+.info__card .diamond {
+  width: 8px;
+  height: 8px;
+}
+
+.info__title {
+  margin: var(--s-5) 0 0;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--c-heading);
+}
+
+.info__body {
+  margin: var(--s-4) 0 0;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.8;
+  color: var(--c-text);
+  text-wrap: pretty;
+}
+
+/* =============================================================================
+   8 · FOOTER
+   ========================================================================== */
+.footer {
+  padding: var(--pad-footer-y) var(--pad-section-x);
+  text-align: center;
+}
+
+.footer .diamond {
+  width: 9px;
+  height: 9px;
+}
+
+.footer__names {
+  margin-top: 22px;
+  font-family: var(--f-display);
+  font-weight: 500;
+  font-size: var(--t-footer-names);
+  letter-spacing: var(--ls-names);
+  text-transform: uppercase;
+  color: var(--c-heading);
+}
+
+.footer__date {
+  margin-top: var(--s-4);
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--c-muted);
+}
+
+.footer__verse {
+  margin-top: 18px;
+  font-family: var(--f-script);
+  font-size: var(--t-footer-verse);
+  color: var(--c-terracotta-text);
+}
+
+/* =============================================================================
+   PHOTOS — real images and their placeholders share one box
+   ========================================================================== */
+.photo {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  background: var(--c-slot-fill);
+}
+
+.photo__img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* The design's hatched placeholder, shown until a real photo exists. */
+.photo--empty {
+  border: 1px solid var(--c-slot-border);
+  background-image: var(--hatch-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.photo--empty .photo__label {
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: var(--c-slot-label);
+}
+
+/* The hero arch: a full-width portrait with a rounded top. */
+.photo--arch {
+  border: 1px solid var(--c-terracotta);
+  border-radius: var(--r-arch);
+  aspect-ratio: 4 / 5;
+}
+
+.photo--arch.photo--empty {
+  background-image: var(--hatch);
+  align-items: flex-end;
+  padding-bottom: 22px;
+}
+
+.photo--arch .photo__img {
+  border-radius: var(--r-arch);
+}
+
+.photo--arch.photo--empty .photo__label {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: var(--c-muted);
+}

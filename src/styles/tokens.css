@@ -1,0 +1,191 @@
+/* =============================================================================
+   DESIGN TOKENS — the single source of truth for the whole site.
+   Ported from docs/design/README.md ("C7 · Terracotta color-block" variant).
+
+   No component may hardcode a hex value, a font stack, or a type size. If you
+   want to restyle the site, everything you need is in this file.
+
+   ACCESSIBILITY DEVIATIONS FROM THE DESIGN DOC
+   The design's sage/olive tones are light. Audited against WCAG AA
+   (scripts/check-contrast.mjs), several text/background pairs failed. The brief
+   directs: "darken to mid or deep olive where it fails. Do not sacrifice
+   legibility for palette fidelity." Each darkened value is marked ADJUSTED
+   below with its original. Hue is preserved; the relative lightness hierarchy
+   (deep < body < mid) is preserved too. Run `npm run check:contrast` to verify.
+   ========================================================================== */
+
+:root {
+  /* ---------------------------------------------------------------------
+     COLOUR — olives
+     ------------------------------------------------------------------ */
+  /* Primary text, headings, primary buttons. */
+  --c-olive-deep: #4e5539;
+  /* Paragraph body copy. ADJUSTED from #6C7059 (failed 4.11:1 on the
+     terracotta wash). Now 5.53:1 on cream, 4.92:1 on wash. */
+  --c-olive-body: #5f6450;
+  /* Eyebrows, secondary text, italic accents. ADJUSTED from #8A9367
+     (failed badly: 2.94:1 on cream, 2.61:1 on wash). Now 5.13:1 / 4.57:1.
+     Still the lightest of the three olives, so the hierarchy reads as designed. */
+  --c-olive-mid: #636a4a;
+
+  /* ---------------------------------------------------------------------
+     COLOUR — creams
+     ------------------------------------------------------------------ */
+  --c-cream: #f7f3e9; /* page background, light text on dark blocks */
+  --c-cream-2: #efeadb;
+  --c-hairline: #d3d4bb; /* thin dividers */
+  --c-header-border: #e4dfcf; /* sticky header bottom border */
+  --c-switch-border: #cfd0b6; /* language pill group border */
+  --c-switch-divider: #d7d8c1;
+  --c-card-border: #dcdcc6; /* coordinates card */
+
+  /* ---------------------------------------------------------------------
+     COLOUR — terracotta (the second accent, signature of this variant)
+     ------------------------------------------------------------------ */
+  /* Decorative only: diamonds, hairline rules, slot/map borders, ::selection.
+     Purely decorative graphics are exempt from WCAG 1.4.11, so the design
+     value is kept exactly. Never use this for text. */
+  --c-terracotta: #c07c5a;
+  /* Terracotta used as TEXT on cream or wash (footer script tagline).
+     ADJUSTED from #C07C5A (3.02:1 — fails for text under 24px).
+     Now 5.08:1 on cream, 4.51:1 on wash. */
+  --c-terracotta-text: #9e5330;
+  /* Solid verse band. ADJUSTED from #B5643F. The 12px verse reference could
+     not reach 4.5:1 on the original even in pure white (4.32:1), and the
+     design fixes that eyebrow at 12px. Darkening the band by ~3% is the
+     smallest change that keeps the signature block intact: white now 4.63:1,
+     the cream quote 4.18:1. */
+  --c-verse-band: #ae603c;
+  --c-verse-rule: #e9c4b0; /* decorative hairlines inside the band */
+  --c-verse-ref: #ffffff; /* 4.63:1 on the band */
+  --c-verse-quote: var(--c-cream); /* 4.18:1, large text */
+
+  /* Gallery + Location section background */
+  --c-wash: #f1e4da;
+
+  /* ---------------------------------------------------------------------
+     COLOUR — image placeholders (visible only until real photos land)
+     ------------------------------------------------------------------ */
+  --c-slot-fill: #e7e9d7;
+  --c-slot-border: #cdd2b3;
+  /* ADJUSTED from #9AA07F (2.21:1). Now 4.54:1 on the slot fill. */
+  --c-slot-label: #666a54;
+  --c-slot-hatch: #dfe2cd;
+  --c-slot-hatch-sm: #dee1cb;
+
+  /* ---------------------------------------------------------------------
+     COLOUR — semantic aliases (what components actually reference)
+     ------------------------------------------------------------------ */
+  --c-bg: var(--c-cream);
+  --c-text: var(--c-olive-body);
+  --c-heading: var(--c-olive-deep);
+  --c-muted: var(--c-olive-mid);
+  --c-link: var(--c-olive-deep);
+  --c-link-hover: var(--c-olive-mid);
+  --c-focus: var(--c-olive-deep);
+
+  /* ---------------------------------------------------------------------
+     TYPOGRAPHY
+     ------------------------------------------------------------------ */
+  --f-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --f-script: 'Marck Script', 'Segoe Script', cursive;
+  --f-sans: 'Montserrat', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --f-mono: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace;
+
+  /* Fluid ramps, exactly as specified in the design doc. */
+  --t-names: clamp(46px, 10vw, 104px); /* H1 */
+  --t-h2: clamp(26px, 4.4vw, 44px);
+  --t-h2-caps: clamp(24px, 4vw, 40px); /* gallery heading (uppercase) */
+  --t-verse: clamp(22px, 3.6vw, 40px);
+  --t-time: clamp(28px, 5vw, 40px); /* schedule time */
+  --t-body: clamp(15px, 1.9vw, 18px);
+  --t-lead: clamp(15px, 2.1vw, 20px); /* hero invite line */
+  --t-subtitle: clamp(14px, 1.9vw, 17px); /* italic section subtitles */
+  --t-venue: clamp(20px, 2.8vw, 26px); /* location venue name */
+  --t-venue-sm: clamp(15px, 2vw, 18px); /* schedule venue + address */
+  --t-date: clamp(12px, 1.7vw, 15px); /* hero date row */
+  --t-eyebrow: clamp(10px, 1.4vw, 12px);
+  --t-footer-names: clamp(24px, 4vw, 36px);
+  --t-footer-verse: clamp(18px, 2.6vw, 24px);
+
+  --lh-names: 0.98;
+  --lh-verse: 1.45;
+  --lh-body: 1.9;
+  --lh-heading: 1.12;
+
+  --ls-names: 0.05em;
+  --ls-eyebrow: 0.34em;
+  --ls-meta: 0.24em;
+  --ls-label: 0.16em;
+  --ls-ref: 0.3em;
+  --ls-switch: 0.18em;
+  --ls-btn: 0.14em;
+
+  /* ---------------------------------------------------------------------
+     SPACING — scale 4 · 6 · 8 · 12 · 16 · 20 · 24 · 32 · 44 · 60 · 90 · 130
+     ------------------------------------------------------------------ */
+  --s-1: 4px;
+  --s-2: 6px;
+  --s-3: 8px;
+  --s-4: 12px;
+  --s-5: 16px;
+  --s-6: 20px;
+  --s-7: 24px;
+  --s-8: 32px;
+  --s-9: 44px;
+  --s-10: 60px;
+  --s-11: 90px;
+  --s-12: 130px;
+
+  --pad-section-y: clamp(72px, 12vw, 130px);
+  --pad-section-x: clamp(22px, 6vw, 60px);
+  --pad-verse-y: clamp(80px, 14vw, 150px);
+  --pad-footer-y: clamp(56px, 9vw, 90px);
+
+  /* Content max-widths */
+  --w-location: 1000px;
+  --w-verse: 760px;
+  --w-prose: 620px; /* section headers + story */
+  --w-narrow: 520px; /* schedule timeline */
+  --w-gallery: 1040px;
+  --w-info: 920px;
+
+  /* ---------------------------------------------------------------------
+     RADIUS / SHADOW / MOTIFS
+     ------------------------------------------------------------------ */
+  --r-none: 0;
+  --r-card: 6px;
+  --r-pill: 999px;
+  --r-arch: 999px 999px 14px 14px;
+
+  --shadow-pin: 0 4px 10px -4px #4e553988;
+
+  --hatch: repeating-linear-gradient(
+    135deg,
+    var(--c-slot-hatch) 0,
+    var(--c-slot-hatch) 1px,
+    transparent 1px,
+    transparent 12px
+  );
+  --hatch-sm: repeating-linear-gradient(
+    135deg,
+    var(--c-slot-hatch-sm) 0,
+    var(--c-slot-hatch-sm) 1px,
+    transparent 1px,
+    transparent 11px
+  );
+
+  /* ---------------------------------------------------------------------
+     MOTION — every duration collapses to 0 under prefers-reduced-motion
+     (see base.css)
+     ------------------------------------------------------------------ */
+  --ease-reveal: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --dur-reveal: 0.9s;
+  --dur-ui: 0.25s;
+
+  /* Height of the sticky language header. The hero subtracts this so the
+     first screen is exactly one viewport tall. */
+  --header-h: 49px;
+
+  --z-header: 40;
+}
