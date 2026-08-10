@@ -19,6 +19,17 @@ html {
      hide the target underneath it. */
   scroll-padding-top: var(--header-h);
   -webkit-text-size-adjust: 100%;
+
+  /* The page is cream and has no dark theme. Saying so stops the browser
+     rendering its own chrome — scrollbars, the caret, any form control — in a
+     dark palette on top of it when the OS is set to dark. */
+  color-scheme: light;
+
+  /* The scrollbar is the one surface left drawing itself in system grey next to
+     an olive-on-cream page. Standard properties only: Chrome 121+, Firefox and
+     Safari 18+ honour these, and older browsers simply keep their default. */
+  scrollbar-color: var(--c-hairline) var(--c-cream);
+  scrollbar-width: thin;
 }
 
 body {

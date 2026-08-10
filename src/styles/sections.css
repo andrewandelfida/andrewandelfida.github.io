@@ -127,13 +127,23 @@
 /* =============================================================================
    0 · LANGUAGE SWITCHER (sticky header)
    ========================================================================== */
-.langbar {
+/* The sticky lives here, not on .langbar — see the note in App.tsx. */
+.site-header {
   position: sticky;
   top: 0;
   z-index: var(--z-header);
+}
+
+.langbar {
   display: flex;
+  align-items: center;
   justify-content: center;
-  padding: var(--s-4);
+  /* Height is taken FROM the token rather than falling out of the padding, so
+     --header-h can never drift from the real bar again. The hero subtracts it
+     and scroll-padding-top offsets anchors by it; when the two disagreed, a
+     "skip to content" jump landed under the bar. */
+  height: var(--header-h);
+  padding: 0 var(--s-4);
   background: rgba(247, 243, 233, 0.86);
   -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
@@ -171,6 +181,7 @@
    so they have to stay legible. The same "quiet vs. current" hierarchy is
    expressed with colour and weight instead, both above 4.5:1. */
 .langbar__btn {
+  position: relative;
   border: 0;
   background: transparent;
   color: var(--c-olive-mid); /* 5.13:1 */
@@ -181,6 +192,20 @@
   cursor: pointer;
   font-weight: 400;
   transition: color var(--dur-ui) ease;
+}
+
+/* The pill is 28px tall by design, which is a small target for the one control
+   that changes the language — and the guest list includes people who do not use
+   phones confidently. This extends the TOUCHABLE area to 44px without altering
+   the drawn pill; it fits inside the bar's own padding, so nothing moves. */
+.langbar__btn::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 44px;
+  transform: translateY(-50%);
 }
 
 .langbar__btn[aria-pressed='true'] {
@@ -197,10 +222,15 @@
    ========================================================================== */
 .hero {
   /* svh = the SMALL viewport height: the height when the mobile browser's
-     address bar is EXPANDED. Using svh (not vh, not dvh) guarantees the hero
-     never gets taller than the visible area, so the date and scroll hint are
-     never hidden behind browser chrome — and it does not resize as the bar
-     collapses, which dvh would, causing the whole page to jump mid-scroll. */
+     address bar is EXPANDED. Using svh (not vh, not dvh) means the FLOOR of the
+     hero is a height that is always actually visible, and that it does not
+     resize as the address bar collapses — which dvh would, making the whole
+     page jump mid-scroll.
+
+     Note this is a min-height, not a height: with a real photograph in the arch
+     the hero content is taller than one screen on a phone, so the date row and
+     the scroll hint sit just below the fold there. That is the design's own
+     content at the design's own minimum spacing, not a layout fault. */
   min-height: calc(100svh - var(--header-h));
   display: flex;
   flex-direction: column;
@@ -468,6 +498,10 @@
   font-size: var(--t-time);
   color: var(--c-heading);
   line-height: 1;
+  /* 11:00 sits directly above 13:00 in the timeline. Proportional figures make
+     the two colons and the trailing zeros drift apart; tabular ones line the
+     columns up. */
+  font-variant-numeric: tabular-nums;
 }
 
 .schedule__title {
@@ -570,6 +604,11 @@
   flex: 1 1 300px;
   min-height: 260px;
   position: relative;
+  /* Leaflet stacks its own panes and controls up to z-index 1000. Without a
+     stacking context of its own those numbers compete with the page's, and the
+     zoom buttons paint straight over the sticky language bar when the map
+     scrolls past it. `isolation` contains them at no rendering cost. */
+  isolation: isolate;
   border: 1px solid var(--c-terracotta);
   border-radius: var(--r-card);
   overflow: hidden;

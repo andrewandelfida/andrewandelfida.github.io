@@ -403,6 +403,23 @@ pill-bordered group of three text pills separated by 1px 14px-tall dividers.
 - **Inactive:** Olive Third Impression, weight 400.
 - **Active:** Olive Ink, weight 600, `aria-pressed="true"`.
 - **Type:** 11px, 0.18em tracking, 7px/14px padding.
+- **Target:** the drawn pill is 28px tall, but each button carries a transparent
+  `::after` that lifts the touchable area to 44px. It fits inside the bar's own padding, so
+  the design is unchanged and the rule below still holds.
+- **Sticky:** the positioning belongs to the `<header>`, not to the bar. A sticky element can
+  only travel inside its parent's content box, and a header sized to the bar gives it nowhere
+  to go — the bar scrolled away on the first swipe. The bar's height is taken *from*
+  `--header-h` rather than growing out of its padding, because the hero subtracts that token
+  and `scroll-padding-top` offsets anchor jumps by it.
+
+### Browser Surfaces
+
+The chrome the page did not draw is themed from the palette rather than left to the browser:
+`::selection` paints terracotta with Selection Ink, the caret inherits the text olive, focus
+rings are 2px Olive Ink (inverted to cream on the verse band), the scrollbar is
+`thin` in Hairline on Cream Stock, and `color-scheme: light` stops a dark-mode OS
+recolouring any of it. Schedule times use `tabular-nums` so 11:00 and 13:00 align in the
+timeline.
 
 ### Photo Slots
 

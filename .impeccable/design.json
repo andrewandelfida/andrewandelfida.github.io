@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-08-10T11:36:56Z",
+  "generatedAt": "2026-08-10T11:52:34Z",
   "title": "Design System: Андрій та Ельфіда — Wedding Invitation",
   "extensions": {
     "colorMeta": {
@@ -382,9 +382,9 @@
       "name": "Language Switcher",
       "kind": "nav",
       "refersTo": "lang-pill",
-      "description": "The only persistent control. Current language is marked by colour and weight, never by dimming the others.",
+      "description": "The only persistent control. Current language is marked by colour and weight, never by dimming the others, and each 28px pill carries a 44px touch target.",
       "html": "<div class=\"ds-langbar\"><div class=\"ds-langgroup\"><button class=\"ds-lang\" aria-pressed=\"false\" type=\"button\">УКР</button><span class=\"ds-langdiv\"></span><button class=\"ds-lang\" aria-pressed=\"true\" type=\"button\">ROM</button><span class=\"ds-langdiv\"></span><button class=\"ds-lang\" aria-pressed=\"false\" type=\"button\">ENG</button></div></div>",
-      "css": ".ds-langbar { display: flex; justify-content: center; padding: 12px; background: rgba(247, 243, 233, 0.86); backdrop-filter: blur(8px); border-bottom: 1px solid var(--c-header-border, #e4dfcf); } .ds-langgroup { display: flex; align-items: center; gap: 2px; padding: 3px; background: var(--c-cream, #f7f3e9); border: 1px solid var(--c-switch-border, #cfd0b6); border-radius: 999px; } .ds-langdiv { width: 1px; height: 14px; background: var(--c-switch-divider, #d7d8c1); } .ds-lang { border: 0; background: transparent; font-family: var(--f-sans, Montserrat, system-ui, sans-serif); font-size: 11px; font-weight: 400; letter-spacing: 0.18em; padding: 7px 14px; border-radius: 999px; color: var(--c-olive-mid, #636a4a); cursor: pointer; transition: color 0.25s ease; } .ds-lang[aria-pressed=\"true\"] { color: var(--c-olive-deep, #4e5539); font-weight: 600; } .ds-lang:hover { color: var(--c-olive-deep, #4e5539); } .ds-lang:focus-visible { outline: 2px solid var(--c-olive-deep, #4e5539); outline-offset: 2px; }"
+      "css": ".ds-langbar { display: flex; justify-content: center; padding: 12px; background: rgba(247, 243, 233, 0.86); backdrop-filter: blur(8px); border-bottom: 1px solid var(--c-header-border, #e4dfcf); } .ds-langgroup { display: flex; align-items: center; gap: 2px; padding: 3px; background: var(--c-cream, #f7f3e9); border: 1px solid var(--c-switch-border, #cfd0b6); border-radius: 999px; } .ds-langdiv { width: 1px; height: 14px; background: var(--c-switch-divider, #d7d8c1); } .ds-lang { position: relative; border: 0; background: transparent; font-family: var(--f-sans, Montserrat, system-ui, sans-serif); font-size: 11px; font-weight: 400; letter-spacing: 0.18em; padding: 7px 14px; border-radius: 999px; color: var(--c-olive-mid, #636a4a); cursor: pointer; transition: color 0.25s ease; } .ds-lang[aria-pressed=\"true\"] { color: var(--c-olive-deep, #4e5539); font-weight: 600; } .ds-lang:hover { color: var(--c-olive-deep, #4e5539); } .ds-lang:focus-visible { outline: 2px solid var(--c-olive-deep, #4e5539); outline-offset: 2px; } .ds-lang::after { content: ''; position: absolute; left: 0; right: 0; top: 50%; height: 44px; transform: translateY(-50%); }"
     },
     {
       "name": "Section Rule",

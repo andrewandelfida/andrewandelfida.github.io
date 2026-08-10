@@ -30,7 +30,13 @@ export default function App() {
         {t('skip_link')}
       </a>
 
-      <header>
+      {/*
+        The sticky positioning lives on <header>, not on the bar inside it.
+        A sticky element can only travel within its parent's content box, and a
+        <header> that contains nothing but the bar is exactly the bar's height —
+        so it had no room to move and scrolled away on the first swipe.
+      */}
+      <header className="site-header">
         <LanguageSwitcher />
       </header>
 

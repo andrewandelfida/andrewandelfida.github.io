@@ -192,9 +192,12 @@
   --dur-reveal: 0.9s;
   --dur-ui: 0.25s;
 
-  /* Height of the sticky language header. The hero subtracts this so the
-     first screen is exactly one viewport tall. */
-  --header-h: 49px;
+  /* Height of the sticky language header, and the authoritative source of it:
+     .langbar sets `height: var(--header-h)` rather than growing from its own
+     padding. The hero subtracts this, and scroll-padding-top offsets anchor
+     jumps by it, so a value that disagreed with the rendered bar put the
+     "skip to content" target underneath it. */
+  --header-h: 60px;
 
   --z-header: 40;
 }
