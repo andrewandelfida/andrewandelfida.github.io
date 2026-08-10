@@ -59,18 +59,12 @@ const CHECKS = [
 
   // --- on terracotta wash (gallery + location) ---
   ['H2 on wash', T.oliveDeep, T.wash, 'large'],
-  ['Gallery subtitle italic on wash', T.oliveMid, T.wash, 'normal'],
   ['Venue name on wash', T.oliveDeep, T.wash, 'normal'],
   ['Address italic on wash', T.oliveMid, T.wash, 'normal'],
   ['Body copy on wash', T.oliveBody, T.wash, 'normal'],
-  ['Signal-note footnote on wash', T.oliveMid, T.wash, 'normal'],
   ['Google Maps text link on wash', T.oliveBody, T.wash, 'normal'],
-  ['Copy-coords outline label on wash', T.oliveDeep, T.wash, 'normal'],
-  ['Copy-coords outline BORDER on wash', T.oliveDeep, T.wash, 'ui'],
-
-  // --- coordinates card (cream card sitting on the wash) ---
-  ['Coords label on cream card', T.oliveMid, T.cream, 'normal'],
-  ['Coords value (mono, user-select:all)', T.oliveDeep, T.cream, 'normal'],
+  ['Copy-coordinates outline label on wash', T.oliveDeep, T.wash, 'normal'],
+  ['Copy-coordinates outline BORDER on wash', T.oliveDeep, T.wash, 'ui'],
 
   // --- solid terracotta verse band ---
   ['Verse quote (22-40px)', T.cream, T.verseBand, 'large'],
@@ -135,6 +129,26 @@ CHECKS.push(
     'normal',
   ]
 );
+
+/*
+ * THE BACKDROP.
+ *
+ * The floral watermark is not a CSS layer that can be reasoned about from the
+ * tokens alone: scripts/generate-backdrop.mjs bakes --c-olive-deep onto the
+ * cream at 7% and ships the result as an opaque image. Wherever one of those
+ * strokes passes behind a line of text on a cream section, the effective
+ * background is not --c-cream at all.
+ *
+ * So every cream pair above is re-checked against the darkest ground the
+ * backdrop can produce. If someone raises INK_OPACITY far enough to hurt
+ * legibility, this is what catches it.
+ */
+const BACKDROP_INK_OPACITY = 0.07; // must match scripts/generate-backdrop.mjs
+const backdropInk = composite(T.oliveDeep, T.cream, BACKDROP_INK_OPACITY);
+
+for (const [label, fg, bg, size] of CHECKS.filter((c) => c[2] === T.cream)) {
+  CHECKS.push([`${label} — over backdrop`, fg, backdropInk, size]);
+}
 
 const MIN = { normal: 4.5, large: 3.0, ui: 3.0 };
 

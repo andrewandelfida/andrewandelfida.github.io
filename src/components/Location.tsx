@@ -8,19 +8,21 @@ import { MapEmbed } from './MapEmbed';
  * Getting there.
  *
  * Stănești is a small village, and both Google's and OpenStreetMap's address
- * data for it is thin — searching the address string is not reliable. Guests
- * will be driving in with patchy signal. So this section is built around the
- * COORDINATES as the authoritative identifier, and around being readable
- * before anyone arrives:
+ * data for it is thin — searching the address string is not reliable. So every
+ * route out of this section is driven by COORDINATES underneath, even though
+ * the couple asked for the numbers themselves not to be shown:
  *
- *   · Venue, full address and the raw coordinates are always-visible, real,
- *     selectable text — never trapped inside the map widget.
- *   · The coordinate pair is `user-select: all`, so one tap selects it whole.
- *   · A one-tap copy button, for pasting into whatever app the guest prefers.
- *   · Every directions link targets lat/lng, not a place-name search.
+ *   · Venue and full address are always-visible, real, selectable text —
+ *     never trapped inside the map widget.
+ *   · Every directions link targets lat/lng, not a place-name query.
+ *   · The copy button still puts the exact pair on the clipboard, for guests
+ *     who would rather paste it into their own navigation app.
  *   · All of the above is plain HTML in the prerendered page. With JavaScript
  *     off, or the map failing, or Leaflet's CDN-free chunk never arriving,
- *     this section still tells a guest exactly where to drive.
+ *     the venue, the address and a working directions link all survive.
+ *
+ * The copy button is the one control that needs JavaScript. That is acceptable
+ * because it is a convenience: the directions link beside it is a plain <a>.
  */
 export function Location() {
   const { t } = useI18n();
@@ -48,15 +50,6 @@ export function Location() {
               <br />
               {t('loc_addr2')}
             </address>
-
-            <div className="coords">
-              <span className="coords__label" id="coords-label">
-                {t('loc_coords_label')}
-              </span>
-              <p className="coords__value" aria-labelledby="coords-label">
-                {VENUE.coords}
-              </p>
-            </div>
 
             <div className="location__actions">
               <a
@@ -89,8 +82,6 @@ export function Location() {
                 {t('loc_waze_btn')}
               </a>
             </div>
-
-            <p className="location__note">{t('loc_signal_note')}</p>
           </div>
         </div>
       </div>

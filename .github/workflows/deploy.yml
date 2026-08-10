@@ -55,7 +55,11 @@ jobs:
         run: |
           set -euo pipefail
           test -f dist/index.html
-          for needle in "48.0850197, 26.0520467" "Biserica" "Станівці" "АНДРІЙ"; do
+          # The prerendered page is in the DEFAULT language (see DEFAULT_LOCALE in
+          # src/i18n/locale.ts), so these needles must be Romanian. The coordinate
+          # pair is no longer displayed as text, but it must still be the target of
+          # the directions link — that is what actually gets a guest to the church.
+          for needle in "destination=48.0850197,26.0520467" "Biserica" "Stănești" "ANDREI"; do
             if ! grep -qF "$needle" dist/index.html; then
               echo "::error::Built index.html is missing expected content: $needle"
               exit 1

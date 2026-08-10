@@ -9,6 +9,11 @@
    and the accessibility affordances the prototype stubbed out. These are the
    strings most worth a native-speaker review before the invitations are
    printed.
+
+   Keys marked [couple] are the couple's own words, supplied directly and used
+   verbatim. [couple-uk] and [couple-en] are TRANSLATIONS of a [couple] string
+   — they carry the same meaning but nobody has verified the wording, so they
+   are the other thing worth a native speaker's glance.
    ========================================================================== */
 
 import type { Locale, Localized } from './types';
@@ -72,11 +77,10 @@ const uk = {
   story_kicker: 'Наша історія', // [design]
   story_head: 'Дорога, що привела нас сюди', // [design]
   story_body:
-    'Ми зустрілися, молилися і зрозуміли, що Бог веде нас разом. Третього жовтня ми починаємо спільне життя перед Богом і людьми, яких любимо — і для нас буде честю, якщо ви будете поруч.', // [design]
+    'Ми молилися, і Бог дивовижним чином звів наші дороги та поблагословив нас дійти до цього дня і одружитися. Третього жовтня ми починаємо спільне життя перед Богом — і для нас буде честю, якщо ви будете поруч.', // [couple-uk]
 
   /* ---- gallery ------------------------------------------------------- */
   gallery_head: 'Миті разом', // [design]
-  gallery_sub: 'Світлини з’являться після нашої фотосесії', // [design]
 
   /* ---- schedule ------------------------------------------------------ */
   schedule_head: 'Розклад дня', // [design]
@@ -93,18 +97,15 @@ const uk = {
   loc_venue: 'Biserica „Harul”', // [design]
   loc_addr1: 'с. Станівці (Stănești)', // [design]
   loc_addr2: 'Чернівецька обл., 60432, Україна', // [design]
-  loc_coords_label: 'Координати', // [design]
   loc_dir_btn: 'Прокласти маршрут', // [design]
   loc_maps_btn: 'Відкрити в Google Maps', // [design]
   loc_waze_btn: 'Відкрити у Waze', // [new]
   loc_copy_btn: 'Копіювати координати', // [design]
   loc_copy_done: 'Скопійовано ✓', // [design]
-  loc_signal_note:
-    'Станівці — село; на місці зв’язок може бути слабким. Збережіть адресу й координати заздалегідь.', // [design]
   map_label: 'Мапа: Biserica „Harul”, с. Станівці', // [new]
   map_show: 'Показати мапу', // [new]
   map_loading: 'Завантаження мапи…', // [new]
-  map_error: 'Мапу не вдалося завантажити. Скористайтеся координатами та кнопками вище.', // [new]
+  map_error: 'Мапу не вдалося завантажити. Скористайтеся кнопками для прокладання маршруту.', // [new]
 
   /* ---- practical info ------------------------------------------------ */
   info_head: 'Корисна інформація', // [design]
@@ -155,11 +156,15 @@ const ro: Strings = {
 
   story_kicker: 'Povestea noastră', // [design]
   story_head: 'Drumul care ne-a adus aici', // [design]
+  /*
+   * Supplied by the couple in Romanian. The Ukrainian and English versions of
+   * this key are translations of THIS text, not the other way round — if you
+   * change the meaning here, change all three.
+   */
   story_body:
-    'Ne-am întâlnit, ne-am rugat și am înțeles că Dumnezeu ne poartă împreună. Pe 3 octombrie începem viața împreună înaintea lui Dumnezeu și a celor pe care îi iubim — și ar fi o cinste să fiți alături de noi.', // [design]
+    'Ne-am rugat, iar Dumnezeu ne-a încrucișat drumurile într-un mod minunat și ne-a binecuvântat să ajungem până aici, să ne căsătorim. Pe 3 octombrie începem viața împreună înaintea lui Dumnezeu — și ar fi o cinste să fiți alături de noi.', // [couple]
 
   gallery_head: 'Clipe împreună', // [design]
-  gallery_sub: 'Fotografiile vor apărea după ședința foto', // [design]
 
   schedule_head: 'Programul zilei', // [design]
   schedule_sub: 'Ambele părți — la Biserica „Harul”', // [design]
@@ -174,18 +179,15 @@ const ro: Strings = {
   loc_venue: 'Biserica „Harul”', // [design]
   loc_addr1: 's. Stănești (Станівці)', // [design]
   loc_addr2: 'jud. Cernăuți, 60432, Ucraina', // [design]
-  loc_coords_label: 'Coordonate', // [design]
   loc_dir_btn: 'Obține direcții', // [design]
   loc_maps_btn: 'Deschide în Google Maps', // [design]
   loc_waze_btn: 'Deschide în Waze', // [new]
   loc_copy_btn: 'Copiază coordonatele', // [design]
   loc_copy_done: 'Copiat ✓', // [design]
-  loc_signal_note:
-    'Stănești este un sat; semnalul poate fi slab la sosire. Salvați din timp adresa și coordonatele.', // [design]
   map_label: 'Hartă: Biserica „Harul”, s. Stănești', // [new]
   map_show: 'Arată harta', // [new]
   map_loading: 'Se încarcă harta…', // [new]
-  map_error: 'Harta nu a putut fi încărcată. Folosiți coordonatele și butoanele de mai sus.', // [new]
+  map_error: 'Harta nu a putut fi încărcată. Folosiți butoanele pentru indicații rutiere.', // [new]
 
   info_head: 'Informații utile', // [design]
   info_dress_t: 'Ținuta', // [design]
@@ -231,10 +233,9 @@ const en: Strings = {
   story_kicker: 'Our story', // [design]
   story_head: 'The road that brought us here', // [design]
   story_body:
-    'We met, we prayed, and we knew that God was drawing us together. On the third of October we begin our life as one, before God and the people we love — and it would be an honour to have you beside us.', // [design]
+    'We prayed, and God crossed our paths in a wonderful way and blessed us to reach this day and be married. On the third of October we begin our life together before God — and it would be an honour to have you beside us.', // [couple-en]
 
   gallery_head: 'Moments together', // [design]
-  gallery_sub: 'Photographs will appear after our shoot', // [design]
 
   schedule_head: 'The day', // [design]
   schedule_sub: 'Both parts — at Biserica „Harul”', // [design]
@@ -249,18 +250,15 @@ const en: Strings = {
   loc_venue: 'Biserica „Harul”', // [design]
   loc_addr1: 'Stănești village (Станівці)', // [design]
   loc_addr2: 'Chernivtsi region, 60432, Ukraine', // [design]
-  loc_coords_label: 'Coordinates', // [design]
   loc_dir_btn: 'Get directions', // [design]
   loc_maps_btn: 'Open in Google Maps', // [design]
   loc_waze_btn: 'Open in Waze', // [new]
   loc_copy_btn: 'Copy coordinates', // [design]
   loc_copy_done: 'Copied ✓', // [design]
-  loc_signal_note:
-    'Stănești is a rural village; signal may be weak on arrival. Save the address and coordinates ahead of time.', // [design]
   map_label: 'Map: Biserica „Harul”, Stănești', // [new]
   map_show: 'Show map', // [new]
   map_loading: 'Loading map…', // [new]
-  map_error: 'The map could not be loaded. Use the coordinates and buttons above.', // [new]
+  map_error: 'The map could not be loaded. Use the directions buttons on this page.', // [new]
 
   info_head: 'Good to know', // [design]
   info_dress_t: 'Dress code', // [design]

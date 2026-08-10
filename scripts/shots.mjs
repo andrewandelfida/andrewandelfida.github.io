@@ -38,7 +38,9 @@ const VIEWPORTS = [
   { w: 1440, h: 900, dpr: 2, label: 'desktop' },
 ];
 
-const LOCALES = ['uk', 'ro', 'en'];
+const LOCALES = ['ro', 'uk', 'en'];
+/** Must match DEFAULT_LOCALE in src/i18n/locale.ts — the bare URL renders in it. */
+const DEFAULT_LOCALE = 'ro';
 
 await mkdir(OUT, { recursive: true });
 
@@ -57,8 +59,8 @@ function fail(msg) {
 
 for (const vp of VIEWPORTS) {
   for (const locale of LOCALES) {
-    // Only sweep all three languages on the primary phone width; elsewhere uk.
-    if (locale !== 'uk' && vp.w !== 390) continue;
+    // Only sweep all three languages on the primary phone width; elsewhere the default.
+    if (locale !== DEFAULT_LOCALE && vp.w !== 390) continue;
 
     // A fresh, isolated storage context per check. Sharing one profile meant a
     // ?lang=en visit left "en" in localStorage and the next check — the one
@@ -89,7 +91,7 @@ for (const vp of VIEWPORTS) {
       ]);
     }
 
-    const url = locale === 'uk' ? BASE : `${BASE}?lang=${locale}`;
+    const url = locale === DEFAULT_LOCALE ? BASE : `${BASE}?lang=${locale}`;
     await page.goto(url, { waitUntil: 'networkidle2', timeout: 30000 }).catch(() => {});
     // Let reveal animations settle so screenshots show the resting state.
     await new Promise((r) => setTimeout(r, 900));

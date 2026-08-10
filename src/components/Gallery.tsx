@@ -20,7 +20,6 @@ export function Gallery() {
         <h2 className="h2 gallery__head" id="gallery-head">
           {t('gallery_head')}
         </h2>
-        <p className="subtitle">{t('gallery_sub')}</p>
       </div>
 
       <div ref={ref} className="gallery__grid">

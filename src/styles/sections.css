@@ -540,37 +540,12 @@
   font-stretch: normal;
 }
 
-.coords {
-  margin-top: var(--s-6);
-  padding: 14px var(--s-5);
-  background: var(--c-cream);
-  border: 1px solid var(--c-card-border);
-  border-radius: var(--r-card);
-}
-
-.coords__label {
-  font-size: 10px;
-  letter-spacing: var(--ls-meta);
-  text-transform: uppercase;
-  color: var(--c-muted);
-}
-
-.coords__value {
-  margin-top: 5px;
-  font-family: var(--f-mono);
-  font-size: 15px;
-  color: var(--c-heading);
-  /* One tap selects the whole coordinate pair — for guests who would rather
-     paste it into their own navigation app than use our buttons. */
-  user-select: all;
-  -webkit-user-select: all;
-}
-
 .location__actions {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  margin-top: 18px;
+  /* Follows the address directly now that the coordinates card is gone. */
+  margin-top: var(--s-6);
 }
 
 .location__links {
@@ -590,15 +565,6 @@
   padding: var(--s-2) 0;
 }
 
-.location__note {
-  margin-top: 18px;
-  font-size: 12px;
-  font-weight: 300;
-  line-height: 1.7;
-  color: var(--c-muted);
-  text-wrap: pretty;
-}
-
 /* Map ---------------------------------------------------------------------- */
 .map {
   flex: 1 1 300px;
@@ -610,8 +576,8 @@
   background: var(--c-slot-fill);
   /* The design's grid-paper pattern. It shows while Leaflet loads and stays
      as the resting state if the map never loads at all. */
-  background-image: linear-gradient(#dde0ca 1px, transparent 1px),
-    linear-gradient(90deg, #dde0ca 1px, transparent 1px);
+  background-image: linear-gradient(var(--c-map-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--c-map-grid) 1px, transparent 1px);
   background-size: 26px 26px;
 }
 
@@ -632,7 +598,7 @@
   height: 16px;
   background: var(--c-olive-deep);
   transform: rotate(45deg);
-  border-radius: 3px 3px 3px 0;
+  border-radius: var(--r-pin);
   box-shadow: var(--shadow-pin);
 }
 
@@ -659,7 +625,7 @@
   height: 16px;
   background: var(--c-olive-deep);
   transform: rotate(45deg);
-  border-radius: 3px 3px 3px 0;
+  border-radius: var(--r-pin);
   box-shadow: var(--shadow-pin);
 }
 

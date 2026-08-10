@@ -63,6 +63,11 @@
   /* Gallery + Location section background */
   --c-wash: #f1e4da;
 
+  /* Text colour inside a selection highlight, which is painted in terracotta.
+     Near-black olive rather than pure black, so a highlighted phrase still
+     belongs to the palette. 8.29:1 on --c-terracotta. */
+  --c-selection-text: #2a2e1f;
+
   /* ---------------------------------------------------------------------
      COLOUR — image placeholders (visible only until real photos land)
      ------------------------------------------------------------------ */
@@ -72,6 +77,9 @@
   --c-slot-label: #666a54;
   --c-slot-hatch: #dfe2cd;
   --c-slot-hatch-sm: #dee1cb;
+  /* Grid-paper rules inside the map frame, shown while Leaflet loads and left
+     in place if it never does. Decorative, so exempt from contrast minimums. */
+  --c-map-grid: #dde0ca;
 
   /* ---------------------------------------------------------------------
      COLOUR — semantic aliases (what components actually reference)
@@ -156,6 +164,9 @@
   --r-none: 0;
   --r-card: 6px;
   --r-pill: 999px;
+  /* Map pin: three softened corners and one sharp one. Combined with a 45°
+     rotation it makes the teardrop point down at the venue. */
+  --r-pin: 3px 3px 3px 0;
   --r-arch: 999px 999px 14px 14px;
 
   --shadow-pin: 0 4px 10px -4px #4e553988;

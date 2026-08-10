@@ -15,3 +15,8 @@ photos-src/
 # Editor / OS noise
 .idea/
 tsconfig.tsbuildinfo
+
+# Impeccable design-tool cache (the design system record itself,
+# .impeccable/design.json, IS committed).
+.impeccable/hook.cache.json
+.impeccable/live/

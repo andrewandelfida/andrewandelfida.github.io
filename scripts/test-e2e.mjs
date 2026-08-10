@@ -58,29 +58,33 @@ console.log('\nLanguage routing');
   const { page, context } = await newPage();
 
   await page.goto(BASE, { waitUntil: 'networkidle2' });
-  check('default language is Ukrainian', (await page.$eval('html', (h) => h.lang)) === 'uk');
+  check('default language is Romanian', (await page.$eval('html', (h) => h.lang)) === 'ro');
   check(
-    'bare URL rewrites itself to ?lang=uk (shareable)',
-    page.url().includes('lang=uk'),
+    'bare URL rewrites itself to ?lang=ro (shareable)',
+    page.url().includes('lang=ro'),
     page.url()
   );
-
-  // Switch to Romanian by clicking the switcher.
-  await page.click('.langbar__btn[lang="ro"]');
-  await new Promise((r) => setTimeout(r, 200));
-  check('clicking ROM sets <html lang="ro">', (await page.$eval('html', (h) => h.lang)) === 'ro');
-  check('URL updates to ?lang=ro', page.url().includes('lang=ro'), page.url());
   check(
-    'H1 shows Romanian names, groom first',
+    'the QR-code URL shows Romanian names, groom first',
     (await page.$eval('h1', (h) => h.textContent.replace(/\s+/g, ''))) === 'ANDREIșiELFIDA'
+  );
+
+  // Switch to Ukrainian by clicking the switcher.
+  await page.click('.langbar__btn[lang="uk"]');
+  await new Promise((r) => setTimeout(r, 200));
+  check('clicking УКР sets <html lang="uk">', (await page.$eval('html', (h) => h.lang)) === 'uk');
+  check('URL updates to ?lang=uk', page.url().includes('lang=uk'), page.url());
+  check(
+    'H1 shows Ukrainian names, groom first',
+    (await page.$eval('h1', (h) => h.textContent.replace(/\s+/g, ''))) === 'АНДРІЙтаЕЛЬФІДА'
   );
 
   // The critical GitHub Pages property: a hard reload of a deep link must not 404.
   const resp = await page.reload({ waitUntil: 'networkidle2' });
-  check('hard refresh on ?lang=ro returns 200', resp?.status() === 200, String(resp?.status()));
+  check('hard refresh on ?lang=uk returns 200', resp?.status() === 200, String(resp?.status()));
   check(
     'language survives the refresh',
-    (await page.$eval('html', (h) => h.lang)) === 'ro'
+    (await page.$eval('html', (h) => h.lang)) === 'uk'
   );
 
   await page.close();
@@ -114,11 +118,14 @@ console.log('\nNo JavaScript');
   await page.goto(BASE, { waitUntil: 'domcontentloaded' });
 
   const text = await page.evaluate(() => document.body.innerText);
-  check('names render', text.includes('АНДРІЙ') && text.includes('ЕЛЬФІДА'));
-  check('verse renders', text.includes('Двом краще'));
+  check('names render', text.includes('ANDREI') && text.includes('ELFIDA'));
+  check('verse renders', text.includes('Mai bine doi'));
+  check('story renders', text.includes('Ne-am rugat'));
   check('venue renders', text.includes('Biserica'));
-  check('full address renders', text.includes('Станівці'));
-  check('raw coordinates render as text', text.includes('48.0850197, 26.0520467'));
+  check('full address renders', text.includes('Stănești') && text.includes('Станівці'));
+  // The couple asked for the coordinate pair not to be shown. It must still be
+  // what the directions links target — that is asserted just below.
+  check('coordinates are NOT displayed as text', !text.includes('48.0850197,'));
   check('schedule renders', text.includes('11:00') && text.includes('13:00'));
 
   const hrefs = await page.$$eval('a[href]', (as) => as.map((a) => a.href));
@@ -196,8 +203,13 @@ console.log('\nMap');
   await new Promise((r) => setTimeout(r, 2000));
 
   const text = await page.evaluate(() => document.body.innerText);
-  check('with tiles blocked, coordinates still visible', text.includes('48.0850197, 26.0520467'));
-  check('with tiles blocked, address still visible', text.includes('Станівці'));
+  check('with tiles blocked, venue still visible', text.includes('Biserica'));
+  check('with tiles blocked, address still visible', text.includes('Stănești'));
+  const blockedHrefs = await page.$$eval('a[href]', (as) => as.map((a) => a.href));
+  check(
+    'with tiles blocked, directions link still targets the venue',
+    blockedHrefs.some((h) => h.includes('destination=48.0850197,26.0520467'))
+  );
 
   await page.close();
   await context.close();
@@ -224,7 +236,7 @@ console.log('\nClipboard');
   const label = await page.evaluate(
     () => [...document.querySelectorAll('button')].find((b) => b.className.includes('btn--outline'))?.textContent
   );
-  check('button confirms with "Скопійовано ✓"', label?.includes('Скопійовано'), label);
+  check('button confirms with "Copiat ✓"', label?.includes('Copiat'), label);
 
   await page.close();
   await context.close();

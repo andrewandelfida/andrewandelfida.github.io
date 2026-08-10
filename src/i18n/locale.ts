@@ -16,7 +16,7 @@
 import { isLocale, type Locale } from '../content/types';
 import { STRINGS } from '../content/strings';
 
-export const DEFAULT_LOCALE: Locale = 'uk';
+export const DEFAULT_LOCALE: Locale = 'ro';
 export const QUERY_KEY = 'lang';
 const STORAGE_KEY = 'wed_lang';
 
@@ -38,10 +38,10 @@ function safeSet(key: string, value: string): void {
 }
 
 /**
- * Priority: explicit ?lang → remembered choice → Ukrainian.
+ * Priority: explicit ?lang → remembered choice → Romanian.
  *
  * Deliberately NOT sniffing navigator.language. The invitation's default
- * language is Ukrainian, and the URL behind the printed QR code has to behave
+ * language is Romanian, and the URL behind the printed QR code has to behave
  * the same way on every phone that scans it — a guest handing their phone to
  * someone else should not get a different language because of an OS setting.
  * Guests who want another language pick it once, and the choice is then in
