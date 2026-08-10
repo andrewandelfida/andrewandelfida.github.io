@@ -234,7 +234,7 @@ Google Chrome already installed on the machine.
 
 | | |
 |---|---|
-| Lighthouse mobile — Performance | **98** (99 locally) |
+| Lighthouse mobile — Performance | **97–99** (varies with network conditions) |
 | Lighthouse mobile — Accessibility | **100** |
 | Lighthouse mobile — Best Practices | **100** |
 | Lighthouse mobile — SEO | **100** |
