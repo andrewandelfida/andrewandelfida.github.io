@@ -158,8 +158,27 @@ console.log('\nMap');
   check('Leaflet initialises once the map is scrolled into view', leafletUp);
   check('map tiles are requested only then', tileRequests.length > 0, `${tileRequests.length} tiles`);
 
-  const marker = await page.evaluate(() => !!document.querySelector('.map__marker'));
-  check('venue marker is placed', marker);
+  // Assert the marker is actually PAINTED, not merely present. Leaflet injects
+  // it as a <span>, and an inline element ignores width/height — the marker
+  // once shipped invisible while passing an exists-in-the-DOM check.
+  const marker = await page.evaluate(() => {
+    const el = document.querySelector('.map__marker');
+    if (!el) return null;
+    const r = el.getBoundingClientRect();
+    const cs = getComputedStyle(el);
+    return { w: r.width, h: r.height, display: cs.display, opacity: cs.opacity, bg: cs.backgroundColor };
+  });
+  check('venue marker exists', marker !== null);
+  check(
+    'venue marker has a visible size',
+    !!marker && marker.w >= 8 && marker.h >= 8,
+    marker ? `${Math.round(marker.w)}x${Math.round(marker.h)} display:${marker.display}` : 'absent'
+  );
+  check(
+    'venue marker is not transparent',
+    !!marker && Number(marker.opacity) > 0 && !/rgba\(0, 0, 0, 0\)/.test(marker.bg),
+    marker ? `${marker.bg} @ ${marker.opacity}` : 'absent'
+  );
 
   const attrib = await page.evaluate(
     () => document.querySelector('.leaflet-control-attribution')?.textContent ?? ''

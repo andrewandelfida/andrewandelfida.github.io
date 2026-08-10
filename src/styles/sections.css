@@ -648,9 +648,13 @@
   inset: 0;
 }
 
-/* The marker is a plain styled div — no image request, and it matches the
-   olive diamond pin the design specifies. */
+/* The marker is a plain styled element — no image request, and it matches the
+   olive diamond pin the design specifies.
+   `display:block` is load-bearing: Leaflet injects this as a <span>, and an
+   inline element ignores width/height, so the marker would collapse to nothing
+   and render invisibly while still being present in the DOM. */
 .map__marker {
+  display: block;
   width: 16px;
   height: 16px;
   background: var(--c-olive-deep);

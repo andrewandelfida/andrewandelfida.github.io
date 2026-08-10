@@ -234,15 +234,16 @@ Google Chrome already installed on the machine.
 
 | | |
 |---|---|
-| Lighthouse mobile — Performance | **99** |
+| Lighthouse mobile — Performance | **98** (99 locally) |
 | Lighthouse mobile — Accessibility | **100** |
 | Lighthouse mobile — Best Practices | **100** |
 | Lighthouse mobile — SEO | **100** |
 | WCAG AA contrast pairs | **35 / 35** |
-| End-to-end checks | **41 / 41** |
+| End-to-end checks | **43 / 43** |
 | Font/glyph checks | **70 / 70** |
 
-Measured on the placeholder state, before real photographs are added.
+Measured against the live site at https://andrewandelfida.github.io/, in the placeholder state
+before real photographs are added.
 
 ---
 
