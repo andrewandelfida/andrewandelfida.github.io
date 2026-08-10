@@ -22,7 +22,7 @@
    a landscape simply reflows — no layout ever assumes an aspect ratio.
    ========================================================================== */
 
-import { mkdir, readdir, writeFile, stat, rm } from 'node:fs/promises';
+import { mkdir, readdir, writeFile, readFile, stat, rm } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import { basename, extname, join, relative, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -68,20 +68,61 @@ async function averageColour(pipeline) {
   return '#' + [r, g, b].map((v) => v.toString(16).padStart(2, '0')).join('');
 }
 
-async function main() {
-  if (!existsSync(SRC_DIR)) {
-    console.log(
-      `No photos-src/ directory yet — nothing to process.\n` +
-        `Create it and drop originals into photos-src/hero/ and photos-src/gallery/,\n` +
-        `then run this again. Until then the site shows the design's placeholder boxes.`
-    );
-    await writeManifest({});
-    return;
+/**
+ * How many photos are currently published.
+ *
+ * This exists because photos-src/ is deliberately NOT committed — it holds the
+ * couple's full-size originals. On a fresh clone it is therefore empty, and a
+ * naive run of this script would regenerate "nothing" over the top of a site
+ * full of photographs. Refusing to do that is the difference between an
+ * inconvenience and losing the wedding photos off the live site.
+ */
+async function publishedCount() {
+  try {
+    const manifest = JSON.parse(await readFile(MANIFEST, 'utf8'));
+    return Object.keys(manifest).length;
+  } catch {
+    return 0;
   }
+}
 
-  const inputs = (await walk(SRC_DIR)).sort();
+async function main() {
+  const force = process.argv.includes('--force');
+  const alreadyPublished = await publishedCount();
+  const inputs = existsSync(SRC_DIR) ? (await walk(SRC_DIR)).sort() : [];
+
   if (inputs.length === 0) {
-    console.log('photos-src/ is empty — nothing to process.');
+    // Nothing to build FROM. If something is already published, stop —
+    // continuing would wipe public/images/ and blank the manifest.
+    if (alreadyPublished > 0 && !force) {
+      console.error(
+        `\nRefusing to run: photos-src/ is empty, but ${alreadyPublished} photo(s) are ` +
+          `currently published.\n\n` +
+          `photos-src/ holds your original photographs and is intentionally not stored in\n` +
+          `git, so it is empty on a fresh clone. Running now would delete every photo from\n` +
+          `the live site.\n\n` +
+          `  · To re-generate: put your originals back in photos-src/ and run this again.\n` +
+          `  · To change nothing: you do not need this command. Just commit and push.\n` +
+          `  · To genuinely remove all photos and return to the placeholder design:\n` +
+          `        npm run images -- --force\n`
+      );
+      process.exit(1);
+    }
+
+    if (!existsSync(SRC_DIR)) {
+      console.log(
+        `No photos-src/ directory yet — nothing to process.\n` +
+          `Create it and drop originals into photos-src/hero/ and photos-src/gallery/,\n` +
+          `then run this again. Until then the site shows the design's placeholder boxes.`
+      );
+    } else {
+      console.log('photos-src/ is empty — nothing to process.');
+    }
+
+    if (force && alreadyPublished > 0) {
+      console.log(`--force given: removing ${alreadyPublished} published photo(s).`);
+      await rm(OUT_DIR, { recursive: true, force: true });
+    }
     await writeManifest({});
     return;
   }

@@ -8,6 +8,10 @@ Chernivtsi region, Ukraine.
 That exact URL is what the printed QR code points to. Please read
 [Keeping the QR code working](#keeping-the-qr-code-working) before renaming anything on GitHub.
 
+> 📖 **[docs/MAINTENANCE.md](docs/MAINTENANCE.md) is the full maintenance guide** — step-by-step
+> instructions for swapping photos, editing wording, publishing, and undoing a mistake. Start
+> there. The rest of this README is a summary.
+
 ---
 
 ## ⚠ Two things to check before the invitations go to print
@@ -28,6 +32,9 @@ That exact URL is what the printed QR code points to. Please read
 ---
 
 ## Everyday tasks
+
+> These are summaries. [docs/MAINTENANCE.md](docs/MAINTENANCE.md) covers each one in full, plus
+> troubleshooting and how to roll back a change.
 
 ### Change any wording
 
