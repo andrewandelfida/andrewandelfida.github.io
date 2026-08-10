@@ -91,6 +91,8 @@ const uk = {
   sch2_title: 'Святковий обід', // [design]
   sch2_venue: 'у залі церкви', // [design]
   sch2_note: 'Спільна трапеза та спілкування', // [design]
+  rsvp_note:
+    'Просимо повідомити нас до 19 вересня, якщо ви не зможете бути на весіллі.', // [couple-uk]
 
   /* ---- location ------------------------------------------------------ */
   loc_head: 'Як дістатися', // [design]
@@ -162,6 +164,9 @@ const ro: Strings = {
   sch2_title: 'Recepția', // [design]
   sch2_venue: 'la sala bisericii', // [design]
   sch2_note: 'Masa festivă și părtășie', // [design]
+  /* Printed on the physical invitation; reproduced word for word. */
+  rsvp_note:
+    'Vă rugăm să ne anunțați până pe 19 septembrie dacă nu veți putea participa la nuntă.', // [couple]
 
   loc_head: 'Locația', // [design]
   loc_venue: 'Biserica „Harul”', // [design]
@@ -222,6 +227,8 @@ const en: Strings = {
   sch2_title: 'Reception', // [design]
   sch2_venue: 'at the church hall', // [design]
   sch2_note: 'A festive meal and fellowship', // [design]
+  rsvp_note:
+    'Please let us know by 19 September if you will not be able to join us.', // [couple-en]
 
   loc_head: 'Getting there', // [design]
   loc_venue: 'Biserica „Harul”', // [design]

@@ -18,11 +18,16 @@ That exact URL is what the printed QR code points to. Please read
 
 1. **The Bible verse.** The brief asked for Ecclesiastes 4:9 in Ohienko (Ukrainian), Cornilescu
    (Romanian) and WEB (English). The site uses the wording supplied in the design bundle, copied
-   character for character and never machine-translated. It is *close to* but not word-for-word
-   identical with those published editions — for example the Romanian reads
-   "se ridică unul pe altul" where Cornilescu prints "se scoală unul pe altul".
-   Please check all three against your own copies and paste in the exact wording you want.
-   They live at the top of [`src/content/strings.ts`](src/content/strings.ts).
+   character for character and never machine-translated.
+
+   **The Romanian is settled**: the printed invitation reads "se ridică unul pe altul", which is
+   what the site says, so that is your chosen wording even though Cornilescu prints "se scoală
+   unul pe altul". (The card punctuates it with a semicolon and « » quotation marks; the site
+   uses a full stop and sets it in italic without quote marks. Same words.)
+
+   **The Ukrainian and English are still unchecked** against Ohienko and WEB. If you want the
+   exact printed wording of either, paste it in at the top of
+   [`src/content/strings.ts`](src/content/strings.ts).
 
 2. **The new interface wording.** Most of the copy comes straight from the design bundle and is
    marked `// [design]`. A handful of strings did not exist there — map labels, the "skip to

@@ -2,6 +2,7 @@ import { CEREMONY_START_ISO, RECEPTION_START_ISO, SCHEDULE } from '../content/we
 import type { StringKey } from '../content/strings';
 import { useI18n } from '../i18n/useI18n';
 import { useReveal } from '../hooks/useReveal';
+import { Rule } from './Decor';
 
 const START_ISO = [CEREMONY_START_ISO, RECEPTION_START_ISO];
 
@@ -37,6 +38,17 @@ export function Schedule() {
             </li>
           ))}
         </ol>
+
+        {/*
+          The one thing on the printed card that asks the guest to act, and the
+          one with a deadline — so it closes the day's programme rather than
+          sitting in a footnote. No contact channel is given here because none
+          is printed on the invitation either; guests who need it already have it.
+        */}
+        <div className="schedule__rsvp">
+          <Rule />
+          <p className="body-copy schedule__rsvp-text">{t('rsvp_note')}</p>
+        </div>
       </div>
     </section>
   );

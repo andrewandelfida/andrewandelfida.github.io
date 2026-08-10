@@ -521,6 +521,19 @@
   color: var(--c-heading);
 }
 
+/* The reply request, closing the timeline. Uses the section rule so it reads as
+   the end of the programme rather than a detached footnote, and .body-copy so it
+   is the same voice as the story — this is a request, not fine print. */
+.schedule__rsvp {
+  max-width: var(--w-prose);
+  margin: clamp(44px, 7vw, 64px) auto 0;
+  text-align: center;
+}
+
+.schedule__rsvp-text {
+  margin-top: clamp(20px, 3vw, 28px);
+}
+
 .schedule__note {
   margin-top: var(--s-1);
   font-size: 13px;
