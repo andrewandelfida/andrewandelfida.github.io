@@ -1,0 +1,568 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-08-10T11:13:22Z",
+  "title": "Design System: Андрій та Ельфіда — Wedding Invitation",
+  "extensions": {
+    "colorMeta": {
+      "olive-ink": {
+        "role": "primary",
+        "displayName": "Olive Ink",
+        "canonical": "oklch(43.5% 0.044 119.7)",
+        "tonalRamp": [
+          "oklch(15.0% 0.044 119.7)",
+          "oklch(26.4% 0.044 119.7)",
+          "oklch(37.9% 0.044 119.7)",
+          "oklch(49.3% 0.044 119.7)",
+          "oklch(60.7% 0.044 119.7)",
+          "oklch(72.1% 0.044 119.7)",
+          "oklch(83.6% 0.044 119.7)",
+          "oklch(95.0% 0.044 119.7)"
+        ]
+      },
+      "olive-body": {
+        "role": "primary",
+        "displayName": "Olive Second Impression",
+        "canonical": "oklch(49.3% 0.031 119.0)",
+        "tonalRamp": [
+          "oklch(15.0% 0.031 119.0)",
+          "oklch(26.4% 0.031 119.0)",
+          "oklch(37.9% 0.031 119.0)",
+          "oklch(49.3% 0.031 119.0)",
+          "oklch(60.7% 0.031 119.0)",
+          "oklch(72.1% 0.031 119.0)",
+          "oklch(83.6% 0.031 119.0)",
+          "oklch(95.0% 0.031 119.0)"
+        ]
+      },
+      "olive-mid": {
+        "role": "primary",
+        "displayName": "Olive Third Impression",
+        "canonical": "oklch(50.9% 0.049 118.2)",
+        "tonalRamp": [
+          "oklch(15.0% 0.049 118.2)",
+          "oklch(26.4% 0.049 118.2)",
+          "oklch(37.9% 0.049 118.2)",
+          "oklch(49.3% 0.049 118.2)",
+          "oklch(60.7% 0.049 118.2)",
+          "oklch(72.1% 0.049 118.2)",
+          "oklch(83.6% 0.049 118.2)",
+          "oklch(95.0% 0.049 118.2)"
+        ]
+      },
+      "terracotta": {
+        "role": "secondary",
+        "displayName": "Carpathian Terracotta",
+        "canonical": "oklch(65.0% 0.098 47.1)",
+        "tonalRamp": [
+          "oklch(15.0% 0.098 47.1)",
+          "oklch(26.4% 0.098 47.1)",
+          "oklch(37.9% 0.098 47.1)",
+          "oklch(49.3% 0.098 47.1)",
+          "oklch(60.7% 0.098 47.1)",
+          "oklch(72.1% 0.098 47.1)",
+          "oklch(83.6% 0.098 47.1)",
+          "oklch(95.0% 0.098 47.1)"
+        ]
+      },
+      "verse-band": {
+        "role": "secondary",
+        "displayName": "Fired Clay",
+        "canonical": "oklch(57.2% 0.113 44.6)",
+        "tonalRamp": [
+          "oklch(15.0% 0.113 44.6)",
+          "oklch(26.4% 0.113 44.6)",
+          "oklch(37.9% 0.113 44.6)",
+          "oklch(49.3% 0.113 44.6)",
+          "oklch(60.7% 0.113 44.6)",
+          "oklch(72.1% 0.113 44.6)",
+          "oklch(83.6% 0.113 44.6)",
+          "oklch(95.0% 0.113 44.6)"
+        ]
+      },
+      "terracotta-text": {
+        "role": "secondary",
+        "displayName": "Clay Ink",
+        "canonical": "oklch(52.6% 0.111 44.5)",
+        "tonalRamp": [
+          "oklch(15.0% 0.111 44.5)",
+          "oklch(26.4% 0.111 44.5)",
+          "oklch(37.9% 0.111 44.5)",
+          "oklch(49.3% 0.111 44.5)",
+          "oklch(60.7% 0.111 44.5)",
+          "oklch(72.1% 0.111 44.5)",
+          "oklch(83.6% 0.111 44.5)",
+          "oklch(95.0% 0.111 44.5)"
+        ]
+      },
+      "verse-rule": {
+        "role": "secondary",
+        "displayName": "Clay Hairline",
+        "canonical": "oklch(84.7% 0.050 50.1)",
+        "tonalRamp": [
+          "oklch(15.0% 0.050 50.1)",
+          "oklch(26.4% 0.050 50.1)",
+          "oklch(37.9% 0.050 50.1)",
+          "oklch(49.3% 0.050 50.1)",
+          "oklch(60.7% 0.050 50.1)",
+          "oklch(72.1% 0.050 50.1)",
+          "oklch(83.6% 0.050 50.1)",
+          "oklch(95.0% 0.050 50.1)"
+        ]
+      },
+      "cream": {
+        "role": "neutral",
+        "displayName": "Cream Stock",
+        "canonical": "oklch(96.5% 0.014 88.7)",
+        "tonalRamp": [
+          "oklch(15.0% 0.014 88.7)",
+          "oklch(26.4% 0.014 88.7)",
+          "oklch(37.9% 0.014 88.7)",
+          "oklch(49.3% 0.014 88.7)",
+          "oklch(60.7% 0.014 88.7)",
+          "oklch(72.1% 0.014 88.7)",
+          "oklch(83.6% 0.014 88.7)",
+          "oklch(95.0% 0.014 88.7)"
+        ]
+      },
+      "cream-2": {
+        "role": "neutral",
+        "displayName": "Cream Fold",
+        "canonical": "oklch(93.7% 0.021 91.6)",
+        "tonalRamp": [
+          "oklch(15.0% 0.021 91.6)",
+          "oklch(26.4% 0.021 91.6)",
+          "oklch(37.9% 0.021 91.6)",
+          "oklch(49.3% 0.021 91.6)",
+          "oklch(60.7% 0.021 91.6)",
+          "oklch(72.1% 0.021 91.6)",
+          "oklch(83.6% 0.021 91.6)",
+          "oklch(95.0% 0.021 91.6)"
+        ]
+      },
+      "wash": {
+        "role": "neutral",
+        "displayName": "Clay Wash",
+        "canonical": "oklch(92.6% 0.020 60.2)",
+        "tonalRamp": [
+          "oklch(15.0% 0.020 60.2)",
+          "oklch(26.4% 0.020 60.2)",
+          "oklch(37.9% 0.020 60.2)",
+          "oklch(49.3% 0.020 60.2)",
+          "oklch(60.7% 0.020 60.2)",
+          "oklch(72.1% 0.020 60.2)",
+          "oklch(83.6% 0.020 60.2)",
+          "oklch(95.0% 0.020 60.2)"
+        ]
+      },
+      "hairline": {
+        "role": "neutral",
+        "displayName": "Hairline",
+        "canonical": "oklch(86.2% 0.034 109.0)",
+        "tonalRamp": [
+          "oklch(15.0% 0.034 109.0)",
+          "oklch(26.4% 0.034 109.0)",
+          "oklch(37.9% 0.034 109.0)",
+          "oklch(49.3% 0.034 109.0)",
+          "oklch(60.7% 0.034 109.0)",
+          "oklch(72.1% 0.034 109.0)",
+          "oklch(83.6% 0.034 109.0)",
+          "oklch(95.0% 0.034 109.0)"
+        ]
+      },
+      "header-border": {
+        "role": "neutral",
+        "displayName": "Header Rule",
+        "canonical": "oklch(90.3% 0.022 92.5)",
+        "tonalRamp": [
+          "oklch(15.0% 0.022 92.5)",
+          "oklch(26.4% 0.022 92.5)",
+          "oklch(37.9% 0.022 92.5)",
+          "oklch(49.3% 0.022 92.5)",
+          "oklch(60.7% 0.022 92.5)",
+          "oklch(72.1% 0.022 92.5)",
+          "oklch(83.6% 0.022 92.5)",
+          "oklch(95.0% 0.022 92.5)"
+        ]
+      },
+      "switch-border": {
+        "role": "neutral",
+        "displayName": "Switch Rule",
+        "canonical": "oklch(85.0% 0.035 108.9)",
+        "tonalRamp": [
+          "oklch(15.0% 0.035 108.9)",
+          "oklch(26.4% 0.035 108.9)",
+          "oklch(37.9% 0.035 108.9)",
+          "oklch(49.3% 0.035 108.9)",
+          "oklch(60.7% 0.035 108.9)",
+          "oklch(72.1% 0.035 108.9)",
+          "oklch(83.6% 0.035 108.9)",
+          "oklch(95.0% 0.035 108.9)"
+        ]
+      },
+      "switch-divider": {
+        "role": "neutral",
+        "displayName": "Switch Divider",
+        "canonical": "oklch(87.5% 0.031 109.1)",
+        "tonalRamp": [
+          "oklch(15.0% 0.031 109.1)",
+          "oklch(26.4% 0.031 109.1)",
+          "oklch(37.9% 0.031 109.1)",
+          "oklch(49.3% 0.031 109.1)",
+          "oklch(60.7% 0.031 109.1)",
+          "oklch(72.1% 0.031 109.1)",
+          "oklch(83.6% 0.031 109.1)",
+          "oklch(95.0% 0.031 109.1)"
+        ]
+      },
+      "card-border": {
+        "role": "neutral",
+        "displayName": "Card Rule",
+        "canonical": "oklch(88.9% 0.029 107.0)",
+        "tonalRamp": [
+          "oklch(15.0% 0.029 107.0)",
+          "oklch(26.4% 0.029 107.0)",
+          "oklch(37.9% 0.029 107.0)",
+          "oklch(49.3% 0.029 107.0)",
+          "oklch(60.7% 0.029 107.0)",
+          "oklch(72.1% 0.029 107.0)",
+          "oklch(83.6% 0.029 107.0)",
+          "oklch(95.0% 0.029 107.0)"
+        ]
+      },
+      "slot-fill": {
+        "role": "tertiary",
+        "displayName": "Slot Fill",
+        "canonical": "oklch(92.8% 0.024 112.0)",
+        "tonalRamp": [
+          "oklch(15.0% 0.024 112.0)",
+          "oklch(26.4% 0.024 112.0)",
+          "oklch(37.9% 0.024 112.0)",
+          "oklch(49.3% 0.024 112.0)",
+          "oklch(60.7% 0.024 112.0)",
+          "oklch(72.1% 0.024 112.0)",
+          "oklch(83.6% 0.024 112.0)",
+          "oklch(95.0% 0.024 112.0)"
+        ]
+      },
+      "slot-border": {
+        "role": "tertiary",
+        "displayName": "Slot Rule",
+        "canonical": "oklch(85.2% 0.042 114.7)",
+        "tonalRamp": [
+          "oklch(15.0% 0.042 114.7)",
+          "oklch(26.4% 0.042 114.7)",
+          "oklch(37.9% 0.042 114.7)",
+          "oklch(49.3% 0.042 114.7)",
+          "oklch(60.7% 0.042 114.7)",
+          "oklch(72.1% 0.042 114.7)",
+          "oklch(83.6% 0.042 114.7)",
+          "oklch(95.0% 0.042 114.7)"
+        ]
+      },
+      "slot-label": {
+        "role": "tertiary",
+        "displayName": "Slot Label",
+        "canonical": "oklch(51.4% 0.034 116.0)",
+        "tonalRamp": [
+          "oklch(15.0% 0.034 116.0)",
+          "oklch(26.4% 0.034 116.0)",
+          "oklch(37.9% 0.034 116.0)",
+          "oklch(49.3% 0.034 116.0)",
+          "oklch(60.7% 0.034 116.0)",
+          "oklch(72.1% 0.034 116.0)",
+          "oklch(83.6% 0.034 116.0)",
+          "oklch(95.0% 0.034 116.0)"
+        ]
+      },
+      "slot-hatch": {
+        "role": "tertiary",
+        "displayName": "Slot Hatch",
+        "canonical": "oklch(90.5% 0.028 113.6)",
+        "tonalRamp": [
+          "oklch(15.0% 0.028 113.6)",
+          "oklch(26.4% 0.028 113.6)",
+          "oklch(37.9% 0.028 113.6)",
+          "oklch(49.3% 0.028 113.6)",
+          "oklch(60.7% 0.028 113.6)",
+          "oklch(72.1% 0.028 113.6)",
+          "oklch(83.6% 0.028 113.6)",
+          "oklch(95.0% 0.028 113.6)"
+        ]
+      },
+      "selection-text": {
+        "role": "neutral",
+        "displayName": "Selection Ink",
+        "canonical": "oklch(29.2% 0.027 120.2)",
+        "tonalRamp": [
+          "oklch(15.0% 0.027 120.2)",
+          "oklch(26.4% 0.027 120.2)",
+          "oklch(37.9% 0.027 120.2)",
+          "oklch(49.3% 0.027 120.2)",
+          "oklch(60.7% 0.027 120.2)",
+          "oklch(72.1% 0.027 120.2)",
+          "oklch(83.6% 0.027 120.2)",
+          "oklch(95.0% 0.027 120.2)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "The couple's names, stacked one per line. Appears once in the document."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section headings. The gallery variant is uppercase at 0.04em."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Venue names and schedule times — serif at weight 600."
+      },
+      "quote": {
+        "displayName": "Quote",
+        "purpose": "Scripture on the terracotta band; the model for long-form italic serif."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "All prose, at weight 300 and 1.9 line-height, bounded by a 620px measure."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Tracked capitals. Spacing moves inversely with size, 0.34em down to 0.14em."
+      },
+      "script": {
+        "displayName": "Script",
+        "purpose": "Used exactly twice: the connector between the names, and the footer tagline."
+      }
+    },
+    "shadows": [
+      {
+        "name": "pin-drop",
+        "value": "0 4px 10px -4px #4e553988",
+        "purpose": "The map marker and its placeholder pin — the only literal elevation in the system. Olive-tinted at 53% alpha, never neutral black."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-reveal",
+        "value": "cubic-bezier(0.22, 0.61, 0.36, 1)",
+        "purpose": "Scroll-reveal entrance easing."
+      },
+      {
+        "name": "dur-reveal",
+        "value": "0.9s",
+        "purpose": "Scroll-reveal fade and 18px rise. Long and unhurried by intent."
+      },
+      {
+        "name": "dur-ui",
+        "value": "0.25s",
+        "purpose": "Hover and focus colour transitions on controls. Colour only — nothing moves."
+      }
+    ],
+    "breakpoints": []
+  },
+  "components": [
+    {
+      "name": "Solid Button",
+      "kind": "button",
+      "refersTo": "button-solid",
+      "description": "The primary action. Used once per view — the directions link in the location section.",
+      "html": "<a class=\"ds-btn ds-btn-solid\" href=\"#\">Obține direcții</a>",
+      "css": ".ds-btn { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 12px 22px; font-family: var(--f-sans, Montserrat, system-ui, sans-serif); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; border-radius: 999px; border: 1px solid transparent; text-decoration: none; cursor: pointer; transition: background 0.25s ease, color 0.25s ease; } .ds-btn-solid { background: var(--c-olive-deep, #4e5539); color: var(--c-cream, #f7f3e9); } .ds-btn-solid:hover { background: var(--c-olive-mid, #636a4a); color: var(--c-cream, #f7f3e9); } .ds-btn-solid:focus-visible { outline: 2px solid var(--c-olive-deep, #4e5539); outline-offset: 2px; }"
+    },
+    {
+      "name": "Outline Button",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "Secondary action, identical in footprint to the solid variant. Inverts on hover.",
+      "html": "<button class=\"ds-btn ds-btn-outline\" type=\"button\">Copiază coordonatele</button>",
+      "css": ".ds-btn-outline { background: transparent; color: var(--c-olive-deep, #4e5539); border-color: var(--c-olive-deep, #4e5539); } .ds-btn-outline:hover { background: var(--c-olive-deep, #4e5539); color: var(--c-cream, #f7f3e9); } .ds-btn-outline:focus-visible { outline: 2px solid var(--c-olive-deep, #4e5539); outline-offset: 2px; }"
+    },
+    {
+      "name": "Language Switcher",
+      "kind": "nav",
+      "refersTo": "lang-pill",
+      "description": "The only persistent control. Current language is marked by colour and weight, never by dimming the others.",
+      "html": "<div class=\"ds-langbar\"><div class=\"ds-langgroup\"><button class=\"ds-lang\" aria-pressed=\"false\" type=\"button\">УКР</button><span class=\"ds-langdiv\"></span><button class=\"ds-lang\" aria-pressed=\"true\" type=\"button\">ROM</button><span class=\"ds-langdiv\"></span><button class=\"ds-lang\" aria-pressed=\"false\" type=\"button\">ENG</button></div></div>",
+      "css": ".ds-langbar { display: flex; justify-content: center; padding: 12px; background: rgba(247, 243, 233, 0.86); backdrop-filter: blur(8px); border-bottom: 1px solid var(--c-header-border, #e4dfcf); } .ds-langgroup { display: flex; align-items: center; gap: 2px; padding: 3px; background: var(--c-cream, #f7f3e9); border: 1px solid var(--c-switch-border, #cfd0b6); border-radius: 999px; } .ds-langdiv { width: 1px; height: 14px; background: var(--c-switch-divider, #d7d8c1); } .ds-lang { border: 0; background: transparent; font-family: var(--f-sans, Montserrat, system-ui, sans-serif); font-size: 11px; font-weight: 400; letter-spacing: 0.18em; padding: 7px 14px; border-radius: 999px; color: var(--c-olive-mid, #636a4a); cursor: pointer; transition: color 0.25s ease; } .ds-lang[aria-pressed=\"true\"] { color: var(--c-olive-deep, #4e5539); font-weight: 600; } .ds-lang:hover { color: var(--c-olive-deep, #4e5539); } .ds-lang:focus-visible { outline: 2px solid var(--c-olive-deep, #4e5539); outline-offset: 2px; }"
+    },
+    {
+      "name": "Coordinates Card",
+      "kind": "card",
+      "refersTo": "coords-card",
+      "description": "Raw coordinates as selectable monospace text. One tap selects the whole pair, for guests who prefer their own navigation app.",
+      "html": "<div class=\"ds-coords\"><div class=\"ds-coords-label\">Координати</div><div class=\"ds-coords-value\">48.0850197, 26.0520467</div></div>",
+      "css": ".ds-coords { padding: 14px 16px; background: var(--c-cream, #f7f3e9); border: 1px solid var(--c-card-border, #dcdcc6); border-radius: 6px; } .ds-coords-label { font-family: var(--f-sans, Montserrat, system-ui, sans-serif); font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--c-olive-mid, #636a4a); } .ds-coords-value { margin-top: 5px; font-family: var(--f-mono, ui-monospace, SFMono-Regular, Menlo, monospace); font-size: 15px; color: var(--c-olive-deep, #4e5539); user-select: all; -webkit-user-select: all; }"
+    },
+    {
+      "name": "Section Rule",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "The signature divider and the system's only ornament: a 60px hairline, a 6px diamond, a 60px hairline. Purely decorative, hidden from assistive technology.",
+      "html": "<div class=\"ds-rule\" aria-hidden=\"true\"><span class=\"ds-rule-line\"></span><span class=\"ds-diamond\"></span><span class=\"ds-rule-line\"></span></div>",
+      "css": ".ds-rule { display: flex; align-items: center; justify-content: center; gap: 12px; } .ds-rule-line { width: 60px; height: 1px; background: var(--c-terracotta, #c07c5a); } .ds-diamond { display: inline-block; width: 6px; height: 6px; background: var(--c-terracotta, #c07c5a); transform: rotate(45deg); flex: none; }"
+    },
+    {
+      "name": "Verse Band",
+      "kind": "custom",
+      "refersTo": "verse-band",
+      "description": "The single saturated field in the document. A tracked-capital reference flanked by pale rules, then the scripture in italic serif.",
+      "html": "<section class=\"ds-verse\"><div class=\"ds-verse-ref-row\"><span class=\"ds-verse-line\"></span><span class=\"ds-verse-ref\">Екклезіяста 4:9</span><span class=\"ds-verse-line\"></span></div><blockquote class=\"ds-verse-quote\">Двом краще, ніж одному, бо мають хорошу нагороду за свою працю.</blockquote></section>",
+      "css": ".ds-verse { background: var(--c-verse-band, #ae603c); padding: clamp(80px, 14vw, 150px) clamp(22px, 6vw, 60px); text-align: center; } .ds-verse-ref-row { display: flex; align-items: center; justify-content: center; gap: 14px; } .ds-verse-line { width: 44px; height: 1px; background: var(--c-verse-rule, #e9c4b0); flex: none; } .ds-verse-ref { font-family: var(--f-sans, Montserrat, system-ui, sans-serif); font-weight: 500; font-size: 12px; letter-spacing: 0.3em; text-transform: uppercase; color: #ffffff; } .ds-verse-quote { max-width: 760px; margin: clamp(28px, 5vw, 46px) auto 0; font-family: var(--f-display, 'Playfair Display', Georgia, serif); font-style: italic; font-weight: 400; font-size: clamp(22px, 3.6vw, 40px); line-height: 1.45; color: var(--c-cream, #f7f3e9); text-wrap: pretty; }"
+    },
+    {
+      "name": "Arch Photo Slot (empty)",
+      "kind": "custom",
+      "refersTo": "photo-arch",
+      "description": "The hero portrait frame in its unfilled state. A designed empty state — it must read as a photograph not yet taken, never as one that failed to load.",
+      "html": "<div class=\"ds-photo-arch\"><span class=\"ds-photo-label\">ПОРТРЕТ 4:5</span></div>",
+      "css": ".ds-photo-arch { position: relative; display: flex; align-items: flex-end; justify-content: center; width: clamp(220px, 44vw, 360px); aspect-ratio: 4 / 5; padding-bottom: 22px; overflow: hidden; background: var(--c-slot-fill, #e7e9d7); background-image: repeating-linear-gradient(135deg, var(--c-slot-hatch, #dfe2cd) 0, var(--c-slot-hatch, #dfe2cd) 1px, transparent 1px, transparent 12px); border: 1px solid var(--c-terracotta, #c07c5a); border-radius: 999px 999px 14px 14px; } .ds-photo-label { font-family: var(--f-mono, ui-monospace, SFMono-Regular, Menlo, monospace); font-size: 11px; letter-spacing: 0.12em; color: var(--c-olive-mid, #636a4a); }"
+    },
+    {
+      "name": "Timeline Entry",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "One stop in the schedule. The only left-aligned block in the system, because its content is genuinely sequential.",
+      "html": "<ol class=\"ds-timeline\"><li class=\"ds-timeline-item\"><span class=\"ds-timeline-node\"></span><div class=\"ds-timeline-time\">11:00</div><div class=\"ds-timeline-title\">Вінчання</div><div class=\"ds-timeline-venue\">Церква „Харул\"</div><div class=\"ds-timeline-note\">Просимо прибути за 15 хвилин.</div></li></ol>",
+      "css": ".ds-timeline { position: relative; max-width: 520px; margin: 0 auto; padding: 0 0 0 clamp(30px, 7vw, 56px); list-style: none; } .ds-timeline::before { content: \"\"; position: absolute; left: clamp(6px, 2vw, 14px); top: 8px; bottom: 8px; width: 1px; background: var(--c-terracotta, #c07c5a); } .ds-timeline-item { position: relative; } .ds-timeline-node { position: absolute; left: calc(-1 * clamp(30px, 7vw, 56px) + clamp(6px, 2vw, 14px) - 5px); top: 6px; width: 11px; height: 11px; border-radius: 50%; background: var(--c-cream, #f7f3e9); border: 1.5px solid var(--c-olive-deep, #4e5539); } .ds-timeline-time { font-family: var(--f-display, 'Playfair Display', Georgia, serif); font-weight: 600; font-size: clamp(28px, 5vw, 40px); line-height: 1; color: var(--c-olive-deep, #4e5539); } .ds-timeline-title { margin-top: 10px; font-family: var(--f-sans, Montserrat, system-ui, sans-serif); font-weight: 600; font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--c-olive-mid, #636a4a); } .ds-timeline-venue { margin-top: 6px; font-family: var(--f-display, 'Playfair Display', Georgia, serif); font-weight: 600; font-size: clamp(15px, 2vw, 18px); color: var(--c-olive-deep, #4e5539); } .ds-timeline-note { margin-top: 4px; font-family: var(--f-sans, Montserrat, system-ui, sans-serif); font-size: 13px; font-weight: 300; line-height: 1.6; color: var(--c-olive-body, #5f6450); }"
+    },
+    {
+      "name": "Backdrop",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "The floral watermark behind the whole invitation. The ink is composited onto the cream in the asset itself, and the layer is masked to an ellipse so it has no visible edge.",
+      "html": "<div class=\"ds-backdrop-demo\"><div class=\"ds-backdrop\"></div><p class=\"ds-backdrop-text\">Ne-am rugat, iar Dumnezeu ne-a încrucișat drumurile.</p></div>",
+      "css": ".ds-backdrop-demo { position: relative; min-height: 220px; display: flex; align-items: center; justify-content: center; background: var(--c-cream, #f7f3e9); overflow: hidden; } .ds-backdrop { position: absolute; inset: 0; background-image: url('/backdrop.avif'); background-repeat: no-repeat; background-position: center; background-size: 124% 93%; -webkit-mask-image: radial-gradient(ellipse closest-side at center, #000 55%, transparent 100%); mask-image: radial-gradient(ellipse closest-side at center, #000 55%, transparent 100%); -webkit-mask-size: 124% 93%; mask-size: 124% 93%; -webkit-mask-position: center; mask-position: center; -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat; } .ds-backdrop-text { position: relative; max-width: 26ch; text-align: center; font-family: var(--f-sans, Montserrat, system-ui, sans-serif); font-weight: 300; font-size: 16px; line-height: 1.9; color: var(--c-olive-body, #5f6450); }"
+    },
+    {
+      "name": "Info Card",
+      "kind": "card",
+      "refersTo": null,
+      "description": "A practical note. No border, no background, no radius — structure comes from the diamond and the vertical rhythm alone.",
+      "html": "<div class=\"ds-info\"><span class=\"ds-info-diamond\"></span><h3 class=\"ds-info-title\">Як дістатися</h3><p class=\"ds-info-body\">Церква розташована в центрі села, поруч із головною дорогою.</p></div>",
+      "css": ".ds-info { flex: 1 1 240px; max-width: 280px; text-align: center; } .ds-info-diamond { display: inline-block; width: 8px; height: 8px; background: var(--c-terracotta, #c07c5a); transform: rotate(45deg); } .ds-info-title { margin: 16px 0 0; font-family: var(--f-sans, Montserrat, system-ui, sans-serif); font-weight: 600; font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--c-olive-deep, #4e5539); } .ds-info-body { margin: 12px 0 0; font-family: var(--f-sans, Montserrat, system-ui, sans-serif); font-size: 14px; font-weight: 300; line-height: 1.8; color: var(--c-olive-body, #5f6450); text-wrap: pretty; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Pressed Invitation",
+    "overview": "The page is the card. Everything on screen behaves as though it were struck onto cream stock in two passes of ink — olive for the text, Carpathian terracotta for the ornament — and nothing appears that a press could not have produced. There are no gradients standing in for light, no drop shadows standing in for paper, no rounded rectangles standing in for surfaces. Rules are hairlines. Ornaments are diamonds. The one moment of colour is a solid block, the way a second ink plate covers a panel.\n\nThe mood is warm and hand-made and reverent and unhurried. Body text runs at a 1.9 line-height and uppercase runs are tracked as wide as 0.34em, which makes the page physically slow to read — deliberately. A guest arrives here by pointing a phone at a printed invitation, and the screen's job is to feel like a continuation of the paper in their other hand, not a departure from it. Warmth comes from the pigments and from the script face used at exactly two moments; formality comes from the serif, the symmetry, and the space.\n\nComposition works by interruption. Long stretches of centred cream are broken twice: once by an arched portrait, once by a solid terracotta band carrying the verse. Those two gestures carry the entire structure of the page. Everything else is typography and air.",
+    "keyCharacteristics": [
+      "Cream ground, olive ink, a single terracotta interruption",
+      "A floral watermark behind the cream, at the strongest opacity that still clears AA",
+      "Serif display, sans body, script signature — three voices, never a fourth",
+      "Hairline borders only; no border is thicker than 1px anywhere in the system",
+      "Symmetrical and centred by default; asymmetry must be earned by function",
+      "Fluid throughout — the system has no width breakpoints at all",
+      "Ornament is limited to one shape: a 45°-rotated square"
+    ],
+    "rules": [
+      {
+        "name": "The Single Interruption Rule",
+        "section": "colors",
+        "body": "Terracotta appears as a solid field exactly once in the document — the verse band. A second saturated block would turn an interruption into a pattern and the composition would lose its only structural accent."
+      },
+      {
+        "name": "The Decorative-Only Rule",
+        "section": "colors",
+        "body": "#c07c5a never carries text. It is exempt from contrast requirements precisely because it is only ever a diamond, a rule, or a border. Terracotta that must be read is #9e5330."
+      },
+      {
+        "name": "The Measured Deviation Rule",
+        "section": "colors",
+        "body": "A palette value may be darkened to reach contrast; it may never be lightened for taste. Every deviation records its original value and its measured ratio in a comment beside it, and `npm run check:contrast` re-verifies all 35 pairs."
+      },
+      {
+        "name": "The Three Voices Rule",
+        "section": "typography",
+        "body": "Playfair speaks (names, headings, venue, verse), Montserrat labels (eyebrows, body, controls, notes), Marck Script signs — and it signs exactly twice. A fourth face is unavailable: the fonts ship as content-derived subsets, so a new face means a new download on a rural connection."
+      },
+      {
+        "name": "The Spaced Capital Rule",
+        "section": "typography",
+        "body": "No uppercase run is set without tracking. The floor is 0.14em and the ceiling is 0.34em, and the two move inversely with size. Uppercase at normal tracking is not part of this system."
+      },
+      {
+        "name": "The Comma-Below Rule",
+        "section": "typography",
+        "body": "ș and ț must render with a comma below, never a cedilla. A cedilla is a spelling error to a Romanian reader, not a stylistic variant. Any change to the type stack is verified by pixel comparison before it ships."
+      },
+      {
+        "name": "The Full-Alphabet Rule",
+        "section": "typography",
+        "body": "Every shipped weight must render both full Ukrainian Cyrillic and Romanian diacritics. A weight that exists in only one script cannot be used, because the same component renders in all three languages."
+      },
+      {
+        "name": "The No-Breakpoint Rule",
+        "section": "layout",
+        "body": "This system contains no width-based media queries whatsoever. Every size, gap and measure is a clamp() or a flex basis, so the layout is continuous rather than stepped. Adding a min-width block means the design has failed to express itself fluidly — fix the clamp instead."
+      },
+      {
+        "name": "The Small-Viewport Rule",
+        "section": "layout",
+        "body": "The hero measures in svh, never vh and never dvh. vh overflows behind mobile browser chrome and hides the date; dvh resizes as the address bar collapses and makes the page jump mid-scroll."
+      },
+      {
+        "name": "The Centre Line Rule",
+        "section": "layout",
+        "body": "Centred is the default. A section may break alignment only when its content is genuinely sequential (the timeline) or genuinely paired (the location), and never for visual variety alone."
+      },
+      {
+        "name": "The Arch Rule",
+        "section": "shapes",
+        "body": "999px 999px 14px 14px belongs to the hero portrait alone. It is the page's one architectural gesture and it stops being architectural the moment a second element borrows it."
+      },
+      {
+        "name": "The Hairline Rule",
+        "section": "shapes",
+        "body": "Every border is 1px, in a tone selected for the surface it sits on rather than a single generic grey. A thicker border is a signal this system does not have."
+      },
+      {
+        "name": "The One Ornament Rule",
+        "section": "shapes",
+        "body": "There is exactly one decorative shape. New sections do not get new motifs; they get the diamond at whichever of the four sizes fits."
+      },
+      {
+        "name": "The Watermark Ceiling Rule",
+        "section": "components",
+        "body": "The backdrop ink sits at 7% and cannot go higher. Every stroke darkens the ground behind whatever text crosses it, and two pairs have almost no headroom left: at 9% the footer tagline falls to 4.46:1 and fails AA. 7% is the strongest the drawing can be while the page still passes. Below 5% it is invisible on a phone in daylight, so the usable range is one band wide."
+      },
+      {
+        "name": "The 44px Rule",
+        "section": "components",
+        "body": "Every interactive target clears 44px in its smallest dimension. Inline links that cannot take a min-height take 6px of vertical padding instead. The audience uses this one-handed, in portrait."
+      },
+      {
+        "name": "The Never-Dim Rule",
+        "section": "components",
+        "body": "State is never expressed as opacity on text. Dimming composites the foreground toward the background and silently destroys contrast — opacity: .5 on the language pills measured 2.28:1. Quiet-versus-current is expressed with colour and weight, both above 4.5:1."
+      },
+      {
+        "name": "The Visible-Without-Script Rule",
+        "section": "components",
+        "body": "Reveal-on-scroll hides content only after JavaScript has confirmed it can also un-hide it. Nothing is styled opacity: 0 or display: none at rest and revealed later by a script that might not run."
+      }
+    ],
+    "dos": [
+      "Do put every new value in src/styles/tokens.css first. No component may hardcode a hex, a font stack, or a type size — if a value is worth using it is worth naming.",
+      "Do run `npm run check:contrast` after touching any colour. It checks 35 pairs including composited opacity, and it is the reason the palette can be trusted.",
+      "Do express a new size as a clamp() between a 360px phone and a 1440px desktop.",
+      "Do reach for the diamond, the hairline rule, or tonal ground when a new section needs separation.",
+      "Do darken a colour to meet AA and record the original value and the measured ratio in a comment beside it.",
+      "Do design the empty state and the loaded state as the same box, so replacing a portrait with a landscape reflows rather than breaks.",
+      "Do keep the third olive (#636a4a) as the floor of the text hierarchy. Anything quieter than that is not text, it is decoration."
+    ],
+    "donts": [
+      "Don't add a width-based media query. Fix the clamp().",
+      "Don't use #c07c5a for text. Use #9e5330.",
+      "Don't introduce a second solid terracotta field. There is one, and it holds the verse.",
+      "Don't express state with opacity on anything containing text.",
+      "Don't add a fourth typeface, or a weight outside the shipped ranges — Playfair 400–600 normal and 400–500 italic, Montserrat 300–600, Marck Script 400. The subsets contain nothing else.",
+      "Don't use vh or dvh for full-height layout. svh, always.",
+      "Don't reach for a shadow as the default way to separate two surfaces — use tonal ground or a hairline. Elevation is not forbidden here, but it is currently unused outside the map pin, so introducing it is a system-level decision rather than a local one.",
+      "Don't raise the backdrop's ink opacity above 7%, or place body text on a section that shows the backdrop without re-running npm run check:contrast — the watermark is part of the background those pairs are measured against.",
+      "Don't set uppercase without letter-spacing, or below 0.14em.",
+      "Don't exceed a 1px border. The 1.5px timeline node ring is the system's only exception and it is not a precedent.",
+      "Don't let a new element be visible only after JavaScript runs."
+    ]
+  }
+}

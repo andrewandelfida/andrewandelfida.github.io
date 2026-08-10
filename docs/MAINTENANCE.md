@@ -13,6 +13,7 @@ without knowing how any of it works.
 - [The one rule](#the-one-rule)
 - [Before you start (first time only)](#before-you-start-first-time-only)
 - [Swapping the photographs](#swapping-the-photographs)
+- [Changing the background drawing](#changing-the-background-drawing)
 - [Changing the wording](#changing-the-wording)
 - [Changing dates, times and the venue](#changing-dates-times-and-the-venue)
 - [Changing the schedule](#changing-the-schedule)
@@ -199,6 +200,55 @@ npm run images -- --force
 
 ---
 
+## Changing the background drawing
+
+The pale floral drawing behind the whole page is built from a single file:
+
+```
+assets-src/backdrop.svg
+```
+
+To change it, put a different drawing there under the same name and run:
+
+```bash
+npm run backdrop
+```
+
+Then check it, commit and push:
+
+```bash
+npm run build
+npm run serve          # look at it at http://localhost:4173
+git add -A && git commit -m "New background drawing" && git push
+```
+
+### What the command does for you
+
+- **Recolours the drawing** to the page's olive. The file can be any colour — black line art is
+  fine — it does not need to be prepared in advance.
+- **Removes a white background** if the drawing has one, so the cream page shows through.
+- **Takes the colours from `src/styles/tokens.css`**, so the background always matches the page.
+  If you change the cream or the olive, run `npm run backdrop` again.
+- **Shrinks it drastically.** The drawing supplied was 1.9 MB; what actually gets sent to a
+  guest's phone is about 10 KB.
+
+### What kind of drawing works
+
+**Line art only.** The drawing is printed very faintly — at 7% strength — so that text stays
+readable on top of it. Anything solid, dark, or photographic disappears into a smudge at that
+strength.
+
+That 7% is not a preference, it is the ceiling. Two pieces of text on the site sit close to the
+minimum readable contrast, and at 9% they drop below the accessibility standard. If you try to
+make the background stronger, `npm run check:contrast` will fail and tell you which text broke.
+
+### If you don't want a background at all
+
+Delete the `body::before` block in [`src/styles/base.css`](../src/styles/base.css). It is one
+self-contained rule, clearly commented, and nothing else depends on it.
+
+---
+
 ## Changing the wording
 
 **All the words on the site, in all three languages, are in one file:**
@@ -206,6 +256,9 @@ npm run images -- --force
 
 Each entry appears three times — once under `uk` (Ukrainian), once under `ro` (Romanian), once
 under `en` (English). Find the one you want and edit all three.
+
+> Romanian is the language the site opens in, so if you only have time to check one, check that
+> one. See “The default language” in the README if you ever want to change which it is.
 
 ```ts
 story_head: 'Дорога, що привела нас сюди',   // in the uk section
@@ -239,6 +292,9 @@ npm run check:glyphs   # in another
 - `// [design]` — wording that came from the original design brief. Think before changing it.
 - `// [new]` — wording written during the build (map labels, the Waze button, the "skip to
   content" link). Safe to reword.
+- `// [couple]` — your own words, used exactly as you gave them.
+- `// [couple-uk]` / `// [couple-en]` — translations of a `[couple]` string. They carry the same
+  meaning, but nobody has checked the wording. Worth a second pair of eyes.
 
 ### ⚠ The Bible verse
 
@@ -255,7 +311,8 @@ or a translation tool.
 [`src/content/wedding.ts`](../src/content/wedding.ts) holds the facts.
 
 **The venue's coordinates** — used by the map, the "get directions" button, the Waze link and the
-copy-to-clipboard button. Change it in one place:
+copy-to-clipboard button. They are no longer printed on the page, but they are still what every
+route actually targets, so this is the one number that must be right. Change it in one place:
 
 ```ts
 export const VENUE = {
@@ -366,8 +423,8 @@ That runs three sets of checks:
 
 | Command | What it checks |
 |---|---|
-| `npm run check:contrast` | All 35 text/background pairs meet WCAG AA |
-| `npm run test:e2e` | 43 checks: language switching, the map, the page working without JavaScript, keyboard access, no console errors |
+| `npm run check:contrast` | All 47 text/background pairs meet WCAG AA |
+| `npm run test:e2e` | 46 checks: language switching, the map, the page working without JavaScript, keyboard access, no console errors |
 | `npm run check:glyphs` | The fonts contain every character your text uses |
 
 To see how it looks at every screen size:
@@ -439,7 +496,7 @@ git add -A && git commit -m "Update fonts" && git push
 The map is deliberately optional. It loads only when you scroll to it, and if OpenStreetMap is
 unreachable it stays as a plain grid with the venue name.
 
-**This is not an emergency**: the address, the coordinates and all three directions links are
+**This is not an emergency**: the venue name, the full address and all three directions links are
 ordinary text and links on the page, and work regardless. That was designed for guests arriving in
 a village with weak signal.
 
@@ -544,6 +601,7 @@ is a much kinder thing for someone to find in 2035 than a 404.
 | `npm run serve` | Serve the built site at `http://localhost:4173`, behaving like GitHub Pages |
 | `npm run images` | Turn `photos-src/` photos into web-ready sizes ⚠ *rebuilds from scratch* |
 | `npm run fonts` | Rebuild the trimmed fonts — **run after editing any text** |
+| `npm run backdrop` | Rebuild the floral background from `assets-src/backdrop.svg` |
 | `npm run verify` | Run all the checks below |
 | `npm run check:contrast` | Every text/background pair against WCAG AA |
 | `npm run check:glyphs` | Fonts cover every character the text uses |
@@ -563,6 +621,7 @@ The last three need `npm run serve` running in another terminal, and Google Chro
 | Dates as guests read them | `src/content/strings.ts` |
 | The schedule entries | `src/content/wedding.ts` + `strings.ts` |
 | The "good to know" cards | `src/content/wedding.ts` + `strings.ts` |
+| The floral background drawing | `assets-src/backdrop.svg`, then `npm run backdrop` |
 | Colours, text sizes, spacing | `src/styles/tokens.css` |
 | The layout of a section | `src/styles/sections.css` |
 | Which sections appear, and their order | `src/App.tsx` |
@@ -574,6 +633,7 @@ The last three need `npm run serve` running in another terminal, and Google Chro
 | `src/styles/fonts.css` | Regenerated by `npm run fonts` |
 | `src/content/image-manifest.json` | Regenerated by `npm run images` |
 | `public/fonts/`, `public/images/` | Generated |
+| `public/backdrop.avif`, `public/backdrop.webp` | Regenerated by `npm run backdrop` |
 | `dist/` | The built site; rebuilt every time |
 
 ### How the site is put together

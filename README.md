@@ -14,7 +14,7 @@ That exact URL is what the printed QR code points to. Please read
 
 ---
 
-## ⚠ Two things to check before the invitations go to print
+## ⚠ Three things to check before the invitations go to print
 
 1. **The Bible verse.** The brief asked for Ecclesiastes 4:9 in Ohienko (Ukrainian), Cornilescu
    (Romanian) and WEB (English). The site uses the wording supplied in the design bundle, copied
@@ -28,6 +28,25 @@ That exact URL is what the printed QR code points to. Please read
    marked `// [design]`. A handful of strings did not exist there — map labels, the "skip to
    content" link, the Waze button — and are marked `// [new]`. Those are worth a native speaker's
    glance before printing.
+
+3. **The translated story.** The "Povestea noastră" paragraph is the couple's own Romanian
+   wording, marked `// [couple]`. The Ukrainian and English versions are translations of it,
+   marked `// [couple-uk]` and `// [couple-en]`, and nobody has checked them yet.
+
+---
+
+## The default language is Romanian
+
+The bare URL — the one behind the printed QR code — opens in **Romanian**. Ukrainian and
+English are one tap away, and `?lang=uk` / `?lang=en` are shareable links that open directly
+in that language.
+
+The default is fixed rather than guessed from the phone's settings, so every scan of the
+printed code behaves the same way, including when a guest hands their phone to someone else.
+
+To change it, edit `DEFAULT_LOCALE` in [`src/i18n/locale.ts`](src/i18n/locale.ts) — and also
+update `<html lang>`, the title and the `og:` tags in `index.html`, which describe the default
+language to link previews and crawlers before any script runs.
 
 ---
 
@@ -104,6 +123,32 @@ This is designed so you never have to touch code after the photoshoot.
   somewhere safe of your own.**
 - To change the alt text a screen reader announces, edit the `alt` entries in
   `src/content/wedding.ts`.
+
+### Change the background artwork
+
+The floral drawing behind the page is generated from one file:
+
+```
+assets-src/backdrop.svg      ← replace this with your own line drawing
+```
+
+Then run:
+
+```bash
+npm run backdrop
+git add -A && git commit -m "New backdrop" && git push
+```
+
+That produces `public/backdrop.avif` and `.webp`. A few things it does for you:
+
+- **Recolours the drawing** to the page's olive, whatever colour the file itself uses. Any
+  line art works; it does not need to be olive already.
+- **Removes a white background plate** if the file has one, so the cream shows through.
+- **Reads the colours from `tokens.css`**, so the backdrop always matches the page.
+
+**Keep it line art.** The drawing is printed at 7% strength, which is the most it can be
+before text on top of it stops meeting the contrast standard — `npm run check:contrast`
+will fail if you push past that. Solid or dark artwork will not work at that strength.
 
 ### Publish changes
 
@@ -200,7 +245,14 @@ Three deliberate departures, all documented in the code where they occur:
 2. **The verse band is `#AE603C`, not `#B5643F`.** Its 12px reference line could not reach AA on
    the original even in pure white (4.32:1). A ~3% darkening was the smallest change that keeps
    the signature terracotta block intact.
-3. **There is no RSVP section.** It was removed at the couple's request. It existed only to hold a
+3. **There is a floral backdrop the design bundle does not have.** The design is imagery-free
+   cream; the couple asked for a drawing behind the page. It is composited onto the cream at 7%
+   — measured as the strongest it can be while every text pair still meets AA — and faded out at
+   its edges so it has no visible boundary. See `scripts/generate-backdrop.mjs`.
+4. **The coordinates are no longer shown.** The location section used to print
+   `48.0850197, 26.0520467` as selectable text; the couple asked for it to go. Every directions
+   link and the copy button still use the exact pair, so navigation is unaffected.
+5. **There is no RSVP section.** It was removed at the couple's request. It existed only to hold a
    reply form, and an olive "confirm your attendance" panel with no way to reply would be a dead
    end. To restore it, add a `<Rsvp />` section back in `src/App.tsx` — the note there explains
    what else it needs.
@@ -241,16 +293,15 @@ Google Chrome already installed on the machine.
 
 | | |
 |---|---|
-| Lighthouse mobile — Performance | **97–99** (varies with network conditions) |
+| Lighthouse mobile — Performance | **96** (desktop: 100) |
 | Lighthouse mobile — Accessibility | **100** |
 | Lighthouse mobile — Best Practices | **100** |
 | Lighthouse mobile — SEO | **100** |
-| WCAG AA contrast pairs | **35 / 35** |
-| End-to-end checks | **43 / 43** |
+| WCAG AA contrast pairs | **47 / 47** |
+| End-to-end checks | **46 / 46** |
 | Font/glyph checks | **70 / 70** |
 
-Measured against the live site at https://andrewandelfida.github.io/, in the placeholder state
-before real photographs are added.
+Measured against the live site at https://andrewandelfida.github.io/.
 
 ---
 
@@ -275,6 +326,7 @@ src/
 scripts/
   fetch-fonts.mjs     downloads + subsets the fonts
   generate-images.mjs turns your photos into web-ready sizes
+  generate-backdrop.mjs turns assets-src/backdrop.svg into the page backdrop
   prerender.mjs       bakes the page into static HTML at build time
   serve.mjs           local preview that behaves like GitHub Pages
   check-contrast.mjs  WCAG AA audit
@@ -283,7 +335,8 @@ scripts/
   shots.mjs           responsive screenshots
 
 photos-src/         ← PUT YOUR PHOTOS HERE (not committed)
-public/             fonts, images and icons served as-is
+assets-src/         backdrop.svg — the source of the floral background
+public/             fonts, images, the backdrop and icons served as-is
 docs/design/        the original design bundle
 .github/workflows/  the deploy workflow
 ```
