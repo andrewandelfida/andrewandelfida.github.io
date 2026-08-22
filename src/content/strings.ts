@@ -93,6 +93,8 @@ const uk = {
   sch2_note: 'Спільна трапеза та спілкування', // [design]
   rsvp_note:
     'Просимо повідомити нас до 19 вересня, якщо ви не зможете бути на весіллі.', // [couple-uk]
+  rsvp_phone_lead: 'Телефонуйте або пишіть:', // [new]
+  rsvp_phone_label: 'Зателефонувати за номером', // [new] — screen-reader prefix
 
   /* ---- location ------------------------------------------------------ */
   loc_head: 'Як дістатися', // [design]
@@ -167,6 +169,8 @@ const ro: Strings = {
   /* Printed on the physical invitation; reproduced word for word. */
   rsvp_note:
     'Vă rugăm să ne anunțați până pe 19 septembrie dacă nu veți putea participa la nuntă.', // [couple]
+  rsvp_phone_lead: 'Ne puteți suna sau scrie la:', // [new]
+  rsvp_phone_label: 'Sunați la numărul', // [new] — screen-reader prefix
 
   loc_head: 'Locația', // [design]
   loc_venue: 'Biserica „Harul”', // [design]
@@ -229,6 +233,8 @@ const en: Strings = {
   sch2_note: 'A festive meal and fellowship', // [design]
   rsvp_note:
     'Please let us know by 19 September if you will not be able to join us.', // [couple-en]
+  rsvp_phone_lead: 'Call or message us on:', // [new]
+  rsvp_phone_label: 'Call', // [new] — screen-reader prefix
 
   loc_head: 'Getting there', // [design]
   loc_venue: 'Biserica „Harul”', // [design]

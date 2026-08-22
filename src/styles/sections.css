@@ -534,6 +534,36 @@
   margin-top: clamp(20px, 3vw, 28px);
 }
 
+/* The reply line. The lead sits at body weight and the number one step darker
+   and heavier, so the eye lands on the thing it has to dial — bolder, not
+   louder: same family, same size, no button. */
+.schedule__rsvp-contact {
+  margin-top: var(--s-4);
+  font-size: var(--t-body);
+  line-height: var(--lh-body);
+  color: var(--c-text);
+}
+
+.schedule__rsvp-lead {
+  font-weight: 300;
+}
+
+.schedule__rsvp-phone {
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--c-heading);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  /* The number is a phone link on a touch screen; keep it easy to hit without
+     breaking the sentence it sits in. */
+  padding: var(--s-2) 0;
+  white-space: nowrap;
+}
+
+.schedule__rsvp-phone:hover {
+  color: var(--c-link-hover);
+}
+
 .schedule__note {
   margin-top: var(--s-1);
   font-size: 13px;

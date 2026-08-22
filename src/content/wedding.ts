@@ -38,6 +38,16 @@ export const MAP_LINKS = {
   osmCopyright: 'https://www.openstreetmap.org/copyright',
 } as const;
 
+/**
+ * The number guests reply to. `tel` is the E.164 form the dialler needs;
+ * `display` is the same number spaced for reading, and the two must stay in
+ * step — the spaces are the only difference between them.
+ */
+export const RSVP_PHONE = {
+  tel: '+380982748175',
+  display: '+380 98 274 81 75',
+} as const;
+
 /** Machine-readable date for <time> elements and structured data. */
 export const WEDDING_DATE_ISO = '2026-10-03';
 export const CEREMONY_START_ISO = '2026-10-03T11:00:00+03:00';

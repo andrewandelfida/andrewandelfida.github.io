@@ -1,4 +1,9 @@
-import { CEREMONY_START_ISO, RECEPTION_START_ISO, SCHEDULE } from '../content/wedding';
+import {
+  CEREMONY_START_ISO,
+  RECEPTION_START_ISO,
+  RSVP_PHONE,
+  SCHEDULE,
+} from '../content/wedding';
 import type { StringKey } from '../content/strings';
 import { useI18n } from '../i18n/useI18n';
 import { useReveal } from '../hooks/useReveal';
@@ -42,12 +47,23 @@ export function Schedule() {
         {/*
           The one thing on the printed card that asks the guest to act, and the
           one with a deadline — so it closes the day's programme rather than
-          sitting in a footnote. No contact channel is given here because none
-          is printed on the invitation either; guests who need it already have it.
+          sitting in a footnote. The phone number follows immediately: a request
+          with a deadline needs somewhere to send the reply. Here it is a tel:
+          link, which is the one thing the printed card cannot offer.
         */}
         <div className="schedule__rsvp">
           <Rule />
           <p className="body-copy schedule__rsvp-text">{t('rsvp_note')}</p>
+          <p className="schedule__rsvp-contact">
+            <span className="schedule__rsvp-lead">{t('rsvp_phone_lead')}</span>{' '}
+            <a
+              className="schedule__rsvp-phone"
+              href={`tel:${RSVP_PHONE.tel}`}
+              aria-label={`${t('rsvp_phone_label')} ${RSVP_PHONE.display}`}
+            >
+              {RSVP_PHONE.display}
+            </a>
+          </p>
         </div>
       </div>
     </section>
