@@ -260,7 +260,10 @@ Three deliberate departures, all documented in the code where they occur:
 5. **There is no RSVP section.** It was removed at the couple's request. It existed only to hold a
    reply form, and an olive "confirm your attendance" panel with no way to reply would be a dead
    end. To restore it, add a `<Rsvp />` section back in `src/App.tsx` — the note there explains
-   what else it needs.
+   what else it needs. What survives of it is one line at the end of the schedule: the card's
+   reply-by date, and the couple's phone number as a `tel:` link. That number lives in
+   `RSVP_PHONE` in [`src/content/wedding.ts`](src/content/wedding.ts) and is also printed on the
+   card — change it in both places or neither.
 
 ---
 

@@ -83,8 +83,9 @@ corrected, and the URL can never change afterwards.
 
 **Deliberately not built**
 
-- **No RSVP.** Removed at the couple's request. There is no reply mechanism on the site at
-  all, and no contact panel — the couple confirmed the content is complete without one.
+- **No RSVP.** Removed at the couple's request: there is no reply form, and no contact panel.
+  The reply itself happens off the site — the schedule closes with the card's reply-by date and
+  the couple's phone number as a `tel:` link, which is the whole of the contact surface.
 
 **Product facts still open**
 
