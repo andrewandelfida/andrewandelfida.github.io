@@ -85,7 +85,8 @@ corrected, and the URL can never change afterwards.
 
 - **No RSVP.** Removed at the couple's request: there is no reply form, and no contact panel.
   The reply itself happens off the site — the schedule closes with the card's reply-by date and
-  the couple's phone number as a `tel:` link, which is the whole of the contact surface.
+  the couple's two phone numbers as `tel:` links, one named line each, which is the whole of the
+  contact surface.
 
 **Product facts still open**
 

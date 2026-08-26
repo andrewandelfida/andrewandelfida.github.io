@@ -534,18 +534,59 @@
   margin-top: clamp(20px, 3vw, 28px);
 }
 
-/* The reply line. The lead sits at body weight and the number one step darker
+/* The reply lines. The lead sits at body weight and the numbers one step darker
    and heavier, so the eye lands on the thing it has to dial — bolder, not
    louder: same family, same size, no button. */
-.schedule__rsvp-contact {
+.schedule__rsvp-lead {
   margin-top: var(--s-4);
+  font-size: var(--t-body);
+  line-height: var(--lh-body);
+  font-weight: 300;
+  color: var(--c-text);
+}
+
+/* One contact per line, both centred on the same axis as everything else in
+   this block. No bullets and no rules between them: two lines of type do not
+   need furniture to be read as two things. */
+.schedule__rsvp-contacts {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.schedule__rsvp-contact {
   font-size: var(--t-body);
   line-height: var(--lh-body);
   color: var(--c-text);
 }
 
-.schedule__rsvp-lead {
+/* Two stacked phone links would otherwise share an edge, and a thumb landing on
+   the boundary would dial whichever side of it won by a pixel. */
+.schedule__rsvp-contact + .schedule__rsvp-contact {
+  margin-top: var(--s-1);
+}
+
+/* The name is who you are calling, not a link to anywhere, so it stays plain
+   and one weight lighter than the number beside it.
+
+   The reserved width is what makes the two middots sit on one vertical axis:
+   without it each line centres on its own length and "Ельфіда" pushes its
+   number ~10px right of "Андрій"'s. 5.5em clears the longest of the six names
+   the three languages use (Ельфіда), and if a longer one ever appears the
+   column simply grows — the lines lose their shared axis rather than clipping. */
+.schedule__rsvp-name {
+  display: inline-block;
+  min-width: 5.5em;
+  text-align: right;
   font-weight: 300;
+}
+
+/* The same middot the date line uses, one step lighter than either thing it
+   sits between so it separates without competing. Hidden from screen readers,
+   which get the name and the number as separate pieces of the list item. */
+.schedule__rsvp-sep {
+  margin: 0 0.5em;
+  color: var(--c-muted);
 }
 
 .schedule__rsvp-phone {
@@ -554,9 +595,12 @@
   color: var(--c-heading);
   text-decoration: underline;
   text-underline-offset: 3px;
-  /* The number is a phone link on a touch screen; keep it easy to hit without
-     breaking the sentence it sits in. */
-  padding: var(--s-2) 0;
+  /* Each number is a phone link on a touch screen. 8px of padding on a 15px
+     body at 1.9 line-height is what carries the row over the 44px minimum
+     target this design commits to, at the 320px width where the type is
+     smallest. */
+  display: inline-block;
+  padding: var(--s-3) 0;
   white-space: nowrap;
 }
 

@@ -261,9 +261,12 @@ Three deliberate departures, all documented in the code where they occur:
    reply form, and an olive "confirm your attendance" panel with no way to reply would be a dead
    end. To restore it, add a `<Rsvp />` section back in `src/App.tsx` — the note there explains
    what else it needs. What survives of it is one line at the end of the schedule: the card's
-   reply-by date, and the couple's phone number as a `tel:` link. That number lives in
-   `RSVP_PHONE` in [`src/content/wedding.ts`](src/content/wedding.ts) and is also printed on the
-   card — change it in both places or neither.
+   reply-by date, and both of the couple's phone numbers as `tel:` links — one line each,
+   named, because a guest holding two bare numbers cannot tell whose is whose. They live in
+   `RSVP_CONTACTS` in [`src/content/wedding.ts`](src/content/wedding.ts) and are also printed on
+   the card — change them in both places or neither. The names come from `rsvp_name_groom` /
+   `rsvp_name_bride`, so each language shows the form it uses elsewhere (Андрій / Andrei /
+   Andrew).
 
 ---
 

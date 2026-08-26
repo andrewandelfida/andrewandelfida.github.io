@@ -39,14 +39,20 @@ export const MAP_LINKS = {
 } as const;
 
 /**
- * The number guests reply to. `tel` is the E.164 form the dialler needs;
- * `display` is the same number spaced for reading, and the two must stay in
- * step — the spaces are the only difference between them.
+ * The numbers guests reply to — one each, because either of us can take the
+ * call and a guest should not have to guess which. `tel` is the E.164 form the
+ * dialler needs; `display` is the same number spaced for reading, and the two
+ * must stay in step: the spaces are the only difference between them. The name
+ * is a string key rather than a literal, so each language shows the form of the
+ * name it uses elsewhere on the page (Андрій / Andrei / Andrew).
+ *
+ * Order is groom then bride, matching the display order of the names in the
+ * hero and the footer.
  */
-export const RSVP_PHONE = {
-  tel: '+380982748175',
-  display: '+380 98 274 81 75',
-} as const;
+export const RSVP_CONTACTS = [
+  { nameKey: 'rsvp_name_groom', tel: '+380982748175', display: '+380 98 274 81 75' },
+  { nameKey: 'rsvp_name_bride', tel: '+380681931700', display: '+380 68 193 17 00' },
+] as const;
 
 /** Machine-readable date for <time> elements and structured data. */
 export const WEDDING_DATE_ISO = '2026-10-03';

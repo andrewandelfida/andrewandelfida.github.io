@@ -95,6 +95,10 @@ const uk = {
     'Просимо повідомити нас до 19 вересня, якщо ви не зможете бути на весіллі.', // [couple-uk]
   rsvp_phone_lead: 'Телефонуйте або пишіть:', // [new]
   rsvp_phone_label: 'Зателефонувати за номером', // [new] — screen-reader prefix
+  /* Sentence case, not the hero's АНДРІЙ / ЕЛЬФІДА: this is a name beside a
+     number, not a title. */
+  rsvp_name_groom: 'Андрій', // [new]
+  rsvp_name_bride: 'Ельфіда', // [new]
 
   /* ---- location ------------------------------------------------------ */
   loc_head: 'Як дістатися', // [design]
@@ -171,6 +175,8 @@ const ro: Strings = {
     'Vă rugăm să ne anunțați până pe 19 septembrie dacă nu veți putea participa la nuntă.', // [couple]
   rsvp_phone_lead: 'Ne puteți suna sau scrie la:', // [new]
   rsvp_phone_label: 'Sunați la numărul', // [new] — screen-reader prefix
+  rsvp_name_groom: 'Andrei', // [new]
+  rsvp_name_bride: 'Elfida', // [new]
 
   loc_head: 'Locația', // [design]
   loc_venue: 'Biserica „Harul”', // [design]
@@ -235,6 +241,8 @@ const en: Strings = {
     'Please let us know by 19 September if you will not be able to join us.', // [couple-en]
   rsvp_phone_lead: 'Call or message us on:', // [new]
   rsvp_phone_label: 'Call', // [new] — screen-reader prefix
+  rsvp_name_groom: 'Andrew', // [new]
+  rsvp_name_bride: 'Elfida', // [new]
 
   loc_head: 'Getting there', // [design]
   loc_venue: 'Biserica „Harul”', // [design]
