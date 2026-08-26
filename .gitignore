@@ -20,3 +20,4 @@ tsconfig.tsbuildinfo
 # .impeccable/design.json, IS committed).
 .impeccable/hook.cache.json
 .impeccable/live/
+physical
