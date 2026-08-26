@@ -1,5 +1,5 @@
 /* =============================================================================
-   ALL COPY, IN ALL THREE LANGUAGES.
+   ALL COPY, IN ALL FOUR LANGUAGES.
 
    Keys marked [design] are ported VERBATIM from docs/design/site.js, which the
    design handoff names as the source of truth for wording. Do not "improve"
@@ -11,9 +11,13 @@
    printed.
 
    Keys marked [couple] are the couple's own words, supplied directly and used
-   verbatim. [couple-uk] and [couple-en] are TRANSLATIONS of a [couple] string
-   — they carry the same meaning but nobody has verified the wording, so they
-   are the other thing worth a native speaker's glance.
+   verbatim. [couple-uk], [couple-en] and [couple-de] are TRANSLATIONS of a
+   [couple] string — they carry the same meaning but nobody has verified the
+   wording, so they are the other thing worth a native speaker's glance.
+
+   German was added after the other three. Its [design] keys are therefore not
+   ported from the design handoff — there was nothing to port — so every German
+   string is a translation and none of it is pinned by the prototype.
    ========================================================================== */
 
 import type { Locale, Localized } from './types';
@@ -22,23 +26,32 @@ import type { Locale, Localized } from './types';
    ⚠ SCRIPTURE — READ BEFORE EDITING
 
    The brief specifies Ecclesiastes 4:9 in Ohienko (uk), Cornilescu (ro) and
-   WEB (en). The strings below are the ones the couple supplied in
+   WEB (en). Those three strings below are the ones the couple supplied in
    docs/design/site.js and are reproduced here EXACTLY, character for
    character. They have NOT been machine-translated, regenerated or "corrected"
    from memory, and they must not be.
+
+   The German reading is the one exception: the brief named no German edition,
+   so the wording below follows Schlachter 2000, which is the German text
+   closest in shape to the three already here. It is the ONE scripture string
+   on this page that did not come from the couple, and it needs checking
+   against a printed copy before it is trusted — see the flag below.
 
    FLAG FOR THE COUPLE: these readings are close to, but not word-for-word
    identical with, the published editions named above — for example the
    Romanian here reads "se ridică unul pe altul" where Cornilescu prints
    "se scoală unul pe altul". Please check all three against your own copies of
-   Ohienko / Cornilescu / WEB and paste in the exact wording you want printed.
-   Whatever you paste here is what the site will show.
+   Ohienko / Cornilescu / WEB — and the German against Schlachter 2000 or
+   whichever German edition you prefer, Luther 2017 reads differently — then
+   paste in the exact wording you want printed. Whatever you paste here is what
+   the site will show.
 -------------------------------------------------------------------------------- */
 
 const VERSE: Localized = {
   uk: 'Двом краще, ніж одному, бо мають хорошу нагороду за свою працю. Бо коли впадуть, то один підійме свого товариша.',
   ro: 'Mai bine doi decât unul, căci iau o plată cu atât mai bună pentru munca lor. Căci, dacă se întâmplă să cadă, se ridică unul pe altul.',
   en: 'Two are better than one, because they have a good reward for their toil. For if they fall, one will lift up the other.',
+  de: 'Zwei sind besser als einer allein, weil sie einen guten Lohn haben für ihre Mühe. Denn wenn sie fallen, so hilft der eine dem anderen auf.',
 };
 
 export interface Dictionary {
@@ -263,5 +276,89 @@ const en: Strings = {
   footer_verse: 'Two are better than one', // [design]
 };
 
-export const STRINGS: Record<Locale, Strings> = { uk, ro, en };
+/*
+ * German. Added after the site shipped in the other three languages, for the
+ * guests who read German more comfortably than Ukrainian, Romanian or English.
+ *
+ * Two conventions differ from the other locales and are deliberate:
+ *   · Dates carry the ordinal point — "3. Oktober 2026", not "3 Oktober 2026".
+ *   · The verse reference uses a comma — "PREDIGER 4,9" — which is how German
+ *     editions cite chapter and verse. The other three use a colon because
+ *     their own conventions do.
+ *
+ * The venue name stays "Biserica „Harul”" verbatim, quotation marks included:
+ * it is a proper name on a Ukrainian church, the same in every language here,
+ * and the printed invitation shows it that way too.
+ *
+ * Addressing is formal (Sie). The guests reading this column are the couple's
+ * German-speaking relatives and church contacts, and a wedding invitation is
+ * the one place where German still expects it.
+ */
+const de: Strings = {
+  langName: 'Deutsch',
+  langShort: 'DEU',
+  lang_switch_label: 'Sprache wählen',
+  doc_title: 'Andrei und Elfida · 3. Oktober 2026',
+  meta_description:
+    'Hochzeitseinladung von Andrei und Elfida — 3. Oktober 2026, Biserica „Harul”, Dorf Stănești, Region Tscherniwzi, Ukraine.',
+  skip_link: 'Zum Hauptinhalt springen',
+
+  eyebrow_families: 'Gemeinsam mit unseren Familien',
+  name_groom: 'ANDREI',
+  connector: 'und',
+  name_bride: 'ELFIDA',
+  hero_invite: 'laden Sie ein, die Freude unseres Hochzeitstages zu teilen',
+  date_full: 'SAMSTAG · 3. OKTOBER 2026',
+  date_short: '3. OKTOBER 2026',
+  month_year: 'OKTOBER 2026',
+  weekday: 'SAMSTAG',
+  time_lead: 'UM 11:00 UHR',
+  scroll_hint: 'Nach unten scrollen',
+  doves_alt: 'Tauben mit einem Herz',
+
+  verse_ref: 'PREDIGER 4,9',
+  verse_text: VERSE.de, // see the scripture note above — this one needs checking
+
+  story_kicker: 'Unsere Geschichte',
+  story_head: 'Der Weg, der uns hierher geführt hat',
+  story_body:
+    'Wir haben gebetet, und Gott hat unsere Wege auf wunderbare Weise zusammengeführt und uns gesegnet, bis hierher zu kommen und zu heiraten. Am 3. Oktober beginnen wir unser gemeinsames Leben vor Gott — und es wäre uns eine Ehre, wenn Sie an unserer Seite wären.', // [couple-de]
+
+  gallery_head: 'Gemeinsame Momente',
+
+  schedule_head: 'Der Tagesablauf',
+  schedule_sub: 'Beide Teile — in der Biserica „Harul”',
+  sch1_title: 'Trauung',
+  sch1_venue: 'Biserica „Harul”',
+  sch1_note: 'Der Traugottesdienst in der Kirche',
+  sch2_title: 'Empfang',
+  sch2_venue: 'im Gemeindesaal der Kirche',
+  sch2_note: 'Festessen und Gemeinschaft',
+  rsvp_note:
+    'Bitte geben Sie uns bis zum 19. September Bescheid, falls Sie nicht bei der Hochzeit dabei sein können.', // [couple-de]
+  rsvp_phone_lead: 'Rufen Sie uns an oder schreiben Sie uns:',
+  rsvp_phone_label: 'Anrufen unter', // screen-reader prefix
+  rsvp_name_groom: 'Andrei',
+  rsvp_name_bride: 'Elfida',
+
+  loc_head: 'Anfahrt',
+  loc_venue: 'Biserica „Harul”',
+  loc_addr1: 'Dorf Stănești (Станівці)',
+  loc_addr2: 'Region Tscherniwzi, 60432, Ukraine',
+  loc_dir_btn: 'Route berechnen',
+  loc_maps_btn: 'In Google Maps öffnen',
+  loc_waze_btn: 'In Waze öffnen',
+  loc_copy_btn: 'Koordinaten kopieren',
+  loc_copy_done: 'Kopiert ✓',
+  map_label: 'Karte: Biserica „Harul”, Stănești',
+  map_show: 'Karte anzeigen',
+  map_loading: 'Karte wird geladen…',
+  map_error: 'Die Karte konnte nicht geladen werden. Nutzen Sie die Schaltflächen für die Route auf dieser Seite.',
+
+  footer_names: 'Andrei und Elfida',
+  footer_date: '3. Oktober 2026 · Stănești',
+  footer_verse: 'Zwei sind besser als einer',
+};
+
+export const STRINGS: Record<Locale, Strings> = { uk, ro, en, de };
 export type StringKey = Keys;

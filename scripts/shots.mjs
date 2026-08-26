@@ -38,7 +38,7 @@ const VIEWPORTS = [
   { w: 1440, h: 900, dpr: 2, label: 'desktop' },
 ];
 
-const LOCALES = ['ro', 'uk', 'en'];
+const LOCALES = ['ro', 'uk', 'en', 'de'];
 /** Must match DEFAULT_LOCALE in src/i18n/locale.ts — the bare URL renders in it. */
 const DEFAULT_LOCALE = 'ro';
 
@@ -59,7 +59,7 @@ function fail(msg) {
 
 for (const vp of VIEWPORTS) {
   for (const locale of LOCALES) {
-    // Only sweep all three languages on the primary phone width; elsewhere the default.
+    // Only sweep every language on the primary phone width; elsewhere the default.
     if (locale !== DEFAULT_LOCALE && vp.w !== 390) continue;
 
     // A fresh, isolated storage context per check. Sharing one profile meant a

@@ -250,22 +250,23 @@ self-contained rule, clearly commented, and nothing else depends on it.
 
 ## Changing the wording
 
-**All the words on the site, in all three languages, are in one file:**
+**All the words on the site, in all four languages, are in one file:**
 [`src/content/strings.ts`](../src/content/strings.ts)
 
-Each entry appears three times — once under `uk` (Ukrainian), once under `ro` (Romanian), once
-under `en` (English). Find the one you want and edit all three.
+Each entry appears four times — once under `uk` (Ukrainian), once under `ro` (Romanian), once
+under `en` (English) and once under `de` (German). Find the one you want and edit all four.
 
 > Romanian is the language the site opens in, so if you only have time to check one, check that
 > one. See “The default language” in the README if you ever want to change which it is.
 
 ```ts
-story_head: 'Дорога, що привела нас сюди',   // in the uk section
-story_head: 'Drumul care ne-a adus aici',    // in the ro section
-story_head: 'The road that brought us here', // in the en section
+story_head: 'Дорога, що привела нас сюди',       // in the uk section
+story_head: 'Drumul care ne-a adus aici',        // in the ro section
+story_head: 'The road that brought us here',     // in the en section
+story_head: 'Der Weg, der uns hierher geführt hat', // in the de section
 ```
 
-If you change one language and forget another, the site will not build — it checks that all three
+If you change one language and forget another, the site will not build — it checks that all four
 are complete. That is deliberate; it stops a half-translated page reaching guests.
 
 ### ⚠ After editing text, run this
@@ -350,7 +351,7 @@ export const SCHEDULE: ScheduleEntry[] = [
 - To change a **time**, edit `time` here (and the matching `*_ISO` value above).
 - To change the **words**, edit `sch1_title`, `sch1_venue`, `sch1_note` etc. in `strings.ts`.
 - To **add a third entry**, add a line here with new key names (`sch3_title`, …) and add those keys
-  to all three languages in `strings.ts`. The timeline line, dot and spacing all adjust
+  to all four languages in `strings.ts`. The timeline line, dot and spacing all adjust
   automatically.
 
 ---

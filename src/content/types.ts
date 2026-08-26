@@ -1,12 +1,16 @@
-/** The three languages the invitation is published in. Ukrainian is default. */
-export const LOCALES = ['uk', 'ro', 'en'] as const;
+/**
+ * The languages the invitation is published in, in switcher order. Romanian is
+ * the default (see DEFAULT_LOCALE in src/i18n/locale.ts); German was added for
+ * the guests who read it more comfortably than any of the other three.
+ */
+export const LOCALES = ['uk', 'ro', 'en', 'de'] as const;
 export type Locale = (typeof LOCALES)[number];
 
 export function isLocale(value: unknown): value is Locale {
   return typeof value === 'string' && (LOCALES as readonly string[]).includes(value);
 }
 
-/** A value that exists in all three languages. */
+/** A value that exists in every published language. */
 export type Localized<T = string> = Record<Locale, T>;
 
 /**

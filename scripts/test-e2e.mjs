@@ -99,6 +99,7 @@ console.log('\nLanguage routing');
     ['ro', 'ANDREIșiELFIDA'],
     ['en', 'ANDREW&ELFIDA'],
     ['uk', 'АНДРІЙтаЕЛЬФІДА'],
+    ['de', 'ANDREIundELFIDA'],
   ]) {
     const { page, context } = await newPage();
     await page.goto(`${BASE}?lang=${lang}`, { waitUntil: 'networkidle2' });
@@ -107,6 +108,62 @@ console.log('\nLanguage routing');
     await page.close();
     await context.close();
   }
+}
+
+/* ---------------------------------------------------------------------------
+   2b · The switcher still fits once a fourth language is in it
+
+   Adding German widened the pill by a whole button. The narrowest phone still
+   in real use is 320 px (iPhone SE 1st gen, and the low-end Androids some of
+   the guests carry), so that is where this is measured: the bar must not
+   overflow the viewport, and every button must stay tappable.
+------------------------------------------------------------------------------ */
+console.log('\nLanguage switcher fits the narrowest phone');
+{
+  const { page, context } = await newPage();
+  await page.setViewport({ width: 320, height: 568, isMobile: true, hasTouch: true });
+  await page.goto(BASE, { waitUntil: 'networkidle2' });
+
+  const bar = await page.evaluate(() => {
+    const group = document.querySelector('.langbar__group');
+    const btns = [...document.querySelectorAll('.langbar__btn')];
+    return {
+      count: btns.length,
+      groupWidth: group.getBoundingClientRect().width,
+      viewport: document.documentElement.clientWidth,
+      docScrollWidth: document.documentElement.scrollWidth,
+      minWidth: Math.min(...btns.map((b) => b.getBoundingClientRect().width)),
+      // The drawn pill is 28 px tall; ::after extends the touchable area to 44.
+      minTouchHeight: Math.min(
+        ...btns.map((b) => parseFloat(getComputedStyle(b, '::after').height) || 0)
+      ),
+    };
+  });
+
+  check('all four languages are in the switcher', bar.count === 4, String(bar.count));
+  check(
+    'the switcher fits inside a 320 px viewport',
+    bar.groupWidth <= bar.viewport,
+    `${bar.groupWidth.toFixed(1)}px in ${bar.viewport}px`
+  );
+  check(
+    'no horizontal scroll at 320 px',
+    bar.docScrollWidth <= bar.viewport,
+    `${bar.docScrollWidth}px vs ${bar.viewport}px`
+  );
+  check(
+    'every language button is at least 44 px tall to the touch',
+    bar.minTouchHeight >= 44,
+    `${bar.minTouchHeight.toFixed(1)}px`
+  );
+  check(
+    'every language button is at least 44 px wide',
+    bar.minWidth >= 44,
+    `${bar.minWidth.toFixed(1)}px`
+  );
+
+  await page.close();
+  await context.close();
 }
 
 /* ---------------------------------------------------------------------------

@@ -18,7 +18,8 @@ Four audiences, all confirmed, all real:
 - **Romanian-speaking relatives** — Romanian is a first language for part of the family,
   not a courtesy translation. Stănești is in a historically Romanian-speaking area.
 - **Diaspora and international family** — relatives abroad, many of whom will open the
-  link without travelling. English exists for them.
+  link without travelling. English exists for them, and German for the part of that
+  family who read it more comfortably than any of the other three.
 - **Older guests with low technology confidence** — people for whom a QR code is
   unfamiliar. Every important action has to be large, obvious and reachable in one tap.
 
@@ -60,7 +61,7 @@ corrected, and the URL can never change afterwards.
 **Confirmed functionality**
 
 - One page: hero, verse, details, schedule, gallery, location, footer.
-- Trilingual — **Romanian (default)**, Ukrainian, English. Language lives in a URL query
+- Four languages — **Romanian (default)**, Ukrainian, English, German. Language lives in a URL query
   parameter (`?lang=uk`), never a path segment, because GitHub Pages cannot rewrite URLs
   and a path-based locale would 404 on refresh or on a shared link.
 - The bare URL — the one behind the printed QR code — renders in Romanian. The default is
@@ -90,12 +91,19 @@ corrected, and the URL can never change afterwards.
 
 **Product facts still open**
 
-- The exact wording of Ecclesiastes 4:9 in all three published translations is **not yet
-  verified** against physical copies. The current text came from the design bundle and is
-  close to, but not word-for-word identical with, those editions.
+- The exact wording of Ecclesiastes 4:9 in the three published translations named in the
+  brief is **not yet verified** against physical copies. The current text came from the
+  design bundle and is close to, but not word-for-word identical with, those editions.
+- The German reading of Ecclesiastes 4:9 is the one scripture string that did not come from
+  the couple at all: the brief named no German edition, so it follows Schlachter 2000 and
+  needs checking against a printed copy before it is trusted.
 - The `// [new]` interface strings (map labels, skip link, Waze button) have not had a
-  native-speaker review. Neither have the `// [couple-uk]` and `// [couple-en]` strings,
-  which are translations of the couple's own Romanian wording.
+  native-speaker review. Neither have the `// [couple-uk]`, `// [couple-en]` and
+  `// [couple-de]` strings, which are translations of the couple's own Romanian wording.
+- **The whole German column is a translation, not supplied copy.** German was added after
+  the site shipped, so there was no design handoff to port it from and nothing in it is
+  pinned by the prototype. It uses formal address (Sie) throughout. It is the language most
+  worth a native speaker's read before the link is shared widely.
 
 ## Brand Commitments
 
@@ -143,9 +151,9 @@ corrected, and the URL can never change afterwards.
 - Usable one-handed in portrait; verified at 360, 390, 768, 834, 1024 and 1440 px.
 - Fully keyboard operable, semantic landmarks, visible focus, `prefers-reduced-motion`
   honoured, alt text in the active language, `<html lang>` set per locale.
-- Fonts must render full Ukrainian Cyrillic **and** Romanian diacritics with comma-below
-  (`ș` `ț`), not cedilla — verified by pixel comparison, because the wrong glyph is a
-  spelling error to a Romanian reader.
+- Fonts must render full Ukrainian Cyrillic, Romanian diacritics with comma-below
+  (`ș` `ț`) — not cedilla, verified by pixel comparison, because the wrong glyph is a
+  spelling error to a Romanian reader — and German umlauts.
 - Lighthouse mobile ≥ 95 for performance and accessibility, because the audience is on
   rural mobile data and older devices.
 

@@ -14,8 +14,9 @@
  *      copy and forgets to re-run `npm run fonts`.
  *
  *  2 · THE FONT IS ACTUALLY USED — document.fonts.check() for each family,
- *      weight and style against real Ukrainian and Romanian strings, catching
- *      a missing file or wrong path where text silently renders in Times.
+ *      weight and style against real Ukrainian, Romanian and German strings,
+ *      catching a missing file or wrong path where text silently renders in
+ *      Times.
  *
  *  3 · COMMA-BELOW, NOT CEDILLA — Romanian requires ș/ț (U+0219/U+021B, comma
  *      below), not ş/ţ (U+015F/U+0163, cedilla). We render both pairs and
@@ -133,6 +134,7 @@ console.log('\nFonts loaded and used (document.fonts.check)');
       await Promise.all([
         document.fonts.load(spec, 'Stănești').catch(() => {}),
         document.fonts.load(spec, 'Ельфіда').catch(() => {}),
+        document.fonts.load(spec, 'Sprache wählen').catch(() => {}),
       ]);
       out.push({
         family,
@@ -140,6 +142,7 @@ console.log('\nFonts loaded and used (document.fonts.check)');
         style,
         ro: document.fonts.check(spec, 'Stănești'),
         uk: document.fonts.check(spec, 'Ельфіда'),
+        de: document.fonts.check(spec, 'Sprache wählen'),
       });
     }
     return out;
@@ -149,6 +152,7 @@ console.log('\nFonts loaded and used (document.fonts.check)');
     const label = `${r.family.replace(/'/g, '')} ${r.weight}${r.style === 'italic' ? ' italic' : ''}`;
     check(`${label} — "Stănești"`, r.ro);
     check(`${label} — "Ельфіда"`, r.uk);
+    check(`${label} — "Sprache wählen"`, r.de);
   }
 }
 
@@ -221,7 +225,7 @@ await page.evaluate((faces) => {
     label.textContent = `${family} ${weight} ${style}`;
     const sample = document.createElement('div');
     sample.style.cssText = `font-family:${family};font-weight:${weight};font-style:${style};font-size:34px;margin-top:6px`;
-    sample.textContent = 'Stănești · Ельфіда · Andrei și Elfida · ăâîșț · ЄІЇҐі';
+    sample.textContent = 'Stănești · Ельфіда · Andrei und Elfida · ăâîșț · ЄІЇҐі · äöüß';
     row.append(label, sample);
     document.body.append(row);
   }

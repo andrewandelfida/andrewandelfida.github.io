@@ -283,9 +283,9 @@ wider the letter-spacing. Uppercase at normal tracking is not part of this syste
 cedilla is a spelling error to a Romanian reader, not a stylistic variant. Any change to the
 type stack is verified by pixel comparison (`npm run check:glyphs`) before it ships.
 
-**The Full-Alphabet Rule.** Every shipped weight must render both full Ukrainian Cyrillic
-and Romanian diacritics. A weight that exists in only one script cannot be used, because the
-same component renders in all three languages.
+**The Full-Alphabet Rule.** Every shipped weight must render full Ukrainian Cyrillic,
+Romanian diacritics and German umlauts. A weight that exists in only one script cannot be
+used, because the same component renders in all four languages.
 
 ## Layout
 
@@ -398,7 +398,10 @@ motifs; they get the diamond at whichever of the four sizes fits.
 
 The one persistent control: a sticky bar at `rgba(247, 243, 233, 0.86)` with an 8px backdrop
 blur, falling back to solid cream where `backdrop-filter` is unsupported. Inside sits a
-pill-bordered group of three text pills separated by 1px 14px-tall dividers.
+pill-bordered group of four text pills separated by 1px 14px-tall dividers. The fourth pill
+arrived with German, after the design was set: at 11px with 14px side padding the group is
+still narrower than a 320px viewport, which is the width the switcher is measured at
+(`npm run test:e2e`), so nothing about the bar itself had to change.
 
 - **Inactive:** Olive Third Impression, weight 400.
 - **Active:** Olive Ink, weight 600, `aria-pressed="true"`.

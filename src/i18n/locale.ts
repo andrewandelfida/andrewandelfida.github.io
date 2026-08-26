@@ -1,7 +1,7 @@
 /* =============================================================================
    LOCALE RESOLUTION
 
-   Language lives in a URL QUERY PARAM (?lang=uk|ro|en), not a path segment.
+   Language lives in a URL QUERY PARAM (?lang=uk|ro|en|de), not a path segment.
 
    Why: GitHub Pages serves static files with no server-side rewrites, so a
    path like /ro/ would 404 on refresh or deep-link unless we hand-maintain

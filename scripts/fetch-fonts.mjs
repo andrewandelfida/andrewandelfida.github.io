@@ -8,8 +8,9 @@
  * costs an extra DNS lookup, TLS handshake and round trip before any text can
  * paint, so the fonts are self-hosted. And because the page mixes scripts —
  * the Ukrainian text contains "с. Станівці (Stănești)" and "Biserica „Harul”",
- * which pull in Cyrillic, Latin AND Latin-Ext — Google's off-the-shelf subsets
- * meant ten files and ~275 KB of fonts for a single visit.
+ * which pull in Cyrillic, Latin AND Latin-Ext, and the German column adds
+ * umlauts — Google's off-the-shelf subsets meant ten files and ~275 KB of fonts
+ * for a single visit.
  *
  * All of the copy is static and known, so instead we ask Google Fonts for a
  * subset containing precisely the characters that can appear (the `text=`
@@ -46,6 +47,9 @@ const BASELINE = [
   // Romanian diacritics — comma-below forms (U+0218/0219, U+021A/021B),
   // never the cedilla ones.
   'ĂăÂâÎîȘșȚț',
+  // German umlauts and eszett. ß is in the baseline although no current string
+  // uses it, because the copy is formal German and the next edit easily could.
+  'ÄäÖöÜüß',
   // Ukrainian alphabet, both cases
   'АБВГҐДЕЄЖЗИІЇЙКЛМНОПРСТУФХЦЧШЩЬЮЯ',
   'абвгґдежзиіїйклмнопрстуфхцчшщьюя',

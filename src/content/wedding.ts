@@ -86,6 +86,7 @@ export const HERO_IMAGE: WeddingImage = {
     uk: 'Андрій та Ельфіда разом',
     ro: 'Andrei și Elfida împreună',
     en: 'Andrew and Elfida together',
+    de: 'Andrei und Elfida zusammen',
   },
   aspect: 'portrait',
   // The only image above the fold, and the page's largest contentful paint.
@@ -95,62 +96,122 @@ export const HERO_IMAGE: WeddingImage = {
 export const GALLERY_IMAGES: WeddingImage[] = [
   {
     src: 'gallery/IMG_20260611_215455_628',
-    alt: { uk: 'Андрій та Ельфіда', ro: 'Andrei și Elfida', en: 'Andrew and Elfida' },
+    alt: {
+      uk: 'Андрій та Ельфіда',
+      ro: 'Andrei și Elfida',
+      en: 'Andrew and Elfida',
+      de: 'Andrei und Elfida',
+    },
     aspect: 'portrait',
   },
   {
     src: 'gallery/IMG_20260611_215509_106',
-    alt: { uk: 'Андрій та Ельфіда', ro: 'Andrei și Elfida', en: 'Andrew and Elfida' },
+    alt: {
+      uk: 'Андрій та Ельфіда',
+      ro: 'Andrei și Elfida',
+      en: 'Andrew and Elfida',
+      de: 'Andrei und Elfida',
+    },
     aspect: 'portrait',
   },
   {
     src: 'gallery/IMG_20260611_215612_520',
-    alt: { uk: 'Андрій та Ельфіда', ro: 'Andrei și Elfida', en: 'Andrew and Elfida' },
+    alt: {
+      uk: 'Андрій та Ельфіда',
+      ro: 'Andrei și Elfida',
+      en: 'Andrew and Elfida',
+      de: 'Andrei und Elfida',
+    },
     aspect: 'portrait',
   },
   {
     src: 'gallery/photo_2026-07-16_23-13-08 (2)',
-    alt: { uk: 'Андрій та Ельфіда', ro: 'Andrei și Elfida', en: 'Andrew and Elfida' },
+    alt: {
+      uk: 'Андрій та Ельфіда',
+      ro: 'Andrei și Elfida',
+      en: 'Andrew and Elfida',
+      de: 'Andrei und Elfida',
+    },
     aspect: 'portrait',
   },
   {
     src: 'gallery/photo_2026-07-16_23-37-17',
-    alt: { uk: 'Андрій та Ельфіда', ro: 'Andrei și Elfida', en: 'Andrew and Elfida' },
+    alt: {
+      uk: 'Андрій та Ельфіда',
+      ro: 'Andrei și Elfida',
+      en: 'Andrew and Elfida',
+      de: 'Andrei und Elfida',
+    },
     aspect: 'portrait',
   },
   {
     src: 'gallery/photo_2026-07-23_15-11-39',
-    alt: { uk: 'Андрій та Ельфіда', ro: 'Andrei și Elfida', en: 'Andrew and Elfida' },
+    alt: {
+      uk: 'Андрій та Ельфіда',
+      ro: 'Andrei și Elfida',
+      en: 'Andrew and Elfida',
+      de: 'Andrei und Elfida',
+    },
     aspect: 'portrait',
   },
   {
     src: 'gallery/photo_2026-07-23_18-33-10',
-    alt: { uk: 'Андрій та Ельфіда', ro: 'Andrei și Elfida', en: 'Andrew and Elfida' },
+    alt: {
+      uk: 'Андрій та Ельфіда',
+      ro: 'Andrei și Elfida',
+      en: 'Andrew and Elfida',
+      de: 'Andrei und Elfida',
+    },
     aspect: 'landscape',
   },
   {
     src: 'gallery/photo_2026-07-23_18-33-51',
-    alt: { uk: 'Андрій та Ельфіда', ro: 'Andrei și Elfida', en: 'Andrew and Elfida' },
+    alt: {
+      uk: 'Андрій та Ельфіда',
+      ro: 'Andrei și Elfida',
+      en: 'Andrew and Elfida',
+      de: 'Andrei und Elfida',
+    },
     aspect: 'portrait',
   },
   {
     src: 'gallery/photo_2026-08-01_15-24-42',
-    alt: { uk: 'Андрій та Ельфіда', ro: 'Andrei și Elfida', en: 'Andrew and Elfida' },
+    alt: {
+      uk: 'Андрій та Ельфіда',
+      ro: 'Andrei și Elfida',
+      en: 'Andrew and Elfida',
+      de: 'Andrei und Elfida',
+    },
     aspect: 'portrait',
   },
   {
     src: 'gallery/photo_2026-08-01_17-40-27',
-    alt: { uk: 'Андрій та Ельфіда', ro: 'Andrei și Elfida', en: 'Andrew and Elfida' },
+    alt: {
+      uk: 'Андрій та Ельфіда',
+      ro: 'Andrei și Elfida',
+      en: 'Andrew and Elfida',
+      de: 'Andrei und Elfida',
+    },
     aspect: 'portrait',
   },
   {
     src: 'gallery/photo_2026-08-07_21-56-19',
-    alt: { uk: 'Андрій та Ельфіда', ro: 'Andrei și Elfida', en: 'Andrew and Elfida' },
+    alt: {
+      uk: 'Андрій та Ельфіда',
+      ro: 'Andrei și Elfida',
+      en: 'Andrew and Elfida',
+      de: 'Andrei und Elfida',
+    },
     aspect: 'portrait',
   },
   {
     src: 'gallery/photo_2026-08-07_21-56-48',
-    alt: { uk: 'Андрій та Ельфіда', ro: 'Andrei și Elfida', en: 'Andrew and Elfida' },
+    alt: {
+      uk: 'Андрій та Ельфіда',
+      ro: 'Andrei și Elfida',
+      en: 'Andrew and Elfida',
+      de: 'Andrei und Elfida',
+    },
     aspect: 'portrait',
   },
 ];
