@@ -368,6 +368,84 @@ console.log('\nKeyboard & semantics');
 }
 
 /* ---------------------------------------------------------------------------
+   6b · Every photo shows a blurred preview of itself while it loads
+
+   The box a photo will occupy used to sit there as a flat dark rectangle until
+   the bytes arrived, which on a rural connection reads as a broken page. Each
+   <img> now carries a 20px blurred copy of its own photograph as its CSS
+   background, from the manifest.
+
+   Run with JavaScript OFF and the photo requests held open — that is the state
+   this is meant to fix, and doing it without JS is the point: the preview must
+   not depend on hydration, so nothing here may gate the image's opacity on a
+   load event.
+------------------------------------------------------------------------------ */
+console.log('\nPhoto previews while loading');
+{
+  const { page, context } = await newPage({ js: false, blockTiles: false });
+  await page.setRequestInterception(true);
+  // Held, not aborted: aborting gives the BROKEN-image state, not the loading one.
+  page.on('request', (r) => {
+    if (r.url().includes('/images/')) return;
+    r.continue().catch(() => {});
+  });
+  await page.goto(BASE, { waitUntil: 'domcontentloaded' });
+
+  const photos = await page.evaluate(() => {
+    const imgs = [...document.querySelectorAll('.photo__img')];
+    return imgs.map((img) => {
+      const cs = getComputedStyle(img);
+      return {
+        preview: cs.backgroundImage,
+        size: cs.backgroundSize,
+        repeat: cs.backgroundRepeat,
+        opacity: cs.opacity,
+        // The wrapper's average colour is the fallback where WebP data URIs
+        // cannot be decoded, so it has to still be there.
+        wrapperColour: getComputedStyle(img.closest('.photo')).backgroundColor,
+        loaded: img.complete && img.naturalWidth > 0,
+        bytes: (img.getAttribute('style') ?? '').length,
+      };
+    });
+  });
+
+  check('every photo slot is on the page', photos.length > 0, `${photos.length} found`);
+
+  const withPreview = photos.filter((p) => p.preview.startsWith('url("data:image/webp'));
+  check(
+    'every photo carries an inline WebP preview',
+    withPreview.length === photos.length,
+    `${withPreview.length}/${photos.length}`
+  );
+  check(
+    'the preview is framed like the photo will be (cover, no tiling)',
+    photos.every((p) => p.size === 'cover' && p.repeat === 'no-repeat')
+  );
+  check(
+    'the average-colour fallback is still behind each photo',
+    photos.every((p) => p.wrapperColour && p.wrapperColour !== 'rgba(0, 0, 0, 0)')
+  );
+  // The whole reason the preview lives on the <img> rather than on the wrapper.
+  check(
+    'photos are visible without JavaScript — no opacity waiting on a load event',
+    photos.every((p) => p.opacity === '1')
+  );
+  check(
+    'no photo has actually loaded, so this really is the loading state',
+    photos.every((p) => !p.loaded)
+  );
+
+  // A guard on the cost: this payload is inline in the HTML and in the bundle,
+  // so a future widening of LQIP_WIDTH should fail here rather than quietly add
+  // tens of kilobytes to the first paint.
+  const total = photos.reduce((a, p) => a + p.bytes, 0);
+  check(`inline previews stay under 8 KB in total`, total < 8192, `${total} B`);
+
+  await page.close();
+  await context.close();
+}
+
+/* ---------------------------------------------------------------------------
    7 · No console errors anywhere
 ------------------------------------------------------------------------------ */
 console.log('\nConsole hygiene');

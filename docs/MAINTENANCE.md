@@ -148,6 +148,12 @@ fast, but it means:
 **If a photo is missing, the site does not break.** It shows the design's hatched placeholder box
 in its place. So you can add photos one at a time as they come in.
 
+**And while a photo is still downloading, a blurred version of it is shown.** `npm run images`
+saves a postage-stamp copy of every photograph alongside the full-size ones, and that is what
+fills the box until the real bytes arrive — so a guest on a slow connection sees the photographs
+appear out of a blur instead of watching dark rectangles. You do not have to do anything to get
+this; it happens for every photo you add.
+
 ### Using different filenames
 
 Open `src/content/wedding.ts` and edit the `src` values:

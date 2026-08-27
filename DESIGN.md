@@ -429,8 +429,12 @@ timeline.
 Every photograph and every placeholder share one box, so a portrait can be replaced by a
 landscape without the layout changing shape.
 
-- **Filled:** `object-fit: cover` on a Slot Fill ground, with an average-colour tint behind
-  it while it loads.
+- **Filled:** `object-fit: cover` on a Slot Fill ground. While it loads, the box holds a
+  20px-wide blurred copy of that same photograph, scaled to `cover` — so a photo arrives by
+  sharpening out of its own blur rather than appearing over a dark rectangle. The
+  average-colour tint sits behind that as the fallback where the preview cannot be decoded.
+  The preview is painted by the `<img>` itself, so it needs no JavaScript to appear and none
+  to get out of the way.
 - **Empty:** 1px Slot Rule border, a 135° hatch at 11–12px pitch, and a centred 10px
   monospace label in Slot Label. This state is a designed state — it should read as a
   photograph not yet taken, never as an image that failed.

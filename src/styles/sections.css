@@ -830,6 +830,15 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  /*
+   * The blurred 20px preview, set inline per photo by <Photo>, sits here as the
+   * image's own background. Cover + centre so it frames exactly as the real
+   * photograph will, and no-repeat so a browser that cannot decode it shows the
+   * wrapper's average colour rather than a tiled fragment.
+   */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
 /* The design's hatched placeholder, shown until a real photo exists. */

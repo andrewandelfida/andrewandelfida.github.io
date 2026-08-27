@@ -8,6 +8,12 @@ interface ManifestEntry {
   widths: number[];
   formats: string[];
   color: string;
+  /**
+   * A 20px-wide blurred copy of the photo as a WebP data URI, written by
+   * `npm run images`. Optional because a manifest generated before this existed
+   * simply falls back to `color`.
+   */
+  lqip?: string;
 }
 
 const IMAGES = manifest as Record<string, ManifestEntry | undefined>;
@@ -39,9 +45,9 @@ interface PhotoProps {
  * placeholder in exactly the same box.
  *
  * Everything that prevents layout shift lives here: explicit width/height, an
- * aspect-ratio taken from the real file, and an average-colour backdrop while
- * the bytes arrive. Swapping a portrait original for a landscape one changes
- * the manifest, and the box follows — no component needs editing.
+ * aspect-ratio taken from the real file, and a blurred preview of the photo
+ * itself while the bytes arrive. Swapping a portrait original for a landscape
+ * one changes the manifest, and the box follows — no component needs editing.
  */
 export function Photo({ image, className = '', sizes, placeholderLabel, fixedRatio }: PhotoProps) {
   const { pick } = useI18n();
@@ -98,6 +104,19 @@ export function Photo({ image, className = '', sizes, placeholderLabel, fixedRat
         <source type="image/webp" srcSet={srcSet('webp')} sizes={sizes} />
         <img
           className="photo__img"
+          /*
+           * The blurred preview goes on the <img> itself, not on the wrapper.
+           *
+           * An <img> with no decoded data yet paints its own background, and the
+           * moment the real photo decodes it paints over it — so the preview
+           * appears and disappears with no JavaScript involved at all. On the
+           * wrapper it would need either a fade or a class toggle to get out of
+           * the way, which means the photos would depend on hydration.
+           *
+           * Falls back to the wrapper's average colour where a WebP data URI
+           * cannot be decoded (iOS Safari before 14).
+           */
+          style={entry.lqip ? { backgroundImage: `url("${entry.lqip}")` } : undefined}
           src={url(largest, 'jpg')}
           srcSet={srcSet('jpg')}
           sizes={sizes}

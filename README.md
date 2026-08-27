@@ -106,7 +106,8 @@ This is designed so you never have to touch code after the photoshoot.
    ```
 
    This creates every size and format the site needs (AVIF, WebP and JPEG at six widths) in
-   `public/images/`, and records each photo's real dimensions.
+   `public/images/`, records each photo's real dimensions, and makes a tiny blurred copy of
+   each one to show while the full photograph downloads.
 
 3. Commit and push:
 
@@ -120,6 +121,9 @@ This is designed so you never have to touch code after the photoshoot.
   names, edit that list — it is one array.
 - Until a photo exists, the site shows the design's hatched placeholder box in its place. It never
   looks broken, just unfinished.
+- **While a photo is downloading, a blurred version of that same photo is shown in its place.** On
+  a slow connection the page fills with soft impressions of the real photographs that sharpen as
+  they arrive, rather than dark empty rectangles. Nothing to set up — `npm run images` makes them.
 - **A landscape photo can replace a portrait one and nothing breaks.** The layout reads each
   photo's true proportions, so the gallery re-flows on its own. The photo in the arch at the top
   is always shown as a 4:5 portrait and will be cropped to fit, so choose one that works that way.
